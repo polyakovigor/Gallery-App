@@ -1,26 +1,19 @@
-namespace :data do
-  desc 'Upload pictures from directory'
-  task :upload => :environment do
-    categories = Dir[Rails.root.to_s+'/home/poliakov/rails/like_project/*'].map{ |f| File.basename(f) }
-    categories.each do |category|
-      pictures = Dir[Rails.root.to_s+"/home/poliakov/rails/like_project/#{category}/*.jpg"].map{ |f| File.basename(f) }
-      pictures.each do |picture|
-        puts picture
-        Image.create(:picture => picture, :image => File.open(Rails.root.to_s+"/home/poliakov/rails/like_project/#{category}/#{picture}"), :category => category)
+namespace :upload do
+  task :picture => :environment do
+    categories_name = Dir[Rails.root.to_s+'/db/pictures/*'].map{ |f| File.basename(f) }
+    categories_name.each do |c_name|
+      puts c_name
+      category = Category.find_by_name(c_name)
+      if category.blank?
+        category = Category.create(name: c_name)
+      end
+      image_names = Dir[Rails.root.to_s+"/db/pictures/#{c_name}/*.jpg"].map{ |f| File.basename(f) }
+      image_names.each do |i_name|
+        puts i_name
+        if Image.find_by_title(i_name).blank?
+          Image.create(:title => i_name, :picture => File.open(Rails.root.to_s+"/db/pictures/#{c_name}/#{i_name}"), :category_id => category.id)
+        end
       end
     end
   end
 end
-
-#namespace :data do
-  #task :picture => :environment do
-    #categories = Dir[Rails.root.to_s+'/db/images/*'].map{ |f| File.basename(f) }
-    #categories.each do |category|
-      #names = Dir[Rails.root.to_s+"/db/images/#{category}/*.jpg"].map{ |f| File.basename(f) }
-      #names.each do |name|
-        #puts name
-        #Picture.create(:name => name, :pict => File.open(Rails.root.to_s+"/db/images/#{category}/#{name}"), :category => category)
-      #end
-    #end
-  #end
-#end
