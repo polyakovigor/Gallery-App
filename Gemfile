@@ -22,7 +22,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
+gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 #gem 'jbuilder'
@@ -32,11 +32,20 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+end
+gem 'faker', '~> 1.4.3'
+
+group :test do
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'simplecov', 'require' => false
+  gem 'database_cleaner'
+end
+
 gem 'pg'
-
 gem 'postgresql'
-
-
 gem 'kaminari'
 gem 'devise'
 gem 'bootstrap'
