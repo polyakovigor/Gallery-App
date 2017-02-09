@@ -1,3 +1,5 @@
+include ActionDispatch::TestProcess
+
 FactoryGirl.define do
   factory :image do
     sequence(:title) { |n| "Image title#{n}" }

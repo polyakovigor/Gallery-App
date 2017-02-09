@@ -5,7 +5,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.where(id: params[:id]).preload(:images).first
   end
-
 end

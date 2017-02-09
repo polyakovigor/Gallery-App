@@ -2,3 +2,26 @@
 <h1>
   <%= @category.name %>
 </h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Image id</th>
+    <th>Image title</th>
+    <th>Picture</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @category.images.each do |image| %>
+      <tr>
+        <td><%= image.id %></td>
+        <td><%= image.title %></td>
+        <td><%= image_tag image.picture.url(:thumb) %></td>
+        <td><%= link_to 'Show', '#' %></td>
+        <!--<td><%#$ link_to 'Show', image %></td>-->
+      </tr>
+  <% end %>
+  </tbody>
+</table>

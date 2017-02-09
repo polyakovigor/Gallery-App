@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Like App</title>
-  </head>
-  <body>
-    <h1>All categories</h1>
-  </body>
-</html>
+<p id="notice"><%= notice %></p>
 
+<h1>categories</h1>
 
+<table>
+  <thead>
+  <tr>
+    <th>Category id</th>
+    <th>Category name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.id %></td>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Show', category %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
