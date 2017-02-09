@@ -1,5 +1,7 @@
 LikeApp::Application.routes.draw do
 
+  resources :likes
+  resources :controllers
   resources :categories
   root 'categories#index'
 
