@@ -1,0 +1,26 @@
+<% provide(:title, @image.title)%>
+<h1>
+  <%= @image.title %>
+</h1>
+
+<table>
+  <!--<thead>-->
+  <!--<tr>-->
+    <!--<th>Image id</th>-->
+    <!--<th>Image title</th>-->
+    <!--<th>Action</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+
+  <tbody>
+    <tr>
+      <td><%= @image.id %></td>
+      <td><%= @image.title %></td>
+      <td><%= image_tag @image.picture.url(:thumb) %></td>
+      <td><%= link_to 'Edit',   edit_image_path %></td>
+      <td><%= link_to 'Delete', @image, method: :delete,
+                                        data: { confirm: 'You sure?' }%></td>
+      <td><%#$ link_to 'Show', image %></td>
+    </tr>
+  </tbody>
+</table>

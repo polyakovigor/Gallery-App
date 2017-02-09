@@ -19,8 +19,8 @@
         <td><%= image.id %></td>
         <td><%= image.title %></td>
         <td><%= image_tag image.picture.url(:thumb) %></td>
-        <td><%= link_to 'Show', '#' %></td>
-        <!--<td><%#$ link_to 'Show', image %></td>-->
+        <td><%= link_to 'Show', image_path %></td>
+        <td><%#$ link_to 'Show', image %></td>
       </tr>
   <% end %>
   </tbody>

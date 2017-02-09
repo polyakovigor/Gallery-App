@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
   let(:category) { create :category }
-  let(:image_1) { create :image, category_id: category.id }
-  let(:image_2) { create :image, category_id: category.id }
+  let(:image_1)  { create :image, category_id: category.id }
+  let(:image_2)  { create :image, category_id: category.id }
 
   before :each do
     image_1.reload
