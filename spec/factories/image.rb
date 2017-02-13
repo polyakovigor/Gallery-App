@@ -5,4 +5,8 @@ FactoryGirl.define do
     sequence(:title) { |n| "Image title#{n}" }
     picture { fixture_file_upload(Rails.root.join('spec/fixtures/test.png'), 'image/png') }
   end
+
+  factory :invalid_image, parent: :image do
+    title nil
+  end
 end

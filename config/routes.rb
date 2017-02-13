@@ -1,8 +1,8 @@
 LikeApp::Application.routes.draw do
 
   resources :likes
-  resources :images
-  resources :categories
+  resources :images, only: [:show, :edit, :update, :destroy]
+  resources :categories, only: [:index, :show]
 
   root 'categories#index'
 
