@@ -4,13 +4,13 @@
 </h1>
 
 <table>
-  <thead>
-  <tr>
-    <th>Image id</th>
-    <th>Image title</th>
-    <th>Action</th>
-  </tr>
-  </thead>
+  <!--<thead>-->
+  <!--<tr>-->
+    <!--<th>Image id</th>-->
+    <!--<th>Image title</th>-->
+    <!--<th>Action</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
 
   <tbody>
     <tr>
@@ -19,7 +19,7 @@
       <td><%= image_tag @image.picture.url(:thumb) %></td>
       <td><%= link_to 'Edit',   edit_image_path %></td>
       <td><%= link_to 'Delete', @image, method: :delete,
-                                        data: { confirm: 'You sure?' }%></td>
+                                        data: { confirm: 'You sure?' } %></td>
     </tr>
   </tbody>
 </table>
