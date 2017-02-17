@@ -53,6 +53,7 @@ gem 'mini_magick'
 gem 'haml'
 gem 'resque'
 gem 'omniauth'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

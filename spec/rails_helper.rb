@@ -12,7 +12,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'factory_girl'
 require 'database_cleaner'
-# require 'devise'
+require 'devise'
 
 ActiveRecord::Migration.maintain_test_schema!
 
