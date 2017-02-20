@@ -4,7 +4,21 @@ class ImagesController < ApplicationController
   def show
   end
 
+  def new
+    @image = Image.new
+  end
+
   def edit
+  end
+
+  def create
+    @category = Category.find(params[:category_id])
+    @image = @category.images.build(image_params)
+    if @image.save
+      redirect_to category_url(@category.id)
+    else
+      render 'categories/show'
+    end
   end
 
   def update

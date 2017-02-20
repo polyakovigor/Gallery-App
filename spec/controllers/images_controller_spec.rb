@@ -26,34 +26,67 @@ RSpec.describe ImagesController, type: :controller do
     end
   end
 
+  describe 'POST #create' do
+    context 'with valid params' do
+      let(:valid_attributes) { attributes_for(:image) }
+      it 'creates a new image' do
+        expect { post :create, params: {image: valid_attributes} }.to change(Image, :count).by(1)
+      end
+
+      it 'assigns a newly created image as @image' do
+        post :create, params: {image: valid_attributes}
+        expect(assigns(:image)).to be_a(Image)
+        expect(assigns(:image)).to be_persisted
+      end
+
+      it 'redirects to the created image' do
+        post :create, params: {image: valid_attributes}
+        expect(response).to redirect_to(category_url(@category.id(1)))
+      end
+    end
+
+    context 'with invalid params' do
+      let(:invalid_attributes) {attributes_for(:invalid_image)}
+      it 'assigns a newly created but unsaved image as @image' do
+        post :create, params: {image: invalid_attributes}
+        expect(assigns(:image)).to be_a_new(Image)
+      end
+
+      it "re-renders the 'categories/show' template" do
+        post :create, params: {image: invalid_attributes}
+        expect(response).to render_template('categories/show')
+      end
+    end
+  end
+
   describe 'PUT #update' do
     context 'with valid params' do
-      let(:valid_attribute) { attributes_for(:image).merge(title: 'updated title') }
+      let(:valid_attributes) { attributes_for(:image).merge(title: 'updated title') }
       it 'updates the requested image' do
-        put :update, params: {id: image.to_param, image: valid_attribute }
+        put :update, params: {id: image.to_param, image: valid_attributes }
         expect(assigns(:image).title).to eq('updated title')
       end
 
       it 'assigns the requested image as @image' do
-        put :update, params: {id: image.to_param, image: valid_attribute}
+        put :update, params: {id: image.to_param, image: valid_attributes }
         expect(assigns(:image)).to eq(image)
       end
 
       it 'redirects to the image' do
-        put :update, params: {id: image.to_param, image: valid_attribute}
+        put :update, params: {id: image.to_param, image: valid_attributes }
         expect(response).to redirect_to(image)
       end
     end
 
     context 'with invalid params' do
-      let(:invalid_attribute) {attributes_for(:invalid_image)}
+      let(:invalid_attributes) {attributes_for(:invalid_image)}
       it 'assigns the image as @image' do
-        put :update, params: {id: image.to_param, image: invalid_attribute}
+        put :update, params: {id: image.to_param, image: invalid_attributes }
         expect(assigns(:image)).to eq(image)
       end
 
       it "re-renders the 'edit' template" do
-        put :update, params: {id: image.to_param, image: invalid_attribute}
+        put :update, params: {id: image.to_param, image: invalid_attributes }
         expect(response).to render_template('edit')
       end
     end
