@@ -30,30 +30,30 @@ RSpec.describe ImagesController, type: :controller do
     context 'with valid params' do
       let(:valid_attributes) { attributes_for(:image) }
       it 'creates a new image' do
-        expect { post :create, params: {image: valid_attributes} }.to change(Image, :count).by(1)
+        expect { post :create, params: {image: valid_attributes, category_id: category.id} }.to change(Image, :count).by(1)
       end
 
       it 'assigns a newly created image as @image' do
-        post :create, params: {image: valid_attributes}
+        post :create, params: {image: valid_attributes, category_id: category.id}
         expect(assigns(:image)).to be_a(Image)
         expect(assigns(:image)).to be_persisted
       end
 
       it 'redirects to the created image' do
-        post :create, params: {image: valid_attributes}
-        expect(response).to redirect_to(category_url(@category.id(1)))
+        post :create, params: {image: valid_attributes, category_id: category.id}
+        expect(response).to redirect_to category_path(category.id)
       end
     end
 
     context 'with invalid params' do
       let(:invalid_attributes) {attributes_for(:invalid_image)}
       it 'assigns a newly created but unsaved image as @image' do
-        post :create, params: {image: invalid_attributes}
+        post :create, params: {image: invalid_attributes, category_id: category.id}
         expect(assigns(:image)).to be_a_new(Image)
       end
 
       it "re-renders the 'categories/show' template" do
-        post :create, params: {image: invalid_attributes}
+        post :create, params: {image: invalid_attributes, category_id: category.id}
         expect(response).to render_template('categories/show')
       end
     end

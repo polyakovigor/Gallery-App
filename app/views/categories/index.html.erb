@@ -11,7 +11,6 @@
 </div>
 
 <h1>Categories</h1>
-
 <table>
   <thead>
   <tr>
@@ -20,7 +19,6 @@
     <th>Action</th>
   </tr>
   </thead>
-
   <tbody>
   <% @categories.each do |category| %>
       <tr>
@@ -31,3 +29,9 @@
   <% end %>
   </tbody>
 </table>
+
+<%= form_for :category, method: :post do |f| %>
+    <%= f.label :new_category %>
+    <%= f.text_field :name %>
+    <%= f.submit 'Create' %>
+<% end %>

@@ -5,9 +5,8 @@
 
 <td><%= link_to 'Back', root_path %></td>
 
-<h3>Add more images</h3>
-
 <%= form_for :image, method: :post, url: category_images_path(@category) do |f| %>
+    <%= f.label  'Add more images' %>
     <%= f.file_field :picture %>
     <%= f.text_field :title %>
     <%= f.submit 'Upload' %>
