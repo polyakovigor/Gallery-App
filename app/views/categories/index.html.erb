@@ -25,6 +25,7 @@
         <td><%= category.id %></td>
         <td><%= category.name %></td>
         <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Delete', category, method: :delete, data: { confirm: 'You sure?' } %></td>
       </tr>
   <% end %>
   </tbody>

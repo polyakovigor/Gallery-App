@@ -4,7 +4,7 @@ LikeApp::Application.routes.draw do
 
   resources :likes
   resources :images, except: [:index, :create ]
-  resources :categories, only: [:index, :show, :create] do
+  resources :categories, only: [:index, :show, :create, :destroy] do
     resources :images, only: [:create ]
   end
 
