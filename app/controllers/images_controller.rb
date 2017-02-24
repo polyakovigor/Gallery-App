@@ -9,10 +9,11 @@ class ImagesController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    @image = @category.images.build(image_params)
-    if @image.save
+    begin
+      Image.create_pictures(params[:image][:picture], @category)
       redirect_to category_url(@category.id)
-    else
+    rescue LoadError
+      flash[:massage] = 'Error: Could not upload files'
       render 'categories/show'
     end
   end
@@ -40,6 +41,6 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.require(:image).permit(:title, :picture)
+    params.require(:image).permit(:title)
   end
 end

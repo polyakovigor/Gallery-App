@@ -1,8 +1,13 @@
 class Image < ApplicationRecord
   belongs_to :category
-  belongs_to :user
 
-  validates :title, :category_id, :picture, presence: true
+  validates :category_id, :picture, presence: true
 
   mount_uploader :picture, PictureUploader
+
+  def self.create_pictures(pictures, category)
+    pictures.each do |pict|
+      category.images.create(title: pict.original_filename, picture: pict)
+    end
+  end
 end

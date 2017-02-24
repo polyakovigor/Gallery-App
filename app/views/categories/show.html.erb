@@ -1,4 +1,5 @@
 <% provide(:title, @category.name.upcase)%>
+
 <h1>
   <%= @category.name.upcase %>
 </h1>
@@ -6,9 +7,8 @@
 <td><%= link_to 'Back', root_path %></td>
 
 <%= form_for :image, method: :post, url: category_images_path(@category) do |f| %>
-    <%= f.label  'Add more images' %>
-    <%= f.file_field :picture %>
-    <%= f.text_field :title %>
+    <%= f.label  'Add more files' %>
+    <%= f.file_field :picture, multiple: true %>
     <%= f.submit 'Upload' %>
 <% end %>
 

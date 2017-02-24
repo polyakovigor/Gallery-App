@@ -54,7 +54,7 @@ RSpec.describe CategoriesController, type: :controller do
         expect(assigns(:category)).to be_a_new(Category)
       end
 
-      it "re-renders the 'categories/index' template" do
+      it 're-renders the categories/index template' do
         post :create, params: {category: invalid_attributes}
         expect(response).to render_template('categories/index')
       end

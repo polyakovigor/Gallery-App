@@ -2,10 +2,10 @@ LikeApp::Application.routes.draw do
 
   devise_for :users
 
-  resources :likes
+  # resources :likes
   resources :images, except: [:index, :create ]
   resources :categories, only: [:index, :show, :create, :destroy] do
-    resources :images, only: [:create ]
+    resources :images, only: [:create]
   end
 
   root 'categories#index'
