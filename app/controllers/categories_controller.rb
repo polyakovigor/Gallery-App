@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  include Devise::Controllers::Helpers
 
   def index
     @categories = Category.all
@@ -9,7 +10,10 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.create(category_params)
+    # Category.create(category_params.merge(:user_id => current_user.id))
+    # current_user.categories.create(category_params)
+    # @category = Category.create(category_params)
+    @category = current_user.categories.create(category_params)
     if @category.save
       redirect_to root_url
     else

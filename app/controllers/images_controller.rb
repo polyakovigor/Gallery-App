@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
     begin
       Image.create_pictures(params[:image][:picture], @category)
       redirect_to category_url(@category.id)
-    rescue LoadError
+    rescue Exception
       flash[:massage] = 'Error: Could not upload files'
       render 'categories/show'
     end

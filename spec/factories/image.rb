@@ -7,6 +7,6 @@ FactoryGirl.define do
   end
 
   factory :invalid_image, parent: :image do
-    category_id nil
+    title nil
   end
 end

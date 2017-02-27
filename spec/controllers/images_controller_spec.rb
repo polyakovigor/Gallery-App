@@ -46,7 +46,6 @@ RSpec.describe ImagesController, type: :controller do
     end
 
     context 'with invalid params' do
-      let(:invalid_attributes) { attributes_for(:invalid_image) }
       it 'assigns a newly created but unsaved image as @image' do
         post :create, params: { image: { picture: [attributes_for(:invalid_image)[:picture]] }, category_id: category.id }
         expect(assigns(:category).images.count).to eq 2
@@ -54,7 +53,7 @@ RSpec.describe ImagesController, type: :controller do
       end
 
       it 're-renders the categories/show template' do
-        post :create, params: { image: { picture: [attributes_for(:invalid_image)[:picture]] }, category_id: category.id }
+        post :create, params: { image: { picture: [] }, category_id: category.id }
         expect(response).to render_template('categories/show')
       end
     end
@@ -80,14 +79,13 @@ RSpec.describe ImagesController, type: :controller do
     end
 
     context 'with invalid params' do
-      let(:invalid_attributes) { attributes_for(:invalid_image) }
       it 'assigns the image as @image' do
         put :update, params: { id: image.to_param, image: { picture: [attributes_for(:invalid_image)[:picture]] } }
         expect(assigns(:image)).to eq(image)
       end
 
       it 're-renders the edit template' do
-        put :update, params: { id: image.to_param, image: { picture: [attributes_for(:invalid_image)[:picture]] } }
+        put :update, params: { id: image.to_param, image: { title: nil } }
         expect(response).to render_template(:edit)
       end
     end
