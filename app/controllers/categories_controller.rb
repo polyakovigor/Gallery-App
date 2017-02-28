@@ -1,18 +1,15 @@
 class CategoriesController < ApplicationController
-  include Devise::Controllers::Helpers
 
   def index
     @categories = Category.all
   end
 
   def show
-    @category = Category.where(id: params[:id]).preload(:images).first
+    @category = Category.where(id: params[:id]).first
+    @images = @category.images.page(params[:page])
   end
 
   def create
-    # Category.create(category_params.merge(:user_id => current_user.id))
-    # current_user.categories.create(category_params)
-    # @category = Category.create(category_params)
     @category = current_user.categories.create(category_params)
     if @category.save
       redirect_to root_url
@@ -22,9 +19,12 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
-    @category.destroy
-    flash[:success] = 'Category deleted.'
+    if @category = Category.find_by(id: params[:id])
+       @category.destroy
+       flash[:success] = 'Category deleted.'
+    else
+      flash[:error] = 'Category not found.'
+    end
     redirect_to root_url
   end
 

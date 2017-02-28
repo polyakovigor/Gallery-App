@@ -23,7 +23,8 @@
   </thead>
 
   <tbody>
-  <% @category.images.each do |image| %>
+  <%= paginate @images %>
+  <% @images.each do |image| %>
       <tr>
         <td><%= image.id %></td>
         <td><%= image.title %></td>

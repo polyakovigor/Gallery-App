@@ -33,7 +33,6 @@ group :test do
 end
 
 gem 'pg'
-gem 'postgresql'
 gem 'kaminari'
 gem 'devise'
 gem 'bootstrap'
@@ -42,7 +41,7 @@ gem 'mini_magick'
 gem 'haml'
 gem 'resque'
 gem 'omniauth'
-gem "letter_opener", :group => :development
+gem 'letter_opener', :group => :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
