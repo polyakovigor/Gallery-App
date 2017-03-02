@@ -12,6 +12,8 @@
     <%= f.submit 'Upload' %>
 <% end %>
 
+<%= paginate @images %>
+
 <table>
   <thead>
   <tr>
@@ -23,7 +25,6 @@
   </thead>
 
   <tbody>
-  <%= paginate @images %>
   <% @images.each do |image| %>
       <tr>
         <td><%= image.id %></td>
@@ -34,3 +35,5 @@
   <% end %>
   </tbody>
 </table>
+
+<%= paginate @images %>
