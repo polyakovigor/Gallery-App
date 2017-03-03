@@ -6,11 +6,19 @@ RSpec.describe CategoriesController, type: :controller do
   let(:category) { create :category }
   let(:image_1)  { create :image, category_id: category.id }
   let(:image_2)  { create :image, category_id: category.id }
+  let(:image_3)  { create :image, category_id: category.id }
+  let(:image_4)  { create :image, category_id: category.id }
+  let(:image_5)  { create :image, category_id: category.id }
+  let(:image_6)  { create :image, category_id: category.id }
 
   before :each do
     sign_in user
     image_1.reload
     image_2.reload
+    image_3.reload
+    image_4.reload
+    image_5.reload
+    image_6.reload
   end
 
   describe 'GET #index' do
@@ -24,7 +32,7 @@ RSpec.describe CategoriesController, type: :controller do
     it 'assigns the requested category as @category' do
       get :show, params: {id: category.to_param}
       expect(assigns(:category)).to eq(category)
-      expect(assigns(:category).images.count).to eq 2
+      expect(assigns(:images).count).to eq 5
     end
   end
 

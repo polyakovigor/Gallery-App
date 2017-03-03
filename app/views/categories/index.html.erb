@@ -1,6 +1,7 @@
 <div class="alert alert-info"><%= notice %></div>
 <div class="alert alert-warning"><%= alert %></div>
 
+<div class="center hero-unit">
 <div id="user_nav">
   <% if user_signed_in? %>
       Signed in as <%= current_user.email %>. Not you?
@@ -30,6 +31,7 @@
   <% end %>
   </tbody>
 </table>
+</div>
 
 <%= form_for :category, method: :post do |f| %>
     <%= f.label :new_category %>
