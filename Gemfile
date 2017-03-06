@@ -5,15 +5,8 @@ gem 'rails', '5.0.0'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-
 gem 'jquery-rails'
 gem 'turbolinks'
-
-#gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -35,7 +28,7 @@ end
 gem 'pg'
 gem 'kaminari'
 gem 'devise'
-gem 'bootstrap'
+gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'haml'

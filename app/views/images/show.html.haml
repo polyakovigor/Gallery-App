@@ -1,17 +1,9 @@
 - provide(:title, @image.title)
 %h1= @image.title
 %table
-  %thead
-  %tr
-    %th Image id
-    %th Image title
-    %th Picture
-    %th Action
   %tbody
     %tr
-      %td= @image.id
-      %td= @image.title
-      %td= image_tag @image.picture.url(:thumb)
+      %td= image_tag @image.picture.url
       %td= link_to 'Back', category_path(@image.category_id)
       %td= link_to 'Edit',   edit_image_path
       %td= link_to 'Delete', @image, method: :delete, data: { confirm: 'You sure?' }
