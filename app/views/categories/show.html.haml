@@ -1,0 +1,23 @@
+- provide(:title, @category.name.upcase)
+%h1= @category.name.upcase
+%td= link_to 'Back', root_path
+= form_for :image, method: :post, url: category_images_path(@category) do |f|
+  = f.label  'Add more files'
+  = f.file_field :picture, multiple: true
+  = f.submit 'Upload'
+= paginate @images
+%table
+  %thead
+    %tr
+      %th mage id
+      %th Image title
+      %th Picture
+      %th Action
+  %tbody
+    - @images.each do |image|
+      %tr
+        %td= image.id
+        %td= image.title
+        %td= image_tag image.picture.url(:thumb)
+        %td= link_to 'Show', image
+= paginate @images
