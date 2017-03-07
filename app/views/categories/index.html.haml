@@ -17,5 +17,5 @@
 = form_for :category, method: :post do |f|
   = f.label :new_category
   %br
-  = f.text_field :name, placeholder: 'Input category name'
+  = f.text_field :name,required: true, placeholder: 'Input category name'
   = f.submit 'Create'

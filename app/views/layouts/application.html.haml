@@ -6,8 +6,6 @@
     =javascript_include_tag 'application', 'data-turbolinks-track' => true
     =csrf_meta_tags
   %body
-    .alert.alert-info
-      = notice
-    .alert.alert-warning
-      = alert
+    .container
+    =render 'layouts/error_messages'
     =yield

@@ -1,9 +1,9 @@
 - provide(:title, @category.name.upcase)
 %h1= @category.name.upcase
 %td= link_to 'Back', root_path
-= form_for :image, method: :post, url: category_images_path(@category).to_s do |f|
+= form_for :image, method: :post, url: category_images_path(@category) do |f|
   = f.label  'Add more files'
-  = f.file_field :picture, multiple: true
+  = f.file_field :picture,required: true, multiple: true
   = f.submit 'Upload'
 = paginate @images
 %table
@@ -11,6 +11,7 @@
     - @images.each do |image|
       %tr
         %td= image.title
-        %td= image_tag image.picture.url(:thumb).to_s
+        %td= image_tag image.picture.url(:thumb)
         %td= link_to 'Show', image
+        %td= link_to 'Delete', image, method: :delete, data: { confirm: 'You sure?' }
 = paginate @images

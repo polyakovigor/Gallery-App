@@ -11,16 +11,17 @@ class ImagesController < ApplicationController
     @category = Category.find(params[:category_id])
     begin
       Image.create_pictures(params[:image][:picture], @category)
+      flash[:success] = 'Image'.pluralize + ' uploaded'
       redirect_to category_url(@category.id)
     rescue Exception
-      flash[:massage] = 'Error: Could not upload files'
+      flash[:massage] = 'Error: Could not upload file'.pluralize
       render 'categories/show'
     end
   end
 
   def update
     if @image.update_attributes(image_params)
-      flash[:success] = 'Image updated'
+      flash[:success] = 'Image updated.'
       redirect_to @image
     else
       render :edit

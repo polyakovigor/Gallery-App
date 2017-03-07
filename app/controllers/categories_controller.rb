@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.create(category_params)
     if @category.save
+      flash[:success] = 'Category created.'
       redirect_to root_url
     else
       render 'categories/index'
