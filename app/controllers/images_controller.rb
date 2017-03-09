@@ -11,12 +11,11 @@ class ImagesController < ApplicationController
     @category = Category.find(params[:category_id])
     begin
       Image.create_pictures(params[:image][:picture], @category)
-      flash[:success] = 'Image'.pluralize + ' uploaded'
-      redirect_to category_url(@category.id)
+      flash[:success] = 'Images uploaded'
     rescue Exception
-      flash[:massage] = 'Error: Could not upload file'.pluralize
-      render 'categories/show'
+      flash[:error] = 'Could not upload file.'
     end
+    redirect_to category_url(@category.id)
   end
 
   def update
@@ -24,6 +23,7 @@ class ImagesController < ApplicationController
       flash[:success] = 'Image updated.'
       redirect_to @image
     else
+      flash[:error] = 'Title can not be blank!'
       render :edit
     end
   end

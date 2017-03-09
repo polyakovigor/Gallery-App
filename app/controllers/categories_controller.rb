@@ -13,9 +13,10 @@ class CategoriesController < ApplicationController
     @category = current_user.categories.create(category_params)
     if @category.save
       flash[:success] = 'Category created.'
-      redirect_to root_url
+      redirect_to @category
     else
-      render 'categories/index'
+      flash[:error] = 'Category name can not be blank! Please, enter category name!'
+      redirect_to root_path
     end
   end
 
