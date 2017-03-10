@@ -1,5 +1,6 @@
 #user_nav
   - if user_signed_in?
+    %h3
     Signed in as #{current_user.email}. Not you?
     \#{link_to 'Sign out', destroy_user_session_path, method: :delete}
   - else

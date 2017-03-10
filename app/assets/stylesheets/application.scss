@@ -14,39 +14,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*universal*/
-
-body {
-  line-height: 1;
-  background-color: #d3d3d3;
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 20px;
-  padding-top: 20px;
-}
-
-input {
-  height: 40px;
-}
-
-.center {
-  padding-top: 40px;
-  text-align: center;
-}
-
-h1, table, tbody {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#user_nav {
-  text-align: right;
-  padding-right: 20px;
-}
-
-.pagination-lg {
-
-}
 /*flash*/
 
 .alert-error {
@@ -68,5 +35,33 @@ h1, table, tbody {
   border-color: #d6e9c6;
   color: #468847;
   text-align: left;
+}
+
+/*universal*/
+
+body {
+  line-height: 1;
+  background-color: ghostwhite;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
+input {
+  height: 40px;
+
+}
+
+#user_nav {
+  text-align: right;
+  padding-right: 20px;
+  color: #C6D880;
+}
+
+a {
+  color: darkblue;
 }
 

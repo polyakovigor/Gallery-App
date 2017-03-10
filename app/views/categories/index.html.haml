@@ -7,7 +7,8 @@
         %td= link_to category.name, category
         %td= link_to 'Delete', category, method: :delete, data: { confirm: 'You sure?' }
 = form_for :category, method: :post do |f|
-  = f.label :new_category
+  = f.label :new_category, class: 'default'
   %br
   = f.text_field :name, placeholder: 'Input category name'
-  = f.submit 'Create'
+  %br
+  = f.submit 'Create', class: 'btn btn-large btn-info'

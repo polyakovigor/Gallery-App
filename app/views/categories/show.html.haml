@@ -7,10 +7,9 @@
   %tbody
     - @images.to_a.each do |image|
       %tr
-        %td= image.title
         %td= link_to (image_tag image.picture.url(:thumb)), image_path(image)
         %td= link_to 'Delete', image, method: :delete, data: { confirm: 'You sure?' }
 = form_for :image, method: :post, url: category_images_path(@category) do |f|
   = f.label  'Add more files'
   = f.file_field :picture, multiple: true
-  = f.submit 'Upload'
+  = f.submit 'Upload', class: 'btn btn-large btn-success'
