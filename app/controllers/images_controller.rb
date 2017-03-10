@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
       Image.create_pictures(params[:image][:picture], @category)
       flash[:success] = 'Images uploaded'
     rescue Exception
-      flash[:error] = 'Could not upload file.'
+      flash[:error] = 'Could not upload file. Please choose it!'
     end
     redirect_to category_url(@category.id)
   end
@@ -23,7 +23,7 @@ class ImagesController < ApplicationController
       flash[:success] = 'Image updated.'
       redirect_to @image
     else
-      flash[:error] = 'Title can not be blank!'
+      flash[:error] = @image.errors.full_messages
       render :edit
     end
   end

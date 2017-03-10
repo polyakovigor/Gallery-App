@@ -21,6 +21,7 @@ body {
   background-color: #d3d3d3;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 20px;
+  padding-top: 20px;
 }
 
 input {
@@ -32,13 +33,20 @@ input {
   text-align: center;
 }
 
-h1 {
+h1, table, tbody {
   text-align: center;
-  
+  margin-left: auto;
+  margin-right: auto;
 }
 
+#user_nav {
+  text-align: right;
+  padding-right: 20px;
+}
 
+.pagination-lg {
 
+}
 /*flash*/
 
 .alert-error {
@@ -62,9 +70,3 @@ h1 {
   text-align: left;
 }
 
-.alert-notice {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
-  text-align: left;
-}

@@ -15,7 +15,8 @@ class CategoriesController < ApplicationController
       flash[:success] = 'Category created.'
       redirect_to @category
     else
-      flash[:error] = 'Category name can not be blank! Please, enter category name!'
+      flash[:error] = @category.errors.full_messages
+      # flash[:error] = 'Category name can not be blank! Please, enter category name!'
       redirect_to root_path
     end
   end
