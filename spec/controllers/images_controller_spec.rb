@@ -28,33 +28,45 @@ RSpec.describe ImagesController, type: :controller do
 
   describe 'POST #create' do
     context 'with valid params' do
-      let(:valid_attributes) { attributes_for(:image) }
+      let(:params) { { category: { id: category.id,
+                                   images_attributes: {
+                                       '0' => { title: 'sdfsdf', picture: attributes_for(:image)[:picture] },
+                                   }
+                                  },
+                       category_id: category.id } }
       it 'creates a new image' do
-        expect { post :create, params: { image: { picture: [attributes_for(:image)[:picture]] }, category_id: category.id } }.to change(Image, :count).by(1)
+        expect { post :create, params: params }.to change(Image, :count).by(1)
       end
 
       it 'assigns a newly created image as @image' do
-        post :create, params: { image: { picture: [attributes_for(:image)[:picture]] }, category_id: category.id }
+        post :create, params: params
         expect(assigns(:category).images.count).to eq 2
         expect(assigns(:category).images.map(&:title)).to include('test.png')
       end
 
       it 'redirects to the created image' do
-        post :create, params: { image: { picture: [attributes_for(:image)[:picture]] }, category_id: category.id }
+        post :create, params: params
         expect(response).to redirect_to category_path(category.id)
       end
     end
 
     context 'with invalid params' do
+      let(:params) { { category: { id: category.id,
+                                   images_attributes: {
+                                       '0' => attributes_for(:invalid_image)
+                                   }
+                                 },
+                       category_id: category.id } }
+
       it 'assigns a newly created but unsaved image as @image' do
-        post :create, params: { image: { picture: [attributes_for(:invalid_image)[:picture]] }, category_id: category.id }
-        expect(assigns(:category).images.count).to eq 2
-        expect(assigns(:category).images.map(&:title)).to include('test.png')
+        post :create, params: params
+        expect(assigns(:category).images.count).to eq 1
+        expect(assigns(:category).images.first.title).to eq('test.png')
       end
 
       it 're-renders the categories/show template' do
-        post :create, params: { image: { picture: [] }, category_id: category.id }
-        expect(response).to render_template('categories/show')
+        post :create, params: params
+        expect(response).to redirect_to(category_path(category))
       end
     end
   end

@@ -2,11 +2,12 @@ include ActionDispatch::TestProcess
 
 FactoryGirl.define do
   factory :image do
-    sequence(:title) { |n| "Image title#{n}" }
+    sequence(:title) { |n| "Image title" }
     picture { fixture_file_upload(Rails.root.join('spec/fixtures/test.png'), 'image/png') }
   end
 
   factory :invalid_image, parent: :image do
-    title nil
+    # title nil
+    picture nil
   end
 end

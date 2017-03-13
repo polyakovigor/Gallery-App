@@ -5,13 +5,14 @@ class Image < ApplicationRecord
   belongs_to :category
 
   validates :picture, presence: true
-  validates :title, presence: true, length: { maximum: 50 }, uniqueness: true
+  validates :title, presence: true, length: { maximum: 50 }
 
   mount_uploader :picture, PictureUploader
 
-  def self.create_pictures(pictures, category)
-    pictures.each do |pict|
-      category.images.create(title: pict.original_filename, picture: pict)
-    end
+  after_create :fill_in_title
+
+  def fill_in_title
+    self.title = self.picture.set_original_filename
+    self.save
   end
 end

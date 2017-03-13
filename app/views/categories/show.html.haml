@@ -9,7 +9,12 @@
       %tr
         %td= link_to (image_tag image.picture.url(:thumb)), image_path(image)
         %td= link_to 'Delete', image, method: :delete, data: { confirm: 'You sure?' }
-= form_for :image, method: :post, url: category_images_path(@category) do |f|
-  = f.label  'Add more files'
-  = f.file_field :picture, multiple: true
-  = f.submit 'Upload', class: 'btn btn-large btn-success'
+
+-#= form_for :image, method: :post, url: category_images_path(@category) do |f|
+-#  = f.label  'Add more files'
+-#  = f.file_field :picture, multiple: true
+-#  = f.submit 'Upload', class: 'btn btn-large btn-success'
+%input{ multiple: "multiple", name: "image[picture][]", id: "image_picture", type: "file" }
+-# вешаешь на этот инпут js функцию ончендж; ajax
+-# используешь FormData() для формирования данных.
+-# для считывания файлов исполоьзуешь FileReader()
