@@ -9,12 +9,19 @@ class ImagesController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    if @category.update(category_image_params)
-      flash[:success] = 'Images uploaded'
-    else
-      flash[:error] = 'Could not upload file. Please choose it!'
+    respond_to do |format|
+      if @category.update(category_image_params)
+        format.html { redirect_to category_url(@category.id), success: 'Images uploaded' }
+        format.js   {}
+        format.json { render json: category_url(@category.id), status: :created, location: category_url(@category.id) }
+        # flash[:success] = 'Images uploaded'
+      else
+        format.html { redirect_to category_url(@category.id), success: 'Could not upload file. Please choose it!' }
+        format.json { render json: category_url(@category.id).errors, status: :unprocessable_entity }
+        # flash[:error] = 'Could not upload file. Please choose it!'
+      end
     end
-    redirect_to category_url(@category.id)
+    # redirect_to category_url(@category.id)
   end
 
   def update

@@ -14,7 +14,8 @@
 -#  = f.label  'Add more files'
 -#  = f.file_field :picture, multiple: true
 -#  = f.submit 'Upload', class: 'btn btn-large btn-success'
-%input{ multiple: "multiple", name: "image[picture][]", id: "image_picture", type: "file" }
--# вешаешь на этот инпут js функцию ончендж; ajax
+%input{ multiple: 'multiple', name: 'image[picture][]', id: 'image_picture', type: 'file' }
+-# вешаешь на этот input js функцию onchange;
 -# используешь FormData() для формирования данных.
--# для считывания файлов исполоьзуешь FileReader()
+-# для считывания файлов используешь FileReader()
+:javascript
