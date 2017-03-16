@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
     p '*'*100
     @category = Category.find(params[:category_id])
     if @category.update(category_image_params)
-      flash[:success] = 'Images uploaded'
+      flash[:success] = 'Uploaded'
     else
       flash[:error] = 'Could not upload file. Please choose it!'
     end

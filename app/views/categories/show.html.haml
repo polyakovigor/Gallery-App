@@ -9,6 +9,7 @@
   %tbody
     - @images.to_a.each do |image|
       %tr
+        %td= image.title
         %td= link_to (image_tag image.picture.url(:thumb)), image_path(image)
         %td= link_to 'Delete', image, method: :delete, data: { confirm: 'You sure?' }
 
@@ -22,7 +23,6 @@
 %input{ multiple: 'multiple', id: 'image_picture', type: 'file' }
 
 %img.template.output{ style: 'width:150; height: 150px; padding-left: 10px;' }
+-#%output#image_title{ name: 'category[images_attributes][0][title][]', id: 'image_title', type: 'text' }
 %input{ name: 'commit', value: 'Upload', class: 'btn btn-large btn-success', type: 'submit' }
--# вешаешь на этот input js функцию onchange;
--# используешь FormData() для формирования данных.
--# для считывания файлов используешь FileReader()
+

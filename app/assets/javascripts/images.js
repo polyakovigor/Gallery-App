@@ -11,9 +11,14 @@ $( document ).ready(function() {
                 var output = $(outputTemplate).clone().removeClass('template')[0];
                 output.src = dataURL;
                 $(output).insertAfter('.template.output');
+                for (var i = 0; i < input.files.length; i++) {
+                    console.log(input.files[i].name);
+                }
+                // var title = $('')
             };
             reader.readAsDataURL(file);
             formData.append('category[images_attributes][' + index + '][picture]', file);
+            formData.append('category[images_attributes][' + index + '][title]', file);
         });
     });
 
@@ -26,14 +31,17 @@ $( document ).ready(function() {
             contentType: false,
             data: formData,
             success: function(data) {
-                console.log('сукес блеать');
+                console.log('KPACABA');
             },
             error: function(data) {
-                console.log('error');
+                console.log('Ебать ты ЛОХ!!!');
             },
-
-
         })
     });
 });
-//на предзагрузке выводить title каждой картинки
+//-разбить на части filePath и вывести часть до точки
+//на предзагрузке выводить title каждой картинки + возможность изменять его!!!!!!!!!!!!
+// var name = $("#image_picture").val();
+// var formData = new FormData(this);
+// formData.append("NewFileName", name);
+// console.log(formData);
