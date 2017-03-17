@@ -3,6 +3,10 @@ require "rails_helper"
 RSpec.describe LikesController, type: :routing do
   describe "routing" do
 
+    before :each do
+      pending
+    end
+
     it "routes to #index" do
       expect(:get => "/likes").to route_to("likes#index")
     end

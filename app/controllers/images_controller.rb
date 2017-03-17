@@ -8,9 +8,6 @@ class ImagesController < ApplicationController
   end
 
   def create
-    p '*'*100
-    p category_image_params
-    p '*'*100
     @category = Category.find(params[:category_id])
     if @category.update(category_image_params)
       flash[:success] = 'Uploaded'

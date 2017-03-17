@@ -8,11 +8,4 @@ class Image < ApplicationRecord
   validates :title, presence: true
 
   mount_uploader :picture, PictureUploader
-
-  # after_create :fill_in_title
-
-  def fill_in_title
-    self.title = self.picture.set_original_filename
-    self.save
-  end
 end

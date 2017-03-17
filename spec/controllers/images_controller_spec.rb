@@ -30,7 +30,7 @@ RSpec.describe ImagesController, type: :controller do
     context 'with valid params' do
       let(:params) { { category: { id: category.id,
                                    images_attributes: {
-                                       '0' => { title: 'sdfsdf', picture: attributes_for(:image)[:picture] },
+                                       '0' => { title: 'test', picture: attributes_for(:image)[:picture] },
                                    }
                                   },
                        category_id: category.id } }

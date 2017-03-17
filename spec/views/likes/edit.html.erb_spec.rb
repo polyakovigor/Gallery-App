@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "likes/edit", type: :view do
   before(:each) do
     @like = assign(:like, Like.create!())
+    pending
   end
 
   it "renders the edit like form" do

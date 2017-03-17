@@ -13,6 +13,7 @@ RSpec.describe CategoriesController, type: :controller do
 
   before :each do
     sign_in user
+    category.reload
     image_1.reload
     image_2.reload
     image_3.reload
@@ -51,7 +52,8 @@ RSpec.describe CategoriesController, type: :controller do
 
       it 'redirects to the created category' do
         post :create, params: {category: valid_attributes}
-        expect(response).to redirect_to root_path
+
+        expect(response).to redirect_to (category)
       end
     end
 
@@ -64,7 +66,7 @@ RSpec.describe CategoriesController, type: :controller do
 
       it 're-renders the categories/index template' do
         post :create, params: {category: invalid_attributes}
-        expect(response).to render_template('categories/index')
+        expect(response).to redirect_to root_path
       end
     end
   end

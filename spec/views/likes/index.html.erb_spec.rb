@@ -6,6 +6,7 @@ RSpec.describe "likes/index", type: :view do
       Like.create!(),
       Like.create!()
     ])
+    pending
   end
 
   it "renders a list of likes" do

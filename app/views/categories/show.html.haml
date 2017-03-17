@@ -13,16 +13,12 @@
         %td= link_to (image_tag image.picture.url(:thumb)), image_path(image)
         %td= link_to 'Delete', image, method: :delete, data: { confirm: 'You sure?' }
 
--#= form_for :image, method: :post, url: category_images_path(@category) do |f|
--#  = f.label  'Add more files'
--#  = f.file_field :picture, multiple: true
--#  = f.submit 'Upload', class: 'btn btn-large btn-success'
 %input#category{ name: 'category[id][]', value: @category.id, type: 'hidden' }
 %input{ name: 'category_id[]', value: @category.id, type: 'hidden' }
--#%input{ multiple: 'multiple', name: 'category[images_attributes][0][title][]', id: 'image_title', type: 'text' }
 %input{ multiple: 'multiple', id: 'image_picture', type: 'file' }
 
-%img.template.output{ style: 'width:150; height: 150px; padding-left: 10px;' }
--#%output#image_title{ name: 'category[images_attributes][0][title][]', id: 'image_title', type: 'text' }
+.template.output
+  %img{ style: 'width:150; height: 150px; padding-left: 10px;' }
+  %input{ class: 'image_title', type: 'text' }
 %input{ name: 'commit', value: 'Upload', class: 'btn btn-large btn-success', type: 'submit' }
 

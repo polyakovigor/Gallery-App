@@ -5,24 +5,26 @@ $( document ).ready(function() {
 
         $.each(input.files, function(index, file){
             var reader = new FileReader();
+            var fileName = '';
             reader.onload = function(){
                 var dataURL = reader.result;
                 var outputTemplate = $('.template.output');
-                var output = $(outputTemplate).clone().removeClass('template')[0];
-                output.src = dataURL;
-                $(output).insertAfter('.template.output');
-                for (var i = 0; i < input.files.length; i++) {
-                    console.log(input.files[i].name);
-                }
-                // var title = $('')
+                var divOutput = $(outputTemplate).clone().removeClass('template');
+                divOutput.find('img')[0].src = dataURL;
+                fileName = file.name;
+                divOutput.find('.image_title')[0].value = fileName;
+                $(divOutput).insertAfter('.template.output');
+                formData.append('category[images_attributes][' + index + '][picture]', file);
             };
             reader.readAsDataURL(file);
-            formData.append('category[images_attributes][' + index + '][picture]', file);
-            formData.append('category[images_attributes][' + index + '][title]', file);
         });
     });
 
     $('.btn.btn-large.btn-success').on("click", function(event) {
+        $.each($('.output:not(.template)').find('.image_title'), function(index, inputItem){
+            console.log($(inputItem).val());
+            formData.append('category[images_attributes][' + index + '][title]', $(inputItem).val());
+        });
         $.ajax({
             url: '/categories/' + $('#category').val() + '/images',
             method: 'post',
@@ -39,9 +41,3 @@ $( document ).ready(function() {
         })
     });
 });
-//-разбить на части filePath и вывести часть до точки
-//на предзагрузке выводить title каждой картинки + возможность изменять его!!!!!!!!!!!!
-// var name = $("#image_picture").val();
-// var formData = new FormData(this);
-// formData.append("NewFileName", name);
-// console.log(formData);
