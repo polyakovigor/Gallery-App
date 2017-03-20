@@ -52,8 +52,7 @@ RSpec.describe CategoriesController, type: :controller do
 
       it 'redirects to the created category' do
         post :create, params: {category: valid_attributes}
-
-        expect(response).to redirect_to (category)
+        expect(response).to redirect_to root_path
       end
     end
 

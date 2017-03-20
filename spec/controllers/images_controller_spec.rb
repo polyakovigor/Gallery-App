@@ -41,7 +41,7 @@ RSpec.describe ImagesController, type: :controller do
       it 'assigns a newly created image as @image' do
         post :create, params: params
         expect(assigns(:category).images.count).to eq 2
-        expect(assigns(:category).images.map(&:title)).to include('test.png')
+        expect(assigns(:category).images.map(&:title)).to include('test')
       end
 
       it 'redirects to the created image' do
@@ -53,7 +53,7 @@ RSpec.describe ImagesController, type: :controller do
     context 'with invalid params' do
       let(:params) { { category: { id: category.id,
                                    images_attributes: {
-                                       '0' => attributes_for(:invalid_image)
+                                       '0' => { title: nil, picture: nil }
                                    }
                                  },
                        category_id: category.id } }
@@ -61,7 +61,7 @@ RSpec.describe ImagesController, type: :controller do
       it 'assigns a newly created but unsaved image as @image' do
         post :create, params: params
         expect(assigns(:category).images.count).to eq 1
-        expect(assigns(:category).images.first.title).to eq('test.png')
+        expect(assigns(:category).images.first.title).to eq('test')
       end
 
       it 're-renders the categories/show template' do

@@ -13,11 +13,10 @@ class CategoriesController < ApplicationController
     @category = current_user.categories.create(category_params)
     if @category.save
       flash[:success] = 'Category created.'
-      redirect_to @category
     else
       flash[:error] = @category.errors.full_messages
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def destroy
