@@ -52,7 +52,7 @@ body {
 
 input {
   height: 40px;
-
+  border: 1px solid #000000;
 }
 
 #user_nav {
@@ -68,4 +68,18 @@ a {
 
 .template {
   display: none;
+}
+
+/* js validation */
+
+label {
+  display: block;
+}
+
+.error input {
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
 }

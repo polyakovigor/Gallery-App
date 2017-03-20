@@ -4,8 +4,7 @@ class Image < ApplicationRecord
 
   belongs_to :category
 
-  validates :picture, presence: true
-  validates :title, presence: true
+  validates :title, :picture, presence: true
 
   mount_uploader :picture, PictureUploader
 end

@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
     if @category.update(category_image_params)
       flash[:success] = 'Uploaded'
     else
-      flash[:error] = 'Could not upload file. Please choose it!'
+      # flash[:error] = 'Could not upload file. Please choose it!'
     end
     redirect_to category_url(@category.id)
   end
