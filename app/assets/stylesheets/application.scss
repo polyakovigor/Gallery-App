@@ -20,21 +20,21 @@
   background-color: #f2dede;
   border-color: #eed3d7;
   color: #b94a48;
-  text-align: left;
+  text-align: center;
 }
 
 .alert-alert {
   background-color: #f2dede;
   border-color: #eed3d7;
   color: #b94a48;
-  text-align: left;
+  text-align: center;
 }
 
 .alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #468847;
-  text-align: left;
+  text-align: center;
 }
 
 /*universal*/
@@ -50,9 +50,8 @@ body {
   padding-bottom: 50px;
 }
 
-input {
+input[type=text] {
   height: 40px;
-  border: 1px solid #000000;
 }
 
 #user_nav {
@@ -65,21 +64,21 @@ a {
   color: darkblue;
 }
 
-
 .template {
   display: none;
 }
 
+input[type=file] {
+  opacity: 0;
+  
+}
+
 /* js validation */
 
-label {
-  display: block;
+.error {
+  border: 1px solid red;
 }
 
 .error input {
   border: 1px solid red;
-}
-
-.error {
-  color: red;
 }

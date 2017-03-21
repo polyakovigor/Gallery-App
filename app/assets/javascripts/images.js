@@ -21,23 +21,33 @@ $( document ).ready(function() {
     });
 
     $('.btn.btn-large.btn-success').on("click", function(event) {
-        $.each($('.output:not(.template)').find('.image_title'), function(index, inputItem){
-            console.log($(inputItem).val());
-            formData.append('category[images_attributes][' + index + '][title]', $(inputItem).val());
-        });
-        $.ajax({
-            url: '/categories/' + $('#category').val() + '/images',
-            method: 'post',
-            // dataType: 'json',
-            processData: false,
-            contentType: false,
-            data: formData,
-            success: function(data) {
-                console.log('KPACABA');
-            },
-            error: function(data) {
-                console.log('Ебать ты ЛОХ!!!');
-            },
-        })
+        var emptyInputs = $('.output:not(.template)').find('.image_title').filter(function() { return $(this).val() == ""; });
+        if (emptyInputs.length > 0) {
+            $.each(emptyInputs, function(index, input) {
+                $(input).addClass('error');
+                setTimeout(function(){
+                    $(input).removeClass('error');},
+                    2000);
+                });
+        } else {
+            $.each($('.output:not(.template)').find('.image_title'), function(index, inputItem){
+                formData.append('category[images_attributes][' + index + '][title]', $(inputItem).val());
+            });
+            $.ajax({
+                url: '/categories/' + $('#category').val() + '/images',
+                method: 'post',
+                // dataType: 'json',
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function(data) {
+                    console.log('SUCCESS');
+                },
+                error: function(data) {
+                    alert("Please choose a file!");
+                    console.log('ERROR');
+                },
+            });
+        }
     });
 });

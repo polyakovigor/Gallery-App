@@ -14,20 +14,11 @@
         %td= link_to (image_tag image.picture.url(:thumb)), image_path(image)
         %td= link_to 'Delete', image, method: :delete, data: { confirm: 'You sure?' }
 
-%form{ name: 'myForm', onsubmit: 'return validateForm()' }
-  %input#category{ name: 'category[id][]', value: @category.id, type: 'hidden' }
-  %input{ name: 'category_id[]', value: @category.id, type: 'hidden' }
-  %input{ multiple: 'multiple', id: 'image_picture', type: 'file' }
+%input#category{ name: 'category[id][]', value: @category.id, type: 'hidden' }
+%input{ name: 'category_id[]', value: @category.id, type: 'hidden' }
+%input{ multiple: 'multiple', id: 'image_picture', type: 'file' }
 
   .template.output
     %img{ style: 'width:150; height: 150px; padding-left: 10px;' }
     %input{ class: 'image_title', type: 'text', name: 'title' }
   %input{ name: 'commit', value: 'Upload', class: 'btn btn-large btn-success', type: 'submit' }
-:javascript
-  function validateForm() {
-    var x = document.forms["myForm"]["title"].value;
-    if (x == "") {
-        alert("Title must be filled out!");
-        return false;
-    }
-  }
