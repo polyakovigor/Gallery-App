@@ -20,7 +20,7 @@ $( document ).ready(function() {
         });
     });
 
-    $('.btn.btn-large.btn-success').on("click", function(event) {
+    $('.btn.btn-large.btn-info').on("click", function(event) {
         var emptyInputs = $('.output:not(.template)').find('.image_title').filter(function() { return $(this).val() == ""; });
         if (emptyInputs.length > 0) {
             $.each(emptyInputs, function(index, input) {

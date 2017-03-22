@@ -14,71 +14,97 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*flash*/
+* {
+  color: #ffffff;
+}
+
+/*flash alert*/
 
 .alert-error {
   background-color: #f2dede;
   border-color: #eed3d7;
   color: #b94a48;
-  text-align: center;
+  text-align: left;
 }
 
 .alert-alert {
   background-color: #f2dede;
   border-color: #eed3d7;
   color: #b94a48;
-  text-align: center;
+  text-align: left;
 }
 
 .alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #468847;
-  text-align: center;
+  text-align: left;
+}
+
+/* js validation */
+
+.error {
+  height: 40px;
+  border: 1px solid red;
+}
+
+.error input {
+  height: 40px;
+  border: 1px solid red;
+  width: auto;
 }
 
 /*universal*/
 
-body {
-  line-height: 1;
-  background-color: ghostwhite;
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 20px;
-  padding-top: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
+html {
+  overflow-y: scroll;
 }
 
-input[type=text] {
-  height: 40px;
+body {
+  overflow: auto;
+  line-height: 1;
+  background-color: #0D0D0D;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  padding: 50px;
 }
 
 #user_nav {
   text-align: right;
   padding-right: 20px;
-  color: #C6D880;
+  color: #ffffff;
+}
+
+h1, h2 {
+  color: #ffffff;
 }
 
 a {
-  color: darkblue;
+  color: #6bc5e1;
+  padding-left: 5px;
+  padding-top: 5px;
+  &:hover {
+    color: #ffffff;
+  }
 }
 
 .template {
   display: none;
 }
 
-input[type=file] {
-  opacity: 0;
-  
+input[type=file],[type=email],[type=password],[type=text] {
+  //opacity: 0;
+  //position: absolute;
+  height: 40px;
+  cursor: pointer;
+  color: #7C7C7C;
+  width: auto;
 }
 
-/* js validation */
-
-.error {
-  border: 1px solid red;
+form {
+  text-align: left;
 }
 
-.error input {
-  border: 1px solid red;
+.actions {
+
 }
