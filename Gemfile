@@ -25,6 +25,7 @@ group :test do
   gem 'database_cleaner'
 end
 
+gem 'font-awesome-rails'
 gem 'pg'
 gem 'kaminari'
 gem 'devise'
