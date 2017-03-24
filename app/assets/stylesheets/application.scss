@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require_tree .
- *= require font-awesome
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -68,12 +67,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-#user_nav {
-  text-align: left;
-  padding-right: 20px;
-  color: #ffffff;
-}
-
 h1, h2 {
   color: #ffffff;
 }
@@ -114,6 +107,25 @@ img {
   }
 }
 
-.actions {
+.button {
   margin-top: 5px;
+}
+
+.modal-header {
+  color: #ffffff;
+}
+
+.modal-content {
+  background-color: #1c2324;
+}
+
+button {
+  color: #ffffff;
+}
+
+.close {
+  color: #ffffff;
+  &:hover {
+    color: #ffffff;
+  }
 }
