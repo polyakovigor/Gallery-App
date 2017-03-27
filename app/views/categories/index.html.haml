@@ -1,25 +1,28 @@
 %h1 Categories
-.row-fluid
-  .span9
-    - @categories.to_a.each do |category|
+.row
+  - @categories.to_a.each do |category|
+    .col-lg-2
+      .delete-icon
+        = link_to category, method: :delete, data: { confirm: 'You sure?' } do
+          %span.glyphicon.glyphicon-trash
+      .overlay
+        %h2
+          %strong= category.name
       - if category.images.any?
         = link_to image_tag(category.images.sample.picture.url(:thumb), alt: category.name), category
       - else
         = link_to image_tag('empty-folder.png', alt: category.name), category
-      -#= link_to 'Delete', category, method: :delete, data: { confirm: 'You sure?' }
 %br
-%button.btn.btn-info.btn-lg{'data-target' => '#myModal', 'data-toggle' => 'modal', :type => 'button'} Create new category
-#myModal.modal.fade{:role => 'dialog'}
+%button.btn-default.btn-lg{'data-target' => '#myModal', 'data-toggle' => 'modal', type: 'button'} Create new category
+#myModal.modal.fade{role: 'dialog'}
   .modal-dialog
     .modal-content
       .modal-header
-        %button.close{'data-dismiss' => 'modal', :type => 'button'} ×
+        %button.close{'data-dismiss' => 'modal', type: 'button'} ×
         %h3.modal-title New category
       .modal-body
         = form_for :category, method: :post do |f|
           = f.text_field :name, placeholder: 'Enter category name'
           %br
           .button
-          = f.submit 'Create', class: 'btn btn-lg btn-info'
-      .modal-footer
-        %button.btn.btn-lg.btn-info{'data-dismiss' => 'modal', :type => 'button'} Close
+          = f.submit 'Create', class: 'btn-default btn-lg'

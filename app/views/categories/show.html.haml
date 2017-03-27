@@ -1,18 +1,21 @@
 = javascript_include_tag 'images.js'
 
 %h1= @category.name.upcase
-
-%td= link_to 'Back', root_path
+= link_to root_path do
+  %span.glyphicon.glyphicon-chevron-left
 %br
 - if @images.present?
   = paginate @images
-%table
-  %tbody
+  .row
     - @images.to_a.each do |image|
-      %tr
-        %td= image.title
-        %td= link_to (image_tag image.picture.url(:thumb)), image_path(image)
-        %td= link_to 'Delete', image, method: :delete, data: { confirm: 'You sure?' }
+      .col-lg-2
+        .delete-icon
+          = link_to image, method: :delete, data: { confirm: 'You sure?' } do
+            %span.glyphicon.glyphicon-trash
+        .overlay
+          %h2
+            %strong= image.title
+        = link_to (image_tag image.picture.url(:thumb)), image_path(image)
 %input#category{ name: 'category[id][]', value: @category.id, type: 'hidden' }
 %input{ name: 'category_id[]', value: @category.id, type: 'hidden' }
 %input{ multiple: 'multiple', id: 'image_picture', type: 'file' }
@@ -20,4 +23,5 @@
   .template.output
     %img{ style: 'width:200px; height: 200px; padding-left: 10px;' }
     %input{ class: 'image_title', type: 'text', name: 'title' }
-  %input{ name: 'commit', value: 'Upload', class: 'btn btn-large btn-info', type: 'submit' }
+  %input{ name: 'commit', value: 'Save', class: 'btn-default btn-lg', type: 'submit' }
+  %span.glyphicon.glyphicon-upload
