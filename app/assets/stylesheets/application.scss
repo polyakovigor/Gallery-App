@@ -168,9 +168,12 @@ input.btn-default.btn-lg {
   position: absolute;
   margin-top: 150px;
   margin-left: 10px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  width: 198px;
 }
 
-h2 {
+h3 {
   color: #6bc5e1;
 }
 
@@ -200,5 +203,15 @@ h2 {
   color: #ffffff;
   position: inherit;
   font-size: 1.3em;
-  //margin-top: 20px;
+}
+
+.image-title {
+  text-align: center;
+}
+
+label, h2, em {
+  color: #ffffff;
+}
+.actions {
+  margin-top: 5px;
 }

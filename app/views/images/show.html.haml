@@ -1,8 +1,10 @@
-%h1= @image.title
-%table
-  %tbody
-    %tr
-      %td= image_tag @image.picture.url
-      %td= link_to 'Back', category_path(@image.category_id)
-      %td= link_to 'Edit', edit_image_path
-      %td= link_to 'Delete', @image, method: :delete, data: { confirm: 'You sure?' }
+.image-title
+  %h1= @image.title
+= link_to category_path(@image.category_id) do
+  %span.glyphicon.glyphicon-chevron-left
+= link_to edit_image_path do
+  %span.glyphicon.glyphicon-edit
+= link_to @image, method: :delete, data: { confirm: 'You sure?' } do
+  %span.glyphicon.glyphicon-trash
+.full-image
+  %center= image_tag @image.picture.url

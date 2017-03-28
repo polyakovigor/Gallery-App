@@ -3,16 +3,13 @@ LikeApp::Application.routes.draw do
   devise_for :users
 
   # resources :likes
+  resources :users
   resources :images, except: [:index, :create ]
   resources :categories, only: [:index, :show, :create, :destroy] do
     resources :images, only: [:create]
   end
 
   root 'categories#index'
-
-  # devise_scope :users do
-  #   get '/users/sign_out' => 'devise/sessions#destroy'
-  # end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

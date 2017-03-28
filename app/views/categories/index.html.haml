@@ -6,7 +6,7 @@
         = link_to category, method: :delete, data: { confirm: 'You sure?' } do
           %span.glyphicon.glyphicon-trash
       .overlay
-        %h2
+        %h3
           %strong= category.name
       - if category.images.any?
         = link_to image_tag(category.images.sample.picture.url(:thumb), alt: category.name), category
