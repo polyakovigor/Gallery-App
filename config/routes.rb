@@ -2,9 +2,7 @@ LikeApp::Application.routes.draw do
 
   devise_for :users
 
-  # resources :likes
-  resources :users
-  resources :images, except: [:index, :create ]
+  resources :images, except: [:index, :create]
   resources :categories, only: [:index, :show, :create, :destroy] do
     resources :images, only: [:create]
   end

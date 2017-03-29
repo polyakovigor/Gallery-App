@@ -14,7 +14,6 @@
             %span.glyphicon.glyphicon-trash
         = link_to (image_tag image.picture.url(:thumb)), image_path(image)
 
-
 %input#category{ name: 'category[id][]', value: @category.id, type: 'hidden' }
 %input{ name: 'category_id[]', value: @category.id, type: 'hidden' }
 %input{ multiple: 'multiple', id: 'image_picture', type: 'file' }
