@@ -178,8 +178,6 @@ h3 {
 }
 
 .delete-icon {
-  display: table-column-group;
-  z-index: 3;
   position: absolute;
   margin-top: 15px;
   margin-left: 165px;
@@ -209,7 +207,7 @@ h3 {
   text-align: center;
 }
 
-label, h2, em {
+label, h2, h4, em, p {
   color: #ffffff;
 }
 .actions {

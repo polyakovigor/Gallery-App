@@ -11,6 +11,8 @@ class CategoriesController < ApplicationController
 
   def create
     @category = current_user.categories.create(category_params)
+    @category.user_id = current_user.id if current_user
+    @category.save
     if @category.save
       flash[:success] = 'Category created.'
     else

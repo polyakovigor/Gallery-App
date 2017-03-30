@@ -1,9 +1,10 @@
+= javascript_include_tag 'tooltip.js'
 %h1 Categories
 .row
   - @categories.to_a.each do |category|
     .col-lg-2
       .delete-icon
-        = link_to category, method: :delete, data: { confirm: 'You sure?' } do
+        = link_to category, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
           %span.glyphicon.glyphicon-trash
       .overlay
         %h3

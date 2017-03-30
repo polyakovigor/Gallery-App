@@ -1,8 +1,10 @@
 = javascript_include_tag 'images.js'
+= javascript_include_tag 'tooltip.js'
 
 %h1= @category.name.upcase
-= link_to root_path do
-  %span.glyphicon.glyphicon-chevron-left
+.back-icon
+  = link_to root_path, 'data-toggle' => 'tooltip', :title => 'Back' do
+    %span.glyphicon.glyphicon-chevron-left
 %br
 - if @images.present?
   = paginate @images
@@ -10,7 +12,7 @@
     - @images.to_a.each do |image|
       .col-lg-2
         .delete-icon
-          = link_to image, method: :delete, data: { confirm: 'You sure?' } do
+          = link_to image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
             %span.glyphicon.glyphicon-trash
         = link_to (image_tag image.picture.url(:thumb)), image_path(image)
 
