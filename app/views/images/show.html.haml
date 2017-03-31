@@ -1,4 +1,6 @@
 = javascript_include_tag 'tooltip.js'
+= javascript_include_tag 'comment.js'
+
 .image-title
   %h1= @image.title
 .row
@@ -16,14 +18,20 @@
         %span.glyphicon.glyphicon-trash
 .full-image
   %center= image_tag @image.picture.url
-%h3 Comments
-- if @image.comments.present?
-  - @image.comments.to_a.each do |comment|
-    %h4= comment.body
-    = link_to 'Delete', [comment.image, comment], method: :delete, data: { confirm: 'You sure?' }
-%h2 Add a comment:
-=form_for ( [@image, @image.comments.build]) do |f|
-  =f.text_area :body, placeholder: 'Add a comment...', rows: 5, cols: 50
-  %br
-  .button
-  =f.submit 'Send', class: 'btn-default btn-lg'
+%ol.comments
+  %h3 Comments
+  %li
+    - if @image.comments.present?
+      - @image.comments.to_a.each do |comment|
+        .result
+          %h4.content
+            =link_to comment.user.first_name, '#'
+            = comment.body
+          %span.timestamp
+            Commented #{time_ago_in_words(comment.created_at)} ago.
+          = link_to 'Delete', [comment.image, comment], method: :delete, data: { confirm: 'You sure?' }
+  =form_for ( [@image, @image.comments.build]) do |f|
+    =f.text_area :body, placeholder: 'Add a comment...', rows: 5, cols: 50
+    %br
+    .button
+    =f.submit 'Send', class: 'btn-default btn-lg'
