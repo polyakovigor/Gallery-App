@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
     if @category.update(category_image_params)
       flash[:success] = 'Uploaded'
     else
-      # flash[:error] = 'Could not upload file. Please choose it!'
+      flash[:error] = 'Could not upload file. Please choose it!'
     end
     redirect_to category_url(@category.id)
   end
@@ -38,7 +38,7 @@ class ImagesController < ApplicationController
   private
 
   def set_image
-    @image = Image.find(params[:id])
+    @image = Image.where(id: params[:id]).preload([comments: :user]).first
   end
 
   def image_params

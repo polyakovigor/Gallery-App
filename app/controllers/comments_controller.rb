@@ -1,29 +1,36 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_image, only: [:create, :destroy]
 
   def create
-    @image = Image.find(params[:image_id])
-    @comment = @image.comments.create(comments_params)
-    @comment.user_id = current_user.id if current_user
-    @comment.save
-    if @comment.save(comments_params)
-      redirect_to image_path(@image)
+    @comment = current_user.comments.build(comments_params.merge(image_id: @image.id))
+    if @comment.save
+      flash[:success] = 'Comment posted.'
     else
       flash[:error] = @comment.errors.full_messages
     end
+    redirect_to image_path(@image)
   end
 
   def destroy
-    @image = Image.find(params[:image_id])
     @comment = @image.comments.find(params[:id])
-    @comment.destroy
-    flash[:success] = 'Comment deleted.'
+    if @comment.user_id == current_user.id
+      @comment.destroy
+      flash[:success] = 'Comment deleted.'
+    else
+      flash[:error] = 'Something went wrong. Reload page.'
+    end
     redirect_to image_path(@image)
   end
 
   private
 
-  def comments_params
-    params.require(:comment).permit(:user_id, :body, :image_id)
+  def set_image
+    @image = Image.find(params[:image_id])
   end
+
+  def comments_params
+    params.require(:comment).permit(:body)
+  end
+
 end

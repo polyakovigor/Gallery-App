@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :image, counter_cache: true
+  belongs_to :image
 
-  validates_uniqueness_of :likes_count, scope: [ :image_id, :user_id]
+  has_many :users, through: :likes
 end

@@ -214,6 +214,7 @@ label, h2, h4, em, p {
 
 .timestamp {
   color: #808080;
+  font-size: 0.6em;
 }
 
 .comments {
@@ -226,6 +227,8 @@ label, h2, h4, em, p {
 .content {
   color: #ffffff;
   display: block;
+  width: 521px;
+  word-wrap: break-word;
 }
 
 textarea {
