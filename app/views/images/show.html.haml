@@ -1,6 +1,3 @@
-= javascript_include_tag 'tooltip.js'
-= javascript_include_tag 'comments.coffee'
-
 .image-title
   %h1= @image.title
 .row
@@ -21,14 +18,13 @@
 %ol.comments
   %h3 Comments
   %li
-    - if @image.comments.present?
-      - @image.comments.to_a.each do |comment|
-        .result
-          %h4.content
-            =link_to comment.user.first_name, '#'
-            = comment.body
-          %span.timestamp
-            Commented #{time_ago_in_words(comment.created_at)} ago.
-          - if comment.user == current_user
-            = link_to 'Delete', [comment.image, comment], method: :delete, data: { confirm: 'You sure?' }
+    - @image.comments.to_a.each do |comment|
+      .template.result
+        %h4.content
+          =link_to comment.user.first_name, '#'
+          = comment.body
+        %span.timestamp
+          Commented #{time_ago_in_words(comment.created_at)} ago.
+        - if comment.user == current_user
+          = link_to 'Delete', [comment.image, comment], method: :delete, data: { confirm: 'You sure?' }
   = render 'comments/comments_form'

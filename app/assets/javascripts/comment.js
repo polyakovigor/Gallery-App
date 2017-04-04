@@ -1,14 +1,21 @@
-$(function() {
-    // $(".btn").on("click", function(event) {
-    //     event.preventDefault();
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "",
-    //         data: {text: $('textarea#new_comment').val()},
-    //         success: function(result) {
-    //             console.log('suka');
-    //             // Append the result to a table or list, $("list").append(result)
-    //         },
-    //     });
-    // });
+$( document ).ready(function() {
+    $("button.btn.button").on("click", function (event) {
+        // event.preventDefault();
+        $.ajax({
+            method: "POST",
+            dataType: 'json',
+            url: $('#new_comment').attr('action'),
+            data: $('#new_comment').serialize(),
+            success: function (result) {
+                console.log(result['id']);
+                console.log(result['user_id']);
+                console.log(result['image_id']);
+                console.log(result['body']);
+                // var resultTemplate = $('.template.result');
+                // var divOutput = $(resultTemplate).clone().removeClass('template');
+                //
+                // $(divOutput).insertAfter('.template.result');
+            },
+        });
+    });
 });

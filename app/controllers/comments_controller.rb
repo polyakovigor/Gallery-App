@@ -4,12 +4,20 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comments_params.merge(image_id: @image.id))
-    if @comment.save
-      flash[:success] = 'Comment posted.'
-    else
-      flash[:error] = @comment.errors.full_messages
+    respond_to do |format|
+      p '*'*100
+      p params
+      p '*'*100
+      if @comment.save
+        flash[:success] = 'Comment posted.'
+        format.html { render nothing: true }
+        format.json
+      else
+        flash[:error] = @comment.errors.full_messages
+        format.html { render nothing: true }
+        format.json
+      end
     end
-    redirect_to image_path(@image)
   end
 
   def destroy

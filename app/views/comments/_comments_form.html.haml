@@ -1,8 +1,6 @@
-= javascript_include_tag 'comments'
-
 .comment-form
   = form_for [@image, Comment.new], method: :post do |f|
-    =f.text_area :body, placeholder: 'Add a comment...', rows: 5, cols: 50
-    %br
-    .button
-      =f.submit 'Send', class: 'btn'
+    = f.text_area :body, placeholder: 'Add a comment...', rows: 5, cols: 50
+    %p
+      %button.btn.button{ type: 'button' }
+        = 'Send'
