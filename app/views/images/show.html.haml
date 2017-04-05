@@ -30,10 +30,9 @@
 = render 'comments/new_comment_form'
 
 
-%template.result
-  %li
-    %h4.content
-      %a.user{href: '#'}
-      .body
-    %span.timestamp
-      = link_to 'Delete', '#' , method: :delete, data: { confirm: 'You sure?' }, class: 'destroy'
+%li.template.result
+  %h4.content
+    %a.user{href: '#'}
+    .body
+  %span.timestamp
+  = link_to 'Delete', '#' , method: :delete, data: { confirm: 'You sure?' }, class: 'destroy'

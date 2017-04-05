@@ -13,8 +13,8 @@ $( document ).ready(function() {
                 console.log(result['user_first_name']);
                 console.log(result['time_ago']);
 
-                var resultTemplate = $('template.result');
-                var output_li = $(resultTemplate).find('li').clone();
+                var resultTemplate = $('.template.result');
+                var output_li = $(resultTemplate).clone().removeClass('template');
                 $(output_li).find('.content a.user').html(result['user_first_name']);
                 $(output_li).find('.content .body').html(result['body']);
                 $(output_li).find('span.timestamp').text('Commented '+ result['time_ago'] + ' ago.');

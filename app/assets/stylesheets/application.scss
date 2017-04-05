@@ -167,6 +167,7 @@ input.btn-default.btn-lg {
 
 h3 {
   color: #6bc5e1;
+  padding-left: 40px;
 }
 
 .delete-icon {
@@ -231,3 +232,6 @@ textarea {
     resize: none;
 }
 
+form#new_comment {
+  padding-left: 40px;
+}
