@@ -15,16 +15,25 @@
         %span.glyphicon.glyphicon-trash
 .full-image
   %center= image_tag @image.picture.url
+%h3 Comments
 %ol.comments
-  %h3 Comments
+  - @image.comments.to_a.each do |comment|
+    %li
+      %h4.content
+        =link_to comment.user.first_name, '#'
+        = comment.body
+      %span.timestamp
+        Commented #{time_ago_in_words(comment.created_at)} ago.
+      - if comment.user == current_user
+        = link_to 'Delete', [comment.image, comment], method: :delete, data: { confirm: 'You sure?' }
+
+= render 'comments/new_comment_form'
+
+
+%template.result
   %li
-    - @image.comments.to_a.each do |comment|
-      .template.result
-        %h4.content
-          =link_to comment.user.first_name, '#'
-          = comment.body
-        %span.timestamp
-          Commented #{time_ago_in_words(comment.created_at)} ago.
-        - if comment.user == current_user
-          = link_to 'Delete', [comment.image, comment], method: :delete, data: { confirm: 'You sure?' }
-  = render 'comments/new_comment_form'
+    %h4.content
+      %a.user{href: '#'}
+      .body
+    %span.timestamp
+      = link_to 'Delete', '#' , method: :delete, data: { confirm: 'You sure?' }, class: 'destroy'
