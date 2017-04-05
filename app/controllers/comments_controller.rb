@@ -5,9 +5,6 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comments_params.merge(image_id: @image.id))
     respond_to do |format|
-      p '*'*100
-      p params
-      p '*'*100
       if @comment.save
         flash[:success] = 'Comment posted.'
         format.html { render nothing: true }
@@ -22,13 +19,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @image.comments.find(params[:id])
-    if @comment.user_id == current_user.id
-      @comment.destroy
-      flash[:success] = 'Comment deleted.'
-    else
-      flash[:error] = 'Something went wrong. Reload page.'
+      if @comment.destroy
+        respond_to do |format|
+          flash[:success] = 'Comment deleted.'
+          format.html { redirect_to image_path(@image) }
+          format.json
+      end
     end
-    redirect_to image_path(@image)
   end
 
   private

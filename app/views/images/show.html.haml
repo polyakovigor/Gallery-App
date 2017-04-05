@@ -25,7 +25,7 @@
       %span.timestamp
         Commented #{time_ago_in_words(comment.created_at)} ago.
       - if comment.user == current_user
-        = link_to 'Delete', [comment.image, comment], method: :delete, data: { confirm: 'You sure?' }
+        = link_to 'Delete', [comment.image, comment], method: :delete, class: 'delete', data: { confirm: 'You sure?' }
 
 = render 'comments/new_comment_form'
 
