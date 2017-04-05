@@ -1,6 +1,5 @@
 $( document ).ready(function() {
     $("button.btn.button").on("click", function (event) {
-        // event.preventDefault();
         $.ajax({
             method: "POST",
             dataType: 'json',
@@ -11,10 +10,11 @@ $( document ).ready(function() {
                 console.log(result['user_id']);
                 console.log(result['image_id']);
                 console.log(result['body']);
-                // var resultTemplate = $('.template.result');
-                // var divOutput = $(resultTemplate).clone().removeClass('template');
-                //
-                // $(divOutput).insertAfter('.template.result');
+                // var dataURL = result;
+                var resultTemplate = $('.template.result');
+                var divOutput = $(resultTemplate).clone().removeClass('template');
+                divOutput.find('li')[0] = dataURL;
+                $(divOutput).insertAfter('.template.result');
             },
         });
     });
