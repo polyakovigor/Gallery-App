@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
         flash[:success] = 'Comment deleted.'
         redirect_to :back
       end
-      format.json { render json: {message: 'Comment deleted.' }, status: :no_content }
+      format.json
     end
   end
 

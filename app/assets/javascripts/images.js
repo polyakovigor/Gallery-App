@@ -36,7 +36,7 @@ $( document ).ready(function() {
             $.ajax({
                 url: '/categories/' + $('#category').val() + '/images',
                 method: 'post',
-                // dataType: 'json',
+                dataType: 'json',
                 processData: false,
                 contentType: false,
                 data: formData,
