@@ -1,7 +1,7 @@
 $( document ).ready(function() {
-    $("button.btn.button").on("click", function (event) {
+    $('button.btn.button').on('click', function (event) {
         $.ajax({
-            method: "POST",
+            method: 'POST',
             dataType: 'json',
             url: $('#new_comment').attr('action'),
             data: $('#new_comment').serialize(),

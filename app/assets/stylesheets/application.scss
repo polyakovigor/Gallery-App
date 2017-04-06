@@ -216,9 +216,10 @@ label, h2, h4, em, p {
 
 .comments {
   list-style: none;
+  border-top: 1px solid #e8e8e8;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+
   }
 }
 .content {

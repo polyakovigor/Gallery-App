@@ -1,26 +1,18 @@
 $( document ).ready(function() {
-    var bindDeleteComment;
-
-    bindDeleteComment = function(e) {
-        var link, url;
-        e.preventDefault();
-        url = $(this).attr('href');
-        link = $(this);
+    $('a.delete').click(function (e) {
+        e.preventDefault()
         if (confirm('Are you sure?')) {
-            return $.ajax({
-                method: "POST",
-                url: url,
-                data: {
-                    _method: 'DELETE'
-                },
+            $.ajax({
+                method: 'POST',
+                url: $(this).attr('href'),
+                data: { _method: 'DELETE' },
                 dataType: 'JSON',
-                success: function() {
-                    return link.parents('li.list-unstyled.user-comment').remove();
+                success: function () {
+                    $(this).parents('li').remove();
                 },
-                error: function(data) {
-                    return alertMessage(data, form);
-                }
             });
         }
-    };
+    });
 });
+
+
