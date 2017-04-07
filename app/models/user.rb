@@ -1,12 +1,13 @@
 class User < ApplicationRecord
-  has_many :categories
-  has_many :images, through: :categories
-  has_many :likes
-  has_many :comments
-
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable
+
+  has_many :categories
+  has_many :images, through: :categories
+  has_many :likes
+  has_many :comments
+
 end

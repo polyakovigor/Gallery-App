@@ -22,7 +22,7 @@ $( document ).ready(function() {
         return false
     });
 
-    $('button.btn.button').on('click', function () {
+    $('button.btn.button').on("click", function () {
         $.ajax({
             method: 'POST',
             dataType: 'json',

@@ -35,6 +35,7 @@ class ImagesController < ApplicationController
     redirect_to category_url(category_id)
   end
 
+
   private
 
   def set_image
@@ -48,4 +49,5 @@ class ImagesController < ApplicationController
   def category_image_params
     params.require(:category).permit(:id, images_attributes: [:picture, :title])
   end
+
 end

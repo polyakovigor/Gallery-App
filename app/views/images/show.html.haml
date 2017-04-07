@@ -13,6 +13,14 @@
     .delete_icon
       = link_to @image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
         %span.glyphicon.glyphicon-trash
+  .col-sm-1
+    .likes
+      -#- if current_user.like?(@image)
+      -#  = link_to 'Dislike', image_like_path(@image.id), method: :delete
+      -#- else
+      -#  = link_to 'Like', image_like_path(@image.id), method: :post
+      -#= @image.likes.count
+
 .full-image
   %center= image_tag @image.picture.url
 %h3 Comments
@@ -29,7 +37,8 @@
           - if comment.user == current_user
             = link_to 'Delete', image_comment_path(comment.image, comment), method: :delete, class: 'delete', data: { confirm: 'You sure?' }
 .row
-  = render 'comments/new_comment_form'
+  .comment-form
+    = render 'comments/new_comment_form'
 
 
 %li.template.result

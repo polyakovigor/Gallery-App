@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html do
         flash[:success] = 'Comment deleted.'
-        redirect_to :back
+        redirect_to image_path(@image)
       end
       format.json
     end
