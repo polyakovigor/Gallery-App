@@ -236,3 +236,8 @@ textarea {
 form#new_comment {
   padding-left: 40px;
 }
+
+#messages {
+  max-height: 450px;
+  overflow-y: auto;
+}

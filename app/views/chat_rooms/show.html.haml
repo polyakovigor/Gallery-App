@@ -1,0 +1,16 @@
+.page-header
+  %h1
+    = @chat_room.title
+.row
+  .col-sm-12
+    #messages{ 'data-chat-room-id': @chat_room.id }
+      = render @chat_room.messages
+.row
+  .col-sm-8
+    = form_for Message.new, url: '#', html: { class: 'form' } do |f|
+      .form-group
+        = f.label :body
+        = f.text_area :body, class: 'form-control', rows: 5
+        %small.text-muted From 2 to 1000 characters
+      .form-group
+        = f.submit 'Post message', class: 'btn btn-primary btn-lg'

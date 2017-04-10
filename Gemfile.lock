@@ -130,6 +130,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.20.0)
     public_suffix (2.0.5)
+    puma (3.8.2)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -248,8 +249,10 @@ DEPENDENCIES
   mini_magick
   omniauth
   pg
+  puma
   rails (= 5.0.0)
   rails-controller-testing
+  redis
   resque
   rspec-rails
   sass-rails

@@ -7,9 +7,19 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jbuilder'
+gem 'puma'
+gem 'pg'
+gem 'kaminari'
+gem 'devise'
+gem 'bootstrap-sass'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'haml'
+gem 'resque'
+gem 'omniauth'
+gem 'redis'
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
@@ -25,25 +35,4 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'pg'
-gem 'kaminari'
-gem 'devise'
-gem 'bootstrap-sass'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'haml'
-gem 'resque'
-gem 'omniauth'
 gem 'letter_opener', :group => :development
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
