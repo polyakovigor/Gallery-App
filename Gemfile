@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
-gem 'rails', '5.0.0'
+gem 'rails', '~> 5.0.2'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -26,6 +26,7 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'listen'
 end
 gem 'faker', '~> 1.4.3'
 

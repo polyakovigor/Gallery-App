@@ -54,7 +54,7 @@ LikeApp::Application.configure do
   config.action_mailer.default_url_options = { host: '192.168.0.57:3000' }
   config.action_mailer.smtp_settings = {
       user_name:      'igor26.polyakov@gmail.com',
-      password:       'mabruk0926',
+      password:       'password',
       domain:         '192.168.0.57',
       address:       'smtp.gmail.com',
       port:          '587',
