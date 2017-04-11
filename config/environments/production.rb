@@ -79,7 +79,7 @@ LikeApp::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: '192.168.0.57', port: '587' }
+  config.action_mailer.default_url_options = { host: '192.168.0.57:3000' }
   config.action_mailer.smtp_settings = {
       user_name:      'igor26.polyakov@gmail.com',
       password:       'mabruk0926',
