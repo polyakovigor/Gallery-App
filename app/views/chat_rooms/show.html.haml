@@ -1,6 +1,6 @@
 .page-header
   %h1
-    = @chat_room.title
+    = @chat_room.title if @chat_room.present?
 .row
   .col-sm-12
     #messages{ 'data-chat-room-id': @chat_room.id }
@@ -8,6 +8,7 @@
 .row
   .col-sm-8
     = form_for Message.new, url: '#', html: { class: 'form' } do |f|
+      = hidden_field_tag 'chat_room_id', @chat_room.id
       .form-group
         = f.label :body
         = f.text_area :body, class: 'form-control', rows: 5

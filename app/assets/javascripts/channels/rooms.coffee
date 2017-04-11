@@ -9,8 +9,7 @@ $ ->
     App.global_chat = App.cable.subscriptions.create {
         channel: "ChatRoomsChannel"
         chat_room_id: messages.data('chat-room-id')
-      }
-    ,
+      },
       connected: ->
 # Called when the subscription is ready for use on the server
 
@@ -27,9 +26,10 @@ $ ->
 
 
     $('#new_message').submit (e) ->
-      e.preventDefault()
+      $this = $(this)
       textarea = $(this).find('#message_body')
       if textarea.val().trim().length > 1
         App.global_chat.send_message textarea.val(), messages.data('chat-room-id')
         textarea.val('')
+      e.preventDefault()
       return false
