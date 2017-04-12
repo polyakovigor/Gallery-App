@@ -1,10 +1,9 @@
-%h1= @category.name.upcase
+.page-header
+  %h1= @category.name.upcase
 .back-icon
   = link_to root_path, 'data-toggle' => 'tooltip', :title => 'Back' do
     %span.glyphicon.glyphicon-chevron-left
-%br
-- if @images.present?
-  = paginate @images
+  = paginate @images if @images.present?
   .row
     - @images.to_a.each do |image|
       .col-lg-2

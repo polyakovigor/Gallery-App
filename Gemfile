@@ -18,6 +18,7 @@ gem 'haml'
 gem 'resque'
 gem 'omniauth'
 gem 'redis'
+gem 'therubyracer'
 
 group :doc do
   gem 'sdoc', require: false
