@@ -237,7 +237,14 @@ form#new_comment {
   padding-left: 40px;
 }
 
+/* chat */
+
 #messages {
   max-height: 450px;
-  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.text-muted {
+  color: #808080;
+  font-size: 0.6em;
 }
