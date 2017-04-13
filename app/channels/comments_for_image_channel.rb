@@ -1,15 +1,12 @@
 class CommentsForImageChannel < ApplicationCable::Channel
-
-  def follow(params)
-    stop_all_streams
+  def subscribed
     stream_from "comments_for_image_#{ params['image_id'] }_channel"
   end
 
-  def unfollow
-    stop_all_streams
+  def unsubscribed
   end
 
-  def new_comment(data)
-    current_user.comments.create!(body: data['new_comment'], image_id: data['image_id'])
+  def add_comment(data)
+    current_user.comments.create!(body: data['comment'], image_id: data['image_id'])
   end
 end

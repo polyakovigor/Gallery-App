@@ -3,7 +3,7 @@ LikeApp::Application.routes.draw do
   devise_for :users
 
   resources :images, except: [:index, :create] do
-    resources :comments, only: [:create, :destroy]
+    resources :comments
     resources :likes, only: [:create, :destroy]
   end
   resources :categories, only: [:index, :show, :create, :destroy] do

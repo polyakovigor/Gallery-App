@@ -1,8 +1,10 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [ :edit, :update, :destroy]
 
   def show
+    @image = Image.includes(:comments).find_by(id: params[:id])
+    @comment = Comment.new
   end
 
   def edit

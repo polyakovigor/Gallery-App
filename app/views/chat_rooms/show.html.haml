@@ -1,6 +1,6 @@
 .page-header
   %h1
-    = @chat_room.title if @chat_room.present?
+    = @chat_room.title
 .row
   .col-sm-12
     #messages{ 'data-chat-room-id': @chat_room.id }

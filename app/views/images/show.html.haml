@@ -1,6 +1,5 @@
 .page-header
-  .image-title
-    %h1= @image.title
+  %h1= @image.title
 .row
   .col-sm-1
     .back-icon
@@ -25,26 +24,10 @@
 .full-image
   %center= image_tag @image.picture.url
 %h3 Comments
-%ol.comments{ 'data-image-id': @image.id }
-  - @image.comments.to_a.each do |comment|
-    .row
-      .col-lg-4
-        %li
-          %h4.content
-            = link_to comment.user.first_name, '#'
-            = comment.body
-          %span.timestamp
-            Commented #{ time_ago_in_words(comment.created_at) } ago.
-          - if comment.user == current_user
-            = link_to 'Delete', image_comment_path(comment.image, comment), method: :delete, class: 'delete', data: { confirm: 'You sure?' }
 .row
-  .comment-form
+  .col-sm-12
+    #comments{ 'data-image-id': @image.id }
+      = render @image.comments
+.row
+  .col-sm-8
     = render 'comments/new_comment_form'
-
-
-%li.template.result
-  %h4.content
-    %a.user{href: '#'}
-    .body
-  %span.timestamp
-  = link_to 'Delete', '#' , method: :delete, data: { confirm: 'You sure?' }, class: 'delete'
