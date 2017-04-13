@@ -14,9 +14,9 @@
     .delete_icon
       = link_to @image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
         %span.glyphicon.glyphicon-trash
-  -#.col-sm-1
-  -#  #likes{ 'data-image-id': @image.id }
-  -#    = render @image.likes
+  .col-sm-1
+    .like
+      = link_to @like, '#' 
 .full-image
   %center
     = image_tag @image.picture.url
