@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170410141052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["image_id"], name: "index_likes_on_image_id", using: :btree
-    t.index ["user_id", "image_id"], name: "index_likes_on_user_id_and_image_id", unique: true, using: :btree
+    t.index ["user_id", "image_id"], name: "index_likes_on_user_id_and_image_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 20170410141052) do
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "second_name"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

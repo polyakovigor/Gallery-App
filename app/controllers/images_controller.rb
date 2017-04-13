@@ -3,8 +3,9 @@ class ImagesController < ApplicationController
   before_action :set_image, only: [ :edit, :update, :destroy]
 
   def show
-    @image = Image.includes(:comments).find_by(id: params[:id])
+    @image = Image.includes(:comments, :likes).find_by(id: params[:id])
     @comment = Comment.new
+    @like = Like.new
   end
 
   def edit
@@ -41,7 +42,7 @@ class ImagesController < ApplicationController
   private
 
   def set_image
-    @image = Image.where(id: params[:id]).preload([comments: :user]).first
+    @image = Image.where(id: params[:id])
   end
 
   def image_params

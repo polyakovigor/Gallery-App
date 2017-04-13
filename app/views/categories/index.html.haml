@@ -13,6 +13,7 @@
         = link_to image_tag(category.images.sample.picture.url(:thumb), alt: category.name), category
       - else
         = link_to image_tag('empty-folder.png', alt: category.name), category
+
 %button.btn-lg{'data-target' => '#myModal', 'data-toggle' => 'modal', type: 'button'} Create new category
 #myModal.modal.fade{role: 'dialog'}
   .modal-dialog.modal-sm
