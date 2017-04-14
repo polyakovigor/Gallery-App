@@ -12,4 +12,7 @@ class User < ApplicationRecord
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
 
+  def full_name
+    "#{first_name} #{second_name}"
+  end
 end

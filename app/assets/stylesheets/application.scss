@@ -73,6 +73,9 @@
 }
 
 /*universal*/
+.page.current {
+  color: #ffffff;
+}
 
 body, html {
   min-height: 100%;
@@ -86,7 +89,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1 {
+h1, i {
   color: #ffffff;
 }
 
@@ -163,11 +166,7 @@ input.btn-default.btn-lg {
   margin-bottom: 10px;
   word-wrap: break-word;
   width: 198px;
-}
-
-h3 {
-  color: #6bc5e1;
-  padding-left: 40px;
+  text-align: left;
 }
 
 .delete-icon {
@@ -200,36 +199,15 @@ h3 {
   text-align: center;
 }
 
-label, h2, h4, em, p {
+label, h2, h3, h4, em, p {
   color: #ffffff;
 }
 .actions {
   margin-top: 5px;
 }
 
-/* comments */
-
-//.timestamp {
-//  color: #808080;
-//  font-size: 0.6em;
-//}
-//
-//.comments {
-//  list-style: none;
-//  border-top: 1px solid #e8e8e8;
-//  li {
-//    padding: 10px 0;
-//  }
-//}
-//.content {
-//  color: #ffffff;
-//  display: block;
-//  width: 521px;
-//  word-wrap: break-word;
-//}
-
-textarea {
-    resize: none;
+.likes_count {
+  text-color: #ffffff;
 }
 
 /* chat */
