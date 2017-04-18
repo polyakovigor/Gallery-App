@@ -17,9 +17,9 @@ $ ->
     like: (image_id, user_id) ->
       @perform 'like', image_id: image_id, user_id: user_id
 
-    dislike: (image_id, user_id) ->
-      @perform 'dislike', image_id: image_id, user_id: user_id
+#    dislike: (image_id, user_id) ->
+#      @perform 'dislike', image_id: image_id, user_id: user_id
 
     $('#like').click (e) ->
       e.preventDefault()
-      
+      App.likes.like likes.data('image-id')

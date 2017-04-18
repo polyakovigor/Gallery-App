@@ -15,13 +15,11 @@
       = link_to @image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
         %span.glyphicon.glyphicon-trash
   .col-sm-1
-    .glyphicon.glyphicon-heart-empty
-
-  .col-sm-1
-    .likes-count
-      = @image.likes.count
-  .col-sm-1
     #like{ 'data-image-id': @image.id }
+      = link_to '#', 'data-toggle' => 'tooltip', :title => 'Like' do
+        %span.glyphicon.glyphicon-heart
+  .col-sm-1
+    = @image.likes.size
 .full-image
   %center
     = image_tag @image.picture.url
