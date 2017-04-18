@@ -89,16 +89,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, i {
-  color: #ffffff;
-}
-
 a {
   color: #6bc5e1;
   padding-left: 5px;
   padding-top: 5px;
   &:hover {
     color: #ffffff;
+    text-decoration: none;
+  }
+  &:visited, &:active, &:focus {
     text-decoration: none;
   }
 }
@@ -146,9 +145,6 @@ button {
 
 .close {
   color:  #e60000;
-  &:hover {
-    //color: #ffffff;
-  }
 }
 
 input.btn-default.btn-lg {
@@ -182,6 +178,11 @@ input.btn-default.btn-lg {
   }
 }
 
+.category-name {
+  color: #6bc5e1;
+  font-weight: bold;
+}
+
 .footer {
   text-align: center;
   color: #7C7C7C;
@@ -199,7 +200,7 @@ input.btn-default.btn-lg {
   text-align: center;
 }
 
-label, h2, h3, h4, em, p {
+label, h1, h2, h4, em, p, i {
   color: #ffffff;
 }
 .actions {
@@ -207,7 +208,8 @@ label, h2, h3, h4, em, p {
 }
 
 .likes_count {
-  text-color: #ffffff;
+  display: inline-block;
+  color: #ffffff;
 }
 
 /* chat */

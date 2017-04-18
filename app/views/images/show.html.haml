@@ -14,16 +14,16 @@
     .delete_icon
       = link_to @image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
         %span.glyphicon.glyphicon-trash
-  .col-sm-1
+  .col-sm-2
     #like{ 'data-image-id': @image.id }
       = link_to '#', 'data-toggle' => 'tooltip', :title => 'Like' do
-        %span.glyphicon.glyphicon-heart
-  .col-sm-1
-    = @image.likes.size
+        %span.glyphicon.glyphicon-heart-empty
+      .likes_count
+        = @image.likes.size
 .full-image
   %center
     = image_tag @image.picture.url
-%h3
+%h2
   Comments
 .row
   .col-sm-12

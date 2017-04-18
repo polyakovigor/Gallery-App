@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('small').click(function(){
-        $(this).hide();
+    $('.copyright').click(function(){
+        $(this).fadeOut('slow');
     });
 });
