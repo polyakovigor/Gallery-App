@@ -3,7 +3,8 @@
 .back-icon
   = link_to root_path, 'data-toggle' => 'tooltip', :title => 'Back' do
     %span.glyphicon.glyphicon-chevron-left
-  = paginate @images if @images.present?
+  - if @images.present?
+    = paginate @images
   .row
     - @images.to_a.each do |image|
       .col-lg-2

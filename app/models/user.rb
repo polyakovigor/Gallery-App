@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{second_name}"
   end
+
+  def liked?(image)
+    image.likes.where(user_id: id).any?
+  end
 end

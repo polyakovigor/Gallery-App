@@ -1,6 +1,6 @@
 = form_for Comment.new, url: '#', html: { class: 'form' } do |f|
   .form-group
-    = f.label :body
+    = f.label :leave_a_comment
     = f.text_area :body, placeholder: 'Add a comment...', class: 'form-control', rows: 5
     %small.text-muted From 2 to 140 characters
   .form-group

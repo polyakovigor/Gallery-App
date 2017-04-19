@@ -15,11 +15,12 @@ $ ->
     like: (image_id) ->
       @perform 'like', image_id: image_id
 
-#    dislike: (image_id, user_id) ->
-#      @perform 'dislike', image_id: image_id, user_id: user_id
+    unlike: (image_id, user_id) ->
+      @perform 'unlike', image_id: image_id, user_id: user_id
 
     $('#like').click (e) ->
       e.preventDefault()
+      $(this).find('span').toggleClass('glyphicon-heart-empty').toggleClass('glyphicon-heart')
       App.likes.like likes.data('image-id')
 
   updateLikeCount = (count) =>

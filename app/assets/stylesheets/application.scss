@@ -145,6 +145,9 @@ button {
 
 .close {
   color:  #e60000;
+  &:hover {
+    color:  #e60000;
+  }
 }
 
 input.btn-default.btn-lg {

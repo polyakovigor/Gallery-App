@@ -16,8 +16,12 @@
         %span.glyphicon.glyphicon-trash
   .col-sm-2
     #like{ 'data-image-id': @image.id }
-      = link_to '#', 'data-toggle' => 'tooltip', :title => 'Like' do
-        %span.glyphicon.glyphicon-heart-empty
+      - if current_user.liked?(@image)
+        = link_to '#' do
+          %span.glyphicon.glyphicon-heart
+      - else
+        = link_to '#' do
+          %span.glyphicon.glyphicon-heart-empty
       .likes_count
         = @image.likes.size
 .full-image
@@ -26,7 +30,7 @@
 %h2
   Comments
 .row
-  .col-sm-12
+  .col-sm-8
     #comments{ 'data-image-id': @image.id }
       = render @image.comments
 .row
