@@ -23,5 +23,8 @@ $ ->
       $(this).find('span').toggleClass('glyphicon-heart-empty').toggleClass('glyphicon-heart')
       App.likes.like likes.data('image-id')
 
+      $(this).find('span').toggleClass('glyphicon-heart').toggleClass('glyphicon-heart-empty')
+      App.likes.unlike likes.data('image-id')
+
   updateLikeCount = (count) =>
     likes.find('.likes_count').html(count)
