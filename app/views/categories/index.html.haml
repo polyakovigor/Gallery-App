@@ -15,7 +15,7 @@
       - else
         = link_to (image_tag('empty-folder.png', alt: category.name)), category
 
-%button.btn-lg{ 'data-target' => '#myModal', 'data-toggle' => 'modal', type: 'button' } Create new category
+%button.btn.btn-primary.btn-lg{ 'data-target' => '#myModal', 'data-toggle' => 'modal', type: 'button' } Create new category
 #myModal.modal.fade{ role: 'dialog' }
   .modal-dialog.modal-sm
     .modal-content
@@ -24,3 +24,5 @@
         %h3.modal-title New category
       .modal-body
         = render 'new_category_form'
+        .modal-footer
+          %button.btn.btn-default{ 'data-dismiss' => 'modal', type: 'button' } Close

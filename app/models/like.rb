@@ -6,5 +6,5 @@ class Like < ApplicationRecord
 
   after_create_commit { LikeBroadcastJob.perform_later(self) }
 
-  after_destroy_commit {  LikeBroadcastJob.perform_later(self) }
+  # after_destroy_commit { LikeBroadcastJob.perform_later(self.image) }
 end

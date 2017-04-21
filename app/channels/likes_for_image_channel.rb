@@ -10,7 +10,7 @@ class LikesForImageChannel < ApplicationCable::Channel
     Like.create(image_id: data['image_id'], user_id: current_user.id)
   end
 
-  def unlike(data)
-    Like.where(image_id: data['image_id'], user_id: current_user.id).destroy_all
-  end
+  # def unlike(data)
+  #   Like.where(image_id: data['image_id'], user_id: current_user.id).destroy_all
+  # end
 end

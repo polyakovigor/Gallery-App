@@ -20,11 +20,11 @@ $ ->
 
     $('#like').click (e) ->
       e.preventDefault()
-      if $(this).find('span').hasClass('glyphicon-heart-empty')
-        $(this).find('span').toggleClass('glyphicon-heart')
-        App.likes.like likes.data('image-id')
-      else
-      App.likes.unlike likes.data('image-id')
+      $(this).find('span').removeClass('glyphicon-heart-empty').addClass('glyphicon-heart')
+      App.likes.like likes.data('image-id')
+
+#      $(this).find('span').toggleClass('glyphicon-heart-empty').toggleClass('glyphicon-heart')
+#      App.likes.unlike likes.data('image-id')
 
   updateLikeCount = (count) =>
     likes.find('.likes_count').html(count)
