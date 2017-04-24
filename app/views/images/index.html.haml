@@ -1,0 +1,16 @@
+.page-header
+  %h1 Images
+.back-icon
+  = link_to root_path, 'data-toggle' => 'tooltip', :title => 'Back' do
+    %span.glyphicon.glyphicon-chevron-left
+- if @images.present?
+  = paginate @images
+.row
+  - @images.to_a.each do |image|
+    .col-lg-2
+      .delete-icon
+        = link_to image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
+          %span.glyphicon.glyphicon-trash
+      = link_to (image_tag image.picture.url(:thumb), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => image.title), image_path(image)
+
+
