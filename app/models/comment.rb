@@ -1,5 +1,7 @@
 class Comment < ApplicationRecord
 
+  paginates_per 15
+
   default_scope { order('created_at asc') }
 
   belongs_to :user

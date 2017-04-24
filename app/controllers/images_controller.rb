@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
   before_action :set_image, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @images = Image.all.page(params[:page])
+    @images = Image.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page])
   end
 
   def show
@@ -36,10 +36,9 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    category_id = @image.category_id
     @image.destroy
     flash[:success] = 'Image deleted.'
-    redirect_to category_url(category_id)
+    redirect_to category_url(@category.id)
   end
 
 

@@ -6,6 +6,7 @@ LikeApp::Application.routes.draw do
     resources :comments
     resources :likes
   end
+  resources :comments, only: [:index]
   resources :categories, only: [:index, :show, :create, :destroy] do
     resources :images, only: [:create]
   end
