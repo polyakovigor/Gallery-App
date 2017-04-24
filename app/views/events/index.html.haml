@@ -1,0 +1,15 @@
+.page-header
+  %h1 Events
+%ul.nav.navbar-nav
+  %li.navbar-text
+    -#= email
+  %li
+    = link_to 'Navigation', '#'
+  %li
+    = link_to 'User sign in', action: :user_sign_in, controller: 'events'
+  %li
+    = link_to 'User sign out', '#'
+  %li
+    = link_to 'Likes', '#'
+  %li
+    = link_to 'Comments', '#'

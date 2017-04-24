@@ -55,6 +55,13 @@
   color: #ffffff;
 }
 
+a.navbar.nav {
+  background-color: black;
+  &:hover, &:focus, &:active, &:visited {
+    background-color: black;
+  }
+}
+
 body, html {
   min-height: 100%;
 }
@@ -71,11 +78,7 @@ a {
   color: #6bc5e1;
   padding-left: 5px;
   padding-top: 5px;
-  &:hover {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  &:visited, &:active, &:focus {
+  &:hover, &:visited, &:active, &:focus {
     text-decoration: none;
   }
 }
