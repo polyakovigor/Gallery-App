@@ -11,7 +11,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :second_name ])
   end
 
-  def current_user
-    super
-  end
 end

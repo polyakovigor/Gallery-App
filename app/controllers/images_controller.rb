@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [ :index ]
   before_action :set_image, only: [ :show, :edit, :update, :destroy]
 
   def index
@@ -8,8 +8,6 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.includes(:likes, :comments).find_by(id: params[:id])
-    @like = Like.new
-    @comment = Comment.new
   end
 
   def edit

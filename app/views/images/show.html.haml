@@ -15,7 +15,7 @@
       = link_to @image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
         %span.glyphicon.glyphicon-trash
   .col-sm-2
-    #like{ 'data-image-id': @image.id }
+    #like_or_unlike
       - if current_user.liked?(@image)
         = link_to '#' do
           %span.glyphicon.glyphicon-heart
