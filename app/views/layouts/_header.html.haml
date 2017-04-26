@@ -1,10 +1,18 @@
 %nav.navbar.navbar-inverse
   .container-fluid
-    .navbar-header
-      %button.navbar-toggle{ 'data-target' => '#myNavbar', 'data-toggle' => 'collapse', :type => 'button' }
-      = link_to 'Like App', root_path, class: 'navbar-brand'
     #myNavbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
+        %li
+          = link_to 'Categories', categories_path
+        %li
+          = link_to 'Images', images_path
+        %li
+          = link_to 'Comments', comments_path
+        %li
+          = link_to 'Events', events_path
+      %ul.nav.navbar-nav.navbar-right
+        %li.navbar-text
+          = current_user.full_name
         %li.dropdown
           %a.dropdown-toggle{ 'data-toggle' => 'dropdown', :href => '#' }
             Chat rooms
@@ -14,17 +22,6 @@
               = link_to 'All chat rooms', chat_rooms_path
             %li
               = link_to 'New chat room', new_chat_room_path
-        %li
-          = link_to 'Events', events_path
-        %li
-          = link_to 'Categories', categories_path
-        %li
-          = link_to 'Images', images_path
-        %li
-          = link_to 'Comments', comments_path
-      %ul.nav.navbar-nav.navbar-right
-        %li.navbar-text
-          = current_user.full_name
         %li.dropdown
           %a.dropdown-toggle{ 'data-toggle' => 'dropdown', :href => '#' }
             Account
