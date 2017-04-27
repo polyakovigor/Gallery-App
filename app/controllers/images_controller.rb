@@ -15,12 +15,13 @@ class ImagesController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    if @category.update(category_image_params)
+    @image = @category.images.build(image_params)
+    if @image.save
       flash[:success] = 'Uploaded'
     else
       flash[:error] = 'Could not upload file. Please choose it!'
     end
-    redirect_to category_url(@category.id)
+    redirect_to category_path(@category.id)
   end
 
   def update
@@ -36,7 +37,7 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     flash[:success] = 'Image deleted.'
-    redirect_to category_url(@category.id)
+    redirect_to category_path(@category.id)
   end
 
 
@@ -51,7 +52,7 @@ class ImagesController < ApplicationController
   end
 
   def category_image_params
-    params.require(:category).permit(:id, images_attributes: [:picture, :title])
+    params.require(:category).permit(:category_id, images_attributes: [:picture, :title, {}])
   end
 
 end

@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
     flash[:success] = 'Category deleted.'
-    redirect_to root_url
+    redirect_to root_path
   end
 
   private

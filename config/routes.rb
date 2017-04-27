@@ -16,6 +16,7 @@ LikeApp::Application.routes.draw do
   resources :chat_rooms, only: [:new, :create, :show, :index]
 
   resources :events
+
   match '/navigation',    to: 'events#navigation',    via: 'get'
   match '/user_sign_in',  to: 'events#user_sign_in',  via: 'get'
   match '/user_sign_out', to: 'events#user_sign_out', via: 'get'

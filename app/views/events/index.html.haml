@@ -1,12 +1,16 @@
 .page-header
   %h1 Events
-.row
-  - @users.to_a.each do |user|
-    .col-sm-12
-      .list-group
-        = link_to user.email, '#'
-        = link_to 'Navigation', '#'
-        = link_to 'Sign in', user_sign_in_path(user)
-        = link_to 'Sign out', user_sign_out_path(user)
-        = link_to 'Likes', user_likes_path(user)
-        = link_to 'Comments', user_comments_path(user)
+%table.table
+  %thead
+    %tr
+      %th User
+      %th Actions
+  %tbody
+    - @users.to_a.each do |user|
+      %tr
+        %td= link_to user.email, '#'
+        %td= link_to 'Navigation', '#'
+        -#%td= link_to 'Sign in', user_sign_in_path(user)
+        -#%td= link_to 'Sign out', user_sign_out_path(user)
+        %td= link_to 'Likes', user_likes_path(user)
+        %td= link_to 'Comments', user_comments_path

@@ -24,9 +24,9 @@
           %span.glyphicon.glyphicon-heart-empty
       .likes_count
         = @image.likes.size
-.full-image
-  %center
-    = image_tag @image.picture.url
+%center
+  .full-image
+    = link_to(image_tag(@image.picture.url(:thumb), alt: 'Image'), @image.picture.url) if @image.picture?
 %h2
   Comments
 .row

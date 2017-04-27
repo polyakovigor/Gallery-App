@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, except: [:index]
 
   def index
     @users = User.all
@@ -9,7 +10,6 @@ class EventsController < ApplicationController
   end
 
   def user_sign_in
-    # @user = User.find(params[:id])
   end
 
   def user_sign_out
@@ -21,4 +21,9 @@ class EventsController < ApplicationController
   def user_comments
   end
 
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
