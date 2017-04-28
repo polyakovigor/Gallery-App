@@ -13,10 +13,10 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   def full_name
-    "#{first_name} #{second_name}"
+    "#{ first_name } #{ second_name }"
   end
 
-  def liked?(image)
+  def likes?(image)
     image.likes.where(user_id: id).any?
   end
 end

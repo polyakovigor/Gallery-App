@@ -3,19 +3,18 @@ class LikesController < ApplicationController
   before_action :set_image, only: [ :create, :destroy ]
 
   def create
-    Like.create(:image => @image, :user => current_user)
+    @image.likes.create(user_id: current_user.id)
     respond_to do |format|
-      format.html {  }
-      format.js {  }
+      format.html { redirect_to @image }
+      format.js
     end
   end
 
   def destroy
-    like = Like.find(params[:id])
-    like.destroy
+    @image.likes.where(user_id: current_user.id)
     respond_to do |format|
-      format.html {  }
-      format.js {  }
+      format.html { redirect_to @image }
+      format.js
     end
   end
 

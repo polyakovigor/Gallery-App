@@ -11,8 +11,9 @@
         %li
           = link_to 'Events', events_path
       %ul.nav.navbar-nav.navbar-right
-        %li.navbar-text
-          = current_user.full_name
+        - if user_signed_in?
+          %li.navbar-text
+            = current_user.full_name
         %li.dropdown
           %a.dropdown-toggle{ 'data-toggle' => 'dropdown', :href => '#' }
             Chat rooms

@@ -40,7 +40,6 @@ class ImagesController < ApplicationController
     redirect_to category_path(@category.id)
   end
 
-
   private
 
   def set_image
