@@ -2,4 +2,4 @@
   %h1 Events(User sign in)
 .panel.panel-default
   .panel-body
-    = @user.current_sign_in_at
+    = @user.current_sign_in_at.strftime('%H:%M:%S %d %B %Y')

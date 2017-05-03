@@ -15,13 +15,15 @@ LikeApp::Application.routes.draw do
 
   resources :chat_rooms, only: [:new, :create, :show, :index]
 
-  resources :events
-
-  match '/navigation',    to: 'events#navigation',    via: 'get'
-  match '/user_sign_in',  to: 'events#user_sign_in',  via: 'get'
-  match '/user_sign_out', to: 'events#user_sign_out', via: 'get'
-  match '/user_likes',    to: 'events#user_likes',    via: 'get'
-  match '/user_comments', to: 'events#user_comments', via: 'get'
+  resources :events, only: [:index] do
+    collection do
+      get :navigation
+      get :user_sign_in
+      get :user_sign_out
+      get :user_likes
+      get :user_comments
+    end
+  end
 
   root 'categories#index'
 

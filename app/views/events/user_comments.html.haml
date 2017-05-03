@@ -1,3 +1,12 @@
 .page-header
   %h1 Events(User Comments)
-= @user.comments
+%table.table
+  %thead
+    %tr
+      %th Comment
+      %th Image_id
+  %tbody
+    - @comments.to_a.each do |comment|
+      %tr
+        %td= comment.body
+        %td= comment.image_id

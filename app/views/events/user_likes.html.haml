@@ -1,3 +1,12 @@
 .page-header
   %h1 Events(User Likes)
-= @user.likes
+%table.table
+  %thead
+    %tr
+      %th Like Id
+      %th Image Id
+  %tbody
+    - @likes.to_a.each do |like|
+      %tr
+        %td= like.id
+        %td= like.image_id

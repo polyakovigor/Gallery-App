@@ -6,7 +6,7 @@
   - @images.to_a.each do |image|
     .col-lg-2
       #like_or_unlike
-        - if current_user.liked?(image)
+        - if current_user.likes?(image)
           = link_to '#' do
             %span.glyphicon.glyphicon-heart
         - else
