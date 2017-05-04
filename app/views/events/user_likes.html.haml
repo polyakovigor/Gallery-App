@@ -3,10 +3,10 @@
 %table.table
   %thead
     %tr
-      %th Like Id
-      %th Image Id
+      %th Image
+      %th Time
   %tbody
-    - @likes.to_a.each do |like|
+    - @user.likes.each do |like|
       %tr
-        %td= like.id
-        %td= like.image_id
+        %td= link_to like.image.title, image_path(like.image)
+        %td= like.created_at.strftime('%H:%M:%S %d %B %Y')

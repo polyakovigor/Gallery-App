@@ -9,8 +9,10 @@ class User < ApplicationRecord
   has_many :images, through: :categories
   has_many :likes
   has_many :comments
-  has_many :chat_rooms, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  has_many :chat_rooms
+  has_many :messages
+  has_many :events
+
 
   def full_name
     "#{ first_name } #{ second_name }"

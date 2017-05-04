@@ -3,10 +3,12 @@
 %table.table
   %thead
     %tr
+      %th Image
       %th Comment
-      %th Image_id
+      %th Time
   %tbody
-    - @comments.to_a.each do |comment|
+    - @user.comments.to_a.each do |comment|
       %tr
+        %td= link_to comment.image.title, image_path(comment.image)
         %td= comment.body
-        %td= comment.image_id
+        %td= comment.created_at.strftime('%H:%M:%S %d %B %Y')

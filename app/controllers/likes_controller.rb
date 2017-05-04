@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   before_action :set_image, only: [ :create, :destroy ]
 
   def create
-    @image.likes.create(user_id: current_user.id)
+    @like = @image.likes.create!(likes_params)
     respond_to do |format|
       format.html { redirect_to @image }
       format.js
@@ -21,6 +21,10 @@ class LikesController < ApplicationController
   private
 
   def set_image
-    @image = Image.where(id: params[:id]).first
+    @image = Image.params(:image_id)
+  end
+
+  def likes_params
+    params.require(:like).permit(:image_id, :user_id)
   end
 end
