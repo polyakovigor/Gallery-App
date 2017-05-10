@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :events
 
+  paginates_per 10
 
   def full_name
     "#{ first_name } #{ second_name }"

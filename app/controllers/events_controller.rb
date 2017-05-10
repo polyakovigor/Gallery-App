@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: [:index]
+  skip_after_action :track_visit
 
   def index
-    @users = User.all
+    @users = User.page(params[:page])
   end
 
   def navigation

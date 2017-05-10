@@ -1,3 +1,14 @@
 .page-header
   %h1 Events(User Navigation)
-%ol Url
+%table.table
+  %thead
+    %tr
+      %th Url
+      %th Action
+      %th Time
+  %tbody
+    - @user.events.each do |event|
+      %tr
+        %td= event.url
+        %td= event.action
+        %td= local_datetime(event.created_at)

@@ -9,7 +9,7 @@
     - @users.to_a.each do |user|
       %tr
         %td= user.email
-        %td= link_to 'Navigation', '#'
+        %td= link_to 'Navigation', navigation_events_path(user_id: user.id)
         %td= link_to 'Sign in', user_sign_in_events_path(user_id: user.id)
         %td= link_to 'Sign out', user_sign_out_events_path(user_id: user.id)
         %td= link_to 'Likes', user_likes_events_path(user_id: user.id)

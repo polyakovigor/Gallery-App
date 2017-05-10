@@ -9,4 +9,4 @@
     - @user.likes.each do |like|
       %tr
         %td= link_to like.image.title, image_path(like.image)
-        %td= like.created_at.strftime('%H:%M:%S %d %B %Y')
+        %td= local_datetime(like.created_at)

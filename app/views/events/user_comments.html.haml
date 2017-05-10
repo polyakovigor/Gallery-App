@@ -11,4 +11,4 @@
       %tr
         %td= link_to comment.image.title, image_path(comment.image)
         %td= comment.body
-        %td= comment.created_at.strftime('%H:%M:%S %d %B %Y')
+        %td= local_datetime(comment.created_at)

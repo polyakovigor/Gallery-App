@@ -6,7 +6,7 @@
           %span.text-muted
             = link_to message.user.full_name, '#'
             at
-            = message.timestamp
+            = local_datetime(message.created_at)
             says:
           %br
           = message.body

@@ -9,6 +9,6 @@
         %span.text-muted
           = comment.user.full_name
           at
-          = comment.created_at
+          = local_datetime(comment.created_at)
         %br
         = comment.body
