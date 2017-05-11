@@ -21,7 +21,7 @@ class ChatRoomsController < ApplicationController
     else
       flash[:error] = @chat_room.errors.full_messages
     end
-    redirect_to chat_rooms_path
+    redirect_to chat_room_path(@chat_room)
   end
 
   private

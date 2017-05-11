@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: [:index]
-  skip_after_action :track_visit
+  skip_after_action :track_action
 
   def index
-    @users = User.page(params[:page])
+    @users = User.order('email ASC').page(params[:page])
   end
 
   def navigation
@@ -17,11 +17,9 @@ class EventsController < ApplicationController
   end
 
   def user_likes
-    @likes = @user.likes
   end
 
   def user_comments
-    @comments = @user.comments
   end
 
   private
