@@ -4,15 +4,15 @@
 .row
   .col-sm-1
     .back-icon
-      = link_to category_path(@image.category_id), 'data-toggle' => 'tooltip', :title => 'Back' do
+      = link_to category_path(@image.category_id), data: { toggle: 'tooltip' }, :title => 'Back' do
         %span.glyphicon.glyphicon-chevron-left
   .col-sm-1
     .edit-icon
-      = link_to edit_image_path, 'data-toggle' => 'tooltip', :title => 'Edit' do
+      = link_to edit_image_path, data: { toggle: 'tooltip' }, :title => 'Edit' do
         %span.glyphicon.glyphicon-edit
   .col-sm-1
     .delete_icon
-      = link_to @image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
+      = link_to @image, method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, :title => 'Delete' do
         %span.glyphicon.glyphicon-trash
   .col-sm-2
     #like_or_unlike

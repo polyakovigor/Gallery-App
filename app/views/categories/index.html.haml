@@ -4,7 +4,7 @@
   - @categories.to_a.each do |category|
     .col-lg-2
       .delete-icon
-        = link_to category, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
+        = link_to category, method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
           %span.glyphicon.glyphicon-trash
       .overlay
         %h3
@@ -15,14 +15,14 @@
       - else
         = link_to (image_tag('empty-folder.png', alt: category.name)), category
 
-%button.btn.btn-primary.btn-lg{ 'data-target' => '#myModal', 'data-toggle' => 'modal', type: 'button' } Create new category
+%button.btn.btn-primary.btn-lg{ data: { target: '#myModal', toggle: 'modal' }, type: 'button' } Create new category
 #myModal.modal.fade{ role: 'dialog' }
   .modal-dialog.modal-sm
     .modal-content
       .modal-header
-        %button.close{ 'data-dismiss' => 'modal', type: 'button' } ×
+        %button.close{ data: { dismiss: 'modal' }, type: 'button' } ×
         %h3.modal-title New category
       .modal-body
         = render 'new_category_form'
         .modal-footer
-          %button.btn.btn-default{ 'data-dismiss' => 'modal', type: 'button' } Close
+          %button.btn.btn-default{ data: { dismiss: 'modal' }, type: 'button' } Close

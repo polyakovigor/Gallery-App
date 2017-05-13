@@ -6,18 +6,8 @@
   - @images.to_a.each do |image|
     .col-lg-2
       .delete-icon
-        = link_to image, method: :delete, 'data-toggle' => 'tooltip', :title => 'Delete', data: { confirm: 'You sure?' } do
+        = link_to image, method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
           %span.glyphicon.glyphicon-trash
-      = link_to (image_tag image.picture.url(:thumb), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => image.title), image_path(image)
+      = link_to (image_tag image.picture.url(:thumb), data: { toggle: 'tooltip', placement: 'bottom' }, :title => image.title), image_path(image)
 
 = render 'images/image_upload_form'
--#%input#category{ name: 'category[id][]', value: @category.id, type: 'hidden' }
--#%input{ name: 'category_id[]', value: @category.id, type: 'hidden' }
--#%input{ multiple: 'multiple', id: 'image_picture', type: 'file' }
--#
--#  .template.output
--#    %img{ style: 'width:200px; height: 200px; padding-left: 10px;' }
--#    %input{ class: 'image_title', type: 'text', name: 'title' }
--#  %input{ name: 'commit', value: 'Save', class: 'btn-default btn-lg', type: 'submit' }
--#  %span.glyphicon.glyphicon-upload
-

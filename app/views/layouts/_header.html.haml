@@ -15,7 +15,7 @@
           %li.navbar-text
             = current_user.full_name
         %li.dropdown
-          %a.dropdown-toggle{ 'data-toggle' => 'dropdown', :href => '#' }
+          %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
             Chat rooms
             %span.caret
           %ul.dropdown-menu
@@ -24,7 +24,7 @@
             %li
               = link_to 'New chat room', new_chat_room_path
         %li.dropdown
-          %a.dropdown-toggle{ 'data-toggle' => 'dropdown', :href => '#' }
+          %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
             Account
             %span.caret
           %ul.dropdown-menu
