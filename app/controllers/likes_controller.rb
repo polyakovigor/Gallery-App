@@ -21,7 +21,7 @@ class LikesController < ApplicationController
   private
 
   def set_image
-    @image = Image.params(:image_id)
+    @image = Image.find(params[:image_id])
   end
 
   def likes_params

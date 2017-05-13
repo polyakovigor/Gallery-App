@@ -6,19 +6,19 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.where(id: params[:id]).first
+    @category = Category.find(params[:id])
     @images = @category.images.page(params[:page])
   end
 
   def create
     @category = current_user.categories.create(category_params)
-    @category.save
     if @category.save
       flash[:success] = 'Category created.'
+      redirect_to category_path(@category)
     else
       flash[:error] = @category.errors.full_messages
+      redirect_to root_path
     end
-    redirect_to root_path
   end
 
   def destroy

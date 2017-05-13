@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.includes(:likes, :comments).find_by(id: params[:id])
+    @image = Image.includes(:likes, :comments).find(params[:id])
   end
 
   def edit
@@ -43,7 +43,7 @@ class ImagesController < ApplicationController
   private
 
   def set_image
-    @image = Image.where(id: params[:id]).first
+    @image = Image.find(params[:id])
   end
 
   def image_params
