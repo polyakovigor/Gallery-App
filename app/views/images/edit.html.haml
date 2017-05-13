@@ -2,7 +2,7 @@
   %h1 Editing image
 
 .back-icon
-  = link_to @image, data: { toggle: 'tooltip' }, :title => 'Back' do
+  = link_to @image, data: { toggle: 'tooltip' }, title: 'Back' do
     %span.glyphicon.glyphicon-chevron-left
 
 = render 'edit_image_form', image: @image

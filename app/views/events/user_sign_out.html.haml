@@ -2,5 +2,4 @@
   %h1 Events(User sign out)
 .panel.panel-default
   .panel-body
-    - @user.events.each do |event|
-      = local_datetime(event.created_at)
+    = local_datetime(@event.created_at)
