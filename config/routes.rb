@@ -1,6 +1,6 @@
 LikeApp::Application.routes.draw do
 
-  devise_for :users, controllers: { sessions: 'devise/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions' }
 
   resources :images do
     resources :comments, only: [:create]
