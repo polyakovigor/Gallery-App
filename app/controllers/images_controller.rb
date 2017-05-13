@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    # @image = @category.images.build(image_params)
+    @image = @category.images.build(image_params)
     if @category.update(category_image_params)
       flash[:success] = 'Uploaded'
     else
@@ -37,7 +37,7 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     flash[:success] = 'Image deleted.'
-    redirect_to category_path(@category.id)
+    redirect_to category_path(@image.category_id)
   end
 
   private
