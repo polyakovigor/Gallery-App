@@ -7,7 +7,7 @@ class Image < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 20 }
-  validates :picture, presence: true
+  validates :picture, :category, presence: true
 
   mount_uploader :picture, PictureUploader
 end

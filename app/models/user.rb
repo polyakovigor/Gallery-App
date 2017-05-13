@@ -15,6 +15,8 @@ class User < ApplicationRecord
 
   paginates_per 10
 
+  validates :first_name, :second_name, presence: true, length: { maximum: 50 }
+
   def full_name
     "#{ first_name } #{ second_name }"
   end
