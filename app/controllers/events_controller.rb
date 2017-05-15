@@ -12,12 +12,11 @@ class EventsController < ApplicationController
   end
 
   def user_sign_in
-    @event = Event.sign_in(@user)
+    @event = Event.sign_in(@user).first
   end
 
   def user_sign_out
-    # @event = Event.sign_out(@user)
-    @event = Event.where(user: @user, action: 'SignOut').order('created_at DESC').first
+    @event = Event.sign_out(@user).first
   end
 
   def user_likes
