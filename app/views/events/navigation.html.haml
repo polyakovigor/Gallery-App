@@ -8,5 +8,5 @@
   %tbody
     - @events.each do |event|
       %tr
-        %td= link_to event.url
+        %td= link_to event.url, event.url
         %td= local_datetime(event.created_at)
