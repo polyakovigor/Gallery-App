@@ -8,14 +8,15 @@ class EventsController < ApplicationController
   end
 
   def navigation
-    @events = Event.where(user: @user, action: 'Visit')
+    @events = Event.visits(@user)
   end
 
   def user_sign_in
-    @event = Event.where(user: @user, action: 'SignIn').order('created_at').first
+    @event = Event.sign_in(@user)
   end
 
   def user_sign_out
+    # @event = Event.sign_out(@user)
     @event = Event.where(user: @user, action: 'SignOut').order('created_at DESC').first
   end
 

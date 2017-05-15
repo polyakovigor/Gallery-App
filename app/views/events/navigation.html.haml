@@ -4,11 +4,9 @@
   %thead
     %tr
       %th Url
-      %th Action
       %th Time
   %tbody
     - @events.each do |event|
       %tr
-        %td= event.url
-        %td= event.action
+        %td= link_to event.url
         %td= local_datetime(event.created_at)

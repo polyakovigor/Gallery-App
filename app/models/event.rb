@@ -2,9 +2,10 @@ class Event < ApplicationRecord
   belongs_to :user
 
   default_scope { order('created_at desc') }
-  # scope :visits, -> { where(action: 'Visit') }
-  # scope :signout, -> { where(action: 'SignOut')}
-  # scope :signin, -> { where(action: 'SignIn')}
+
+  scope :visits, -> (user) { where(user_id: user, action: 'Visit') }
+  scope :sign_in, -> (user) { where(user_id: user, action: 'SignIn').order(created_at: :desc).first }
+  # scope :sign_out, -> (user) { where(user: user, action: 'SignOut').order(created_at: :desc).first }
 
   validates :user, presence: true
   validates :action, inclusion: { in: %w(Visit SignIn SignOut) }
