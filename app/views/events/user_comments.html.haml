@@ -1,5 +1,5 @@
 .page-header
-  %h1 Events(User Comments)
+  %h1 Events(#{@user.email} Comments)
 %table.table
   %thead
     %tr
@@ -7,7 +7,7 @@
       %th Comment
       %th Time
   %tbody
-    - @user.comments.to_a.each do |comment|
+    - @user.comments.each do |comment|
       %tr
         %td= link_to comment.image.title, image_path(comment.image)
         %td= comment.body

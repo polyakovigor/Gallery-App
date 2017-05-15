@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def track_action
-    if request.get? && current_user.present?
-      Event.create(user: current_user, url: request.original_url, action: 'Visit')
+    if request.get?
+      Event.create(user_id: current_user.try(:id), url: request.original_url, action: 'Visit')
     end
   end
 end

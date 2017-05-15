@@ -6,7 +6,7 @@
       %th User
       %th Actions
   %tbody
-    - @users.to_a.each do |user|
+    - @users.each do |user|
       %tr
         %td= user.email
         %td= link_to 'Navigation', navigation_events_path(user_id: user.id)

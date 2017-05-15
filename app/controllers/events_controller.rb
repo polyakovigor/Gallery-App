@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def navigation
-    @user.events = Event.where(action: 'Visit')
+    @events = Event.where(user: @user, action: 'Visit')
   end
 
   def user_sign_in
