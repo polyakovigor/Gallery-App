@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.create(category_params)
     if @category.save
-      flash[:success] = 'Category created.'
+      flash[:success] = 'Category created. Now you can add some images.'
       redirect_to category_path(@category)
     else
       flash[:error] = @category.errors.full_messages

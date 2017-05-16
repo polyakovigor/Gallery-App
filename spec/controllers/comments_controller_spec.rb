@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
   render_views
-  let(:json) { JSON.parse(response.body) }
 
   let(:user)     { create :user }
   let(:image)     { create :image }
