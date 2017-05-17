@@ -12,17 +12,21 @@ RSpec.describe User, type: :model do
     expect(user).to be_valid
   end
 
-  it 'is invalid with blank attributes' do
-    expect(User.create( first_name: '', second_name: '' )).not_to be_valid
+  describe 'User associations' do
+    it { expect(user).to have_many(:categories) }
+    it { expect(user).to have_many(:images).through(:categories) }
+    it { expect(user).to have_many(:images) }
+    it { expect(user).to have_many(:comments) }
+    it { expect(user).to have_many(:chat_rooms) }
+    it { expect(user).to have_many(:messages) }
+    it { expect(user).to have_many(:likes) }
+    it { expect(user).to have_many(:events) }
   end
 
-  describe 'model associations' do
-    it { expect(user).to have_many(:categories) }
-    # it { expect(user).to have_many(:images)}
-    # it { expect(user).to have_many(:comments) }
-    # it { expect(user).to have_many(:chat_rooms) }
-    # it { expect(user).to have_many(:messages) }
-    # it { expect(user).to have_many(:likes) }
-    # it { expect(user).to have_many(:events) }
+  describe 'User validations' do
+    it { expect(user).to validate_presence_of(:first_name) }
+    it { expect(user).to validate_presence_of(:second_name) }
+    it { expect(user).to validate_length_of(:first_name).is_at_most(50) }
+    it { expect(user).to validate_length_of(:second_name).is_at_most(50) }
   end
 end
