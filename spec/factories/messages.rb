@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :message do
     body 'SomeText'
-    user nil
-    chat_room nil
+    user
+    chat_room 'Chat'
   end
 end

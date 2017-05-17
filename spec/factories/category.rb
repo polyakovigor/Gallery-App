@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :category do
-    sequence(:name) { |n| "Category name #{n}" }
+    name 'category'
   end
 
   factory :invalid_category, parent: :category do
