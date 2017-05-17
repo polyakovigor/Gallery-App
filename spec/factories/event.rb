@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :event do
     user
-    action 'Visit SignIn SignOut'
-    url 'Some URL'
+    action 'Visit'
+    url 'http://SomeURL'
   end
 end
