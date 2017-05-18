@@ -5,7 +5,7 @@ namespace :upload do
       puts c_name
       category = Category.find_by_name(c_name)
       if category.blank?
-        category = Category.create(name: c_name)
+        category = Category.create(name: c_name, user_id: User.first.id)
       end
       image_names = Dir[Rails.root.to_s+"/db/pictures/#{c_name}/*.jpg"].map{ |f| File.basename(f) }
       image_names.each do |i_name|

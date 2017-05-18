@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :category do
-    name 'category'
     user
+    name 'Category'
   end
 
   factory :invalid_category, parent: :category do

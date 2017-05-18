@@ -45,17 +45,16 @@ LikeApp::Application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_cable.url = 'ws://192.168.0.57:3000/cable'
+  config.action_cable.url = 'ws://localhost:3000/cable'
 
   config.action_mailer.perform_deliveries = true
-  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
-  # config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: '192.168.0.57:3000' }
+  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.smtp_settings = {
       user_name:      'igor26.polyakov@gmail.com',
       password:       'password',
-      domain:         '192.168.0.57',
+      domain:         'mail.google.com',
       address:       'smtp.gmail.com',
       port:          '587',
       authentication: :plain,
