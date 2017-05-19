@@ -28,8 +28,8 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'listen'
+  gem 'faker', '~> 1.4.3'
 end
-gem 'faker', '~> 1.4.3'
 
 group :test do
   gem 'factory_girl_rails', '~> 4.4.1'

@@ -1,6 +1,7 @@
 class Image < ApplicationRecord
 
   paginates_per 5
+  mount_uploader :picture, PictureUploader
 
   belongs_to :category
   has_many :likes, dependent: :destroy
@@ -9,8 +10,6 @@ class Image < ApplicationRecord
   validates :title, presence: true, length: { maximum: 20 }
   validates :picture, :category, presence: true
   validate :picture_size
-
-  mount_uploader :picture, PictureUploader
 
   private
 

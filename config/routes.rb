@@ -3,8 +3,8 @@ LikeApp::Application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   resources :images do
-    resources :comments, only: [:create]
-    resources :likes, only: [:create, :destroy]
+    resources :comments
+    resources :likes
   end
 
   resources :comments, only: [:index]

@@ -10,10 +10,6 @@
           = link_to 'Comments', comments_path
         %li
           = link_to 'Events', events_path
-      %ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          %li.navbar-text
-            = current_user.full_name
         %li.dropdown
           %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
             Chat rooms
@@ -23,14 +19,20 @@
               = link_to 'All chat rooms', chat_rooms_path
             %li
               = link_to 'New chat room', new_chat_room_path
-        %li.dropdown
-          %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
-            Account
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              = link_to 'Edit account', edit_user_registration_path
-        %li
-          = link_to destroy_user_session_path, method: :delete do
-            %span.glyphicon.glyphicon-log-out
-            Sign Out
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            = link_to "#{ current_user.full_name }", edit_user_registration_path
+          %li
+            = link_to destroy_user_session_path, method: :delete do
+              %span.glyphicon.glyphicon-log-out
+              Sign Out
+        - else
+          %li
+            = link_to new_user_registration_path do
+              %span.glyphicon.glyphicon-log-in
+              Sign Up
+          %li
+            = link_to new_user_session_path do
+              %span.glyphicon.glyphicon-log-in
+              Login
