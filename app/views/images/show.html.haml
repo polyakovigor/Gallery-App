@@ -17,10 +17,10 @@
   .col-sm-2
     #like_or_unlike
       - if current_user.likes?(@image)
-        = link_to image_like_path(@image), method: :delete do
+        = link_to '#' do
           %span.glyphicon.glyphicon-heart
       - else
-        = link_to image_likes_path(@image), method: :post do
+        = link_to '#' do
           %span.glyphicon.glyphicon-heart-empty
       .likes_count
         = @image.likes.count

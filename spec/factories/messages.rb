@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :message do
-    body 'SomeText'
+    body Faker::Lorem.sentence
     user
   end
 end

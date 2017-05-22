@@ -1,5 +1,6 @@
 .form-inline
   .form-group
-    = form_for :image, method: :post, url: category_images_path(@category) do |f|
+    = form_for :image, method: :post, url: images_path(@image) do |f|
+      = f.hidden_field :category_id
       = f.file_field :picture, class: 'form-control'
       = f.submit 'Upload', class: 'btn btn-lg btn-primary'

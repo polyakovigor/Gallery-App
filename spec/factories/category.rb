@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :category do
     user
-    name 'Category'
+    sequence(:name)  { |n| "Chat #{n}" }
   end
 
   factory :invalid_category, parent: :category do

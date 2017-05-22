@@ -14,24 +14,16 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @category = Category.find(params[:category_id])
-    p '*' * 100
-    p params
-    p '*' * 100
+    # @category = Category.find(params[:category_id])
     # @image = @category.images.create(image_params)
-    p '*' * 100
-    p params
-    p '*' * 100
-    @image = Image.create(image_params)
+    # @image = Image.create(image_params)
+    @image = Image.new(image_params)
     if @image.save
       flash[:success] = 'Uploaded'
     else
       flash[:error] = 'Could not upload file. Please choose it!'
     end
-    p '*' * 100
-    p params
-    p '*' * 100
-    redirect_to category_path(@category.id)
+    redirect_to categories_path
   end
 
   def update

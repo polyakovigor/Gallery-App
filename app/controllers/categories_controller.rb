@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@category)
     else
       flash[:error] = @category.errors.full_messages
-      redirect_to root_path
+      redirect_to categories_path
     end
   end
 
@@ -25,12 +25,12 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
     flash[:success] = 'Category deleted.'
-    redirect_to root_path
+    redirect_to categories_path
   end
 
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:id, :name, :user_id)
   end
 end
