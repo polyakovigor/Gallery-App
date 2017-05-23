@@ -26,7 +26,7 @@
         = @image.likes.count
 %center
   .full-image
-    = link_to(image_tag(@image.picture.url(:thumb), alt: 'Image'), @image.picture.url) if @image.picture?
+    = link_to(image_tag(@image.picture.url(:thumb), alt: 'Image'), @image.picture.url) if @image.picture.present?
 %h2
   Comments
 .row

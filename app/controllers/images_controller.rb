@@ -14,20 +14,18 @@ class ImagesController < ApplicationController
   end
 
   def create
-    # @category = Category.find(params[:category_id])
-    # @image = @category.images.create(image_params)
-    # @image = Image.create(image_params)
-    @image = Image.new(image_params)
+    @category = Category.find(params[:category_id])
+    @image = @category.images.build(image_params)
     if @image.save
       flash[:success] = 'Uploaded'
     else
       flash[:error] = 'Could not upload file. Please choose it!'
     end
-    redirect_to categories_path
+    redirect_to category_path(@category.id)
   end
 
   def update
-    if @image.update_attributes(image_params)
+    if @image.update(image_params)
       flash[:success] = 'Image updated.'
       redirect_to @image
     else
@@ -51,9 +49,5 @@ class ImagesController < ApplicationController
   def image_params
     params.require(:image).permit(:title, :picture, :category_id)
   end
-
-  # def category_image_params
-  #   params.require(:category).permit(:category_id, images_attributes: [:picture, :title, {}])
-  # end
 
 end

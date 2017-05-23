@@ -101,21 +101,11 @@ img {
   margin-top: 5px;
 }
 
-button {
-  margin-left: 5px;
-  margin-top: 5px;
-}
-
 .close {
   color:  #e60000;
   &:hover {
     color:  #e60000;
   }
-}
-
-input.btn-default.btn-lg {
-  margin-top: 10px;
-  z-index: 3;
 }
 
 .overlay {
@@ -163,6 +153,11 @@ input.btn-default.btn-lg {
 label, h1, h2, h4, em, p {
   color: #ffffff;
 }
+
+.table {
+  color: #ffffff;
+}
+
 .actions {
   margin-top: 5px;
 }
@@ -171,10 +166,6 @@ label, h1, h2, h4, em, p {
   display: inline-block;
   color: #ffffff;
 }
-
-//.full-image {
-//  margin-top: 10px;
-//}
 
 /* chat */
 
@@ -192,6 +183,21 @@ label, h1, h2, h4, em, p {
   word-wrap: break-word;
 }
 
-.table {
-  color: #ffffff;
+/* form for image upload */
+
+#image_picture {
+  display: none;
+}
+
+.glyphicon.glyphicon-upload {
+  font-size: 2em;
+  display: inline-block;
+}
+
+input.btn.btn-lg.btn-primary {
+  margin-bottom: 27px;
+}
+
+.form-group.form {
+  margin-left: 10px;
 }
