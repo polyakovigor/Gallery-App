@@ -1,7 +1,8 @@
 .form-inline
   .form-group.form
-    = form_for :image, method: :post, url: category_images_path(@category) do |f|
-      = f.label :picture do
+    = form_for [:category, @image], html: { multipart: true }, url: category_images_path(@category) do |f|
+      = f.label :pictures do
         %span.glyphicon.glyphicon-upload
-      = f.file_field :picture, class: 'form-control'
+      = f.file_field :pictures, multiple: true, class: 'form-control'
+      = f.hidden_field :pictures_cache
       = f.submit 'Upload', class: 'btn btn-lg btn-primary'

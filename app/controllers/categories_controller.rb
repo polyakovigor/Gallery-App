@@ -1,17 +1,17 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_category, except: [:index]
 
   def index
     @categories = Category.all.preload(:images)
   end
 
   def show
-    @category = Category.find(params[:id])
     @images = @category.images.page(params[:page])
   end
 
   def create
-    @category = current_user.categories.create(category_params)
+    @category = current_user.categories.new(category_params)
     if @category.save
       flash[:success] = 'Category created. Now you can add some images.'
       redirect_to category_path(@category)
@@ -22,7 +22,6 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     flash[:success] = 'Category deleted.'
     redirect_to categories_path
@@ -30,7 +29,11 @@ class CategoriesController < ApplicationController
 
   private
 
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
   def category_params
-    params.require(:category).permit(:id, :name, :user_id)
+    params.require(:category).permit(:name)
   end
 end

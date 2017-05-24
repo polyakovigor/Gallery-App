@@ -25,7 +25,7 @@ class ImagesController < ApplicationController
   end
 
   def update
-    if @image.update(image_params)
+    if @image.update_attributes(image_params)
       flash[:success] = 'Image updated.'
       redirect_to @image
     else
@@ -47,7 +47,7 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.require(:image).permit(:title, :picture, :category_id)
+    params.require(:image).permit(:title, :category_id, {pictures: []})
   end
 
 end

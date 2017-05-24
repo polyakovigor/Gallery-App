@@ -9,8 +9,8 @@ LikeApp::Application.routes.draw do
 
   resources :comments, only: [:index]
 
-  resources :categories, only: [:index, :show, :create, :destroy] do
-    resources :images, only: [:create]
+  resources :categories do
+    resources :images
   end
 
   resources :chat_rooms, only: [:new, :create, :show, :index]

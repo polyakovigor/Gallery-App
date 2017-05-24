@@ -15,7 +15,7 @@
       = link_to @image, method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
         %span.glyphicon.glyphicon-trash
   .col-sm-2
-    #like_or_unlike
+    #like_or_unlike{ 'data-image-id': @image.id }
       - if current_user.likes?(@image)
         = link_to '#' do
           %span.glyphicon.glyphicon-heart
@@ -26,7 +26,7 @@
         = @image.likes.count
 %center
   .full-image
-    = link_to(image_tag(@image.picture.url(:thumb), alt: 'Image'), @image.picture.url) if @image.picture.present?
+    = link_to(image_tag(@image.picture.url(:large), alt: 'Image'), @image.picture.url) if @image.picture.present?
 %h2
   Comments
 .row
