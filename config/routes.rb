@@ -2,15 +2,14 @@ LikeApp::Application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
-  resources :images do
-    resources :comments
-    resources :likes
+  resources :images, expect: [:new, :create, :destroy] do
+    resource :likes, only: [:create, :destroy]
   end
 
   resources :comments, only: [:index]
 
   resources :categories do
-    resources :images
+    resources :images, only: [:new, :create, :destroy]
   end
 
   resources :chat_rooms, only: [:new, :create, :show, :index]

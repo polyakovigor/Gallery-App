@@ -1,5 +1,6 @@
-.form-inline
-  .form-group.form
-    = form_for [:category, @image] do |f|
-      = f.file_field :picture, class: 'form-control'
-      = f.submit 'Upload', class: 'btn btn-primary'
+= form_for [:category, @image], html: {class: 'form-inline'} do |f|
+  .form-group
+    = f.text_field :title, placeholder: 'Enter image title', class: 'form-control'
+  .form-group
+    = f.file_field :picture, class: 'form-control'
+  = f.submit 'Upload', class: 'btn btn-primary'

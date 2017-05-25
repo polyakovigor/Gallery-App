@@ -1,31 +1,37 @@
 $( document ).ready(function() {
-    $('#like_or_unlike').on("click", function(event) {
-        event.preventDefault();
-        if ($(this).find('span').hasClass('glyphicon-heart-empty')) {
-            $(this).find('span').toggleClass('glyphicon-heart')
+    $('#like_or_unlike').click(function (e) {
+        e.preventDefault();
+        var span = $(this).find('span');
+        var image_id = $(this).data('image-id');
+        if (span.hasClass('glyphicon-heart-empty')){
             $.ajax({
-                url: '/images/' + $('#like_or_unlike').data('image_id') + '/likes',
+                dataType: 'JSON',
                 method: 'POST',
-                dataType: 'json',
-                success: function(data) {
-                    console.log('SUCCESS');
+                url: '/images/' + image_id + '/likes',
+                success: function (data) {
+                    $('.likes_count').text(data.likes_count);
+                    span.removeClass('glyphicon-heart-empty');
+                    span.addClass('glyphicon-heart');
                 },
-                error: function(data) {
-                    console.log('ERROR');
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }else{
+            $.ajax({
+                dataType: 'JSON',
+                method: 'DELETE',
+                url: '/images/' + image_id + '/likes',
+                success: function (data) {
+                    $('.likes_count').text(data.likes_count);
+                    span.removeClass('glyphicon-heart');
+                    span.addClass('glyphicon-heart-empty');
+                },
+                error: function (data) {
+                    console.log(data);
                 }
             });
         }
-        else
-            $.ajax({
-                url: '/images/' + $('#like_or_unlike').data('image_id') + '/likes',
-                method: 'DELETE',
-                dataType: 'json',
-                success: function(data) {
-                    console.log('SUCCESS');
-                },
-                error: function(data) {
-                    console.log('ERROR');
-                }
-            })
+        $(this).blur();
     });
 });

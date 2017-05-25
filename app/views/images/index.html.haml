@@ -3,14 +3,9 @@
 = paginate @images if @images.present?
 .row
   - @images.each do |image|
-    .col-lg-2
-      #like_or_unlike
-        - if user_signed_in? && current_user.likes?(image)
-          = link_to '#' do
-            %span.glyphicon.glyphicon-heart
-        - else
-          = link_to '#' do
-            %span.glyphicon.glyphicon-heart-empty
-        .likes_count
-          = image.likes.size
+    .col-md-2.col-sm-4.col-xs-6
+      %a#like_or_unlike{ href: '#', 'data-image-id': image.id }
+        %span.glyphicon{class: "glyphicon-heart#{'-empty' if current_user && current_user.likes?(image)}"}
+      .likes_count
+        = image.likes.count
       = link_to (image_tag image.picture, size: '150', data: { toggle: 'tooltip', placement: 'bottom' }, title: image.title), image

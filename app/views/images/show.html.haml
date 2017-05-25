@@ -12,18 +12,13 @@
         %span.glyphicon.glyphicon-edit
   .col-sm-1
     .delete_icon
-      = link_to @image, method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
+      = link_to category_image_path(@image.category, @image), method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
         %span.glyphicon.glyphicon-trash
   .col-sm-2
-    #like_or_unlike{ 'data-image-id': @image.id }
-      - if current_user.likes?(@image)
-        = link_to '#' do
-          %span.glyphicon.glyphicon-heart
-      - else
-        = link_to '#' do
-          %span.glyphicon.glyphicon-heart-empty
-      .likes_count
-        = @image.likes.count
+    %a#like_or_unlike{ href: '#', 'data-image-id': @image.id }
+      %span.glyphicon{class: "glyphicon-heart#{'-empty' unless current_user.likes?(@image)}"}
+    .likes_count
+      = @image.likes.count
 %center
   .full-image
     = link_to(image_tag(@image.picture), @image) if @image.picture.present?
