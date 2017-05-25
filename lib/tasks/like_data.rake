@@ -1,5 +1,5 @@
 namespace :upload do
-  task :picture => :environment do
+  task picture: :environment do
     categories_name = Dir[Rails.root.to_s+'/public/pictures/*'].map{ |f| File.basename(f) }
     categories_name.each do |c_name|
       puts c_name
@@ -11,7 +11,7 @@ namespace :upload do
       image_names.each do |i_name|
         puts i_name
         if Image.find_by_title(i_name).blank?
-          Image.create(:title => i_name, :picture => File.open(Rails.root.to_s+"/public/pictures/#{c_name}/#{i_name}"), :category_id => category.id)
+          Image.create(title: i_name, picture: File.open(Rails.root.to_s+"/public/pictures/#{c_name}/#{i_name}"), category_id: category.id)
         end
       end
     end

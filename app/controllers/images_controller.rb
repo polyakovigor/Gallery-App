@@ -1,7 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!, except: [ :index ]
   before_action :image, only: [ :show, :edit, :update, :destroy]
-  before_action :category, only: []
 
   def index
     @images = Image.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page])
