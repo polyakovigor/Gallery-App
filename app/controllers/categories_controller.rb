@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_category, except: [:index]
+  before_action :category, only: [:show, :destroy]
 
   def index
-    @categories = Category.all.preload(:images)
+    @categories = Category.all
   end
 
   def show
@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = current_user.categories.new(category_params)
+    @category = current_user.categories.build(category_params)
     if @category.save
       flash[:success] = 'Category created. Now you can add some images.'
       redirect_to category_path(@category)
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
 
   private
 
-  def set_category
+  def category
     @category = Category.find(params[:id])
   end
 

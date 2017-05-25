@@ -85,7 +85,7 @@ a {
 
 form {
   text-align: left;
-  margin-top: 20px;
+  //margin-top: 20px;
 }
 
 img {
@@ -106,25 +106,6 @@ img {
   &:hover {
     color:  #e60000;
   }
-}
-
-.overlay {
-  display: table-column-group;
-  z-index: 3;
-  color: #ffffff;
-  position: absolute;
-  margin-top: 150px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  word-wrap: break-word;
-  width: 198px;
-  text-align: left;
-}
-
-.delete-icon {
-  position: absolute;
-  margin-top: 15px;
-  margin-left: 165px;
 }
 
 .glyphicon.glyphicon-trash {
@@ -181,23 +162,4 @@ label, h1, h2, h4, em, p {
 
 .card-text {
   word-wrap: break-word;
-}
-
-/* form for image upload */
-
-#image_pictures {
-  display: none;
-}
-
-.glyphicon.glyphicon-upload {
-  font-size: 2em;
-  display: inline-block;
-}
-
-input.btn.btn-lg.btn-primary {
-  margin-bottom: 27px;
-}
-
-.form-group.form {
-  margin-left: 10px;
 }

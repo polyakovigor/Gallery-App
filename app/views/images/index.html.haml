@@ -1,9 +1,8 @@
 .page-header
   %h1 Images
-- if @images.present?
-  = paginate @images
+= paginate @images if @images.present?
 .row
-  - @images.to_a.each do |image|
+  - @images.each do |image|
     .col-lg-2
       #like_or_unlike
         - if user_signed_in? && current_user.likes?(image)
@@ -14,5 +13,5 @@
             %span.glyphicon.glyphicon-heart-empty
         .likes_count
           = image.likes.size
-      %br
-      = link_to (image_tag image.picture.url(:thumb), data: { toggle: 'tooltip', placement: 'bottom' }, title: image.title), image_path(image)
+
+      = link_to (image_tag image, size: '150', data: { toggle: 'tooltip', placement: 'bottom' }, title: image.title), image

@@ -1,29 +1,18 @@
 .page-header
   %h1 Categories
+  %button.btn.btn-primary.btn-lg{ data: { target: '#myModal', toggle: 'modal' }, type: 'button' } Create new category
+  #myModal.modal.fade{ role: 'dialog' }
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          %button.close{ data: { dismiss: 'modal' }, type: 'button' } ×
+          %h3.modal-title New category
+        .modal-body
+          = render 'new_category_form'
 .row
-  - @categories.to_a.each do |category|
+  - @categories.each do |category|
     .col-lg-2
-      = link_to category.name, category
-      -#.delete-icon
-      -#  = link_to category, method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
-      -#    %span.glyphicon.glyphicon-trash
-      -#.overlay
-      -#  %h3
-      -#    .category-name
-      -#      = category.name
-      -#- if category.images.any?
-      -#  = link_to (image_tag(category.images.sample.picture.url(:thumb), alt: category.name)), category
-      -#- else
-      -#  = link_to (image_tag('empty-folder.png', alt: category.name)), category
-
-%button.btn.btn-primary.btn-lg{ data: { target: '#myModal', toggle: 'modal' }, type: 'button' } Create new category
-#myModal.modal.fade{ role: 'dialog' }
-  .modal-dialog.modal-sm
-    .modal-content
-      .modal-header
-        %button.close{ data: { dismiss: 'modal' }, type: 'button' } ×
-        %h3.modal-title New category
-      .modal-body
-        = render 'new_category_form'
-        .modal-footer
-          %button.btn.btn-default{ data: { dismiss: 'modal' }, type: 'button' } Close
+      - if category.images.any?
+        = link_to (image_tag(category.images.first.picture, size: '150')), category, data: { toggle: 'tooltip' }, title: category.name
+      - else
+        = link_to (image_tag('empty-folder.png', size: '150')), category, data: { toggle: 'tooltip' }, title: category.name
