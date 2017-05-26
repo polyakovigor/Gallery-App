@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+
+  paginates_per 15
+
   belongs_to :user
 
   default_scope { order('created_at desc') }

@@ -3,11 +3,13 @@
 %table.table
   %thead
     %tr
+      %th №
       %th User
       %th Actions
   %tbody
-    - @users.each do |user|
+    - @users.each_with_index do |user, i|
       %tr
+        %td= i + 1
         %td= user.email
         %td= link_to 'Navigation', navigation_events_path(user_id: user.id)
         %td= link_to 'Sign in', user_sign_in_events_path(user_id: user.id)

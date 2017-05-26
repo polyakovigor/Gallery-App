@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def navigation
-    @events = Event.visits(@user)
+    @events = Event.visits(@user).page(params[:page])
   end
 
   def user_sign_in

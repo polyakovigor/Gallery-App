@@ -1,14 +1,17 @@
 .page-header
-  %h1 Events(#{@user.email} Comments)
+  %h1 #{@user.email} comments
 %table.table
   %thead
     %tr
+      %th №
       %th Image
       %th Comment
       %th Time
   %tbody
-    - @user.comments.each do |comment|
+    - @user.comments.each_with_index do |comment, i|
       %tr
+        %td= i + 1
         %td= link_to comment.image.title, image_path(comment.image)
-        %td= comment.body
+        %td.card-text
+          = comment.body
         %td= local_datetime(comment.created_at)

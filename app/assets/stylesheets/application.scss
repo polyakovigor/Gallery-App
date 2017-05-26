@@ -14,52 +14,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*flash alert*/
-
-.alert-error {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
-  text-align: left;
-}
-
-.alert-alert {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
-  text-align: left;
-}
-
-.alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
-  text-align: left;
-}
-
-/* js validation */
-
-.error {
-  height: 40px;
-  border: 1px solid red;
-}
-
-.error input {
-  height: 40px;
-  border: 1px solid red;
-}
-
 /*universal*/
 
 .page.current, .page.gap {
   color: #ffffff;
-}
-
-a.navbar.nav {
-  background-color: black;
-  &:hover, &:focus, &:active, &:visited {
-    background-color: black;
-  }
 }
 
 body, html {
@@ -67,11 +25,17 @@ body, html {
 }
 
 body {
+  padding-top: 60px;
   line-height: 1;
   background-color: #1d1d1d;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 22px;
   -webkit-font-smoothing: antialiased;
+}
+
+
+[class*='col-'] {
+  padding: 10px;
 }
 
 a {
@@ -83,41 +47,35 @@ a {
   }
 }
 
-form {
-  text-align: left;
-  //margin-top: 20px;
-}
-
-img {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border: 1px solid #ffffff;
-  &:hover {
-    border: 1px solid #6bc5e1;
-  }
-}
-
-.button {
-  margin-top: 5px;
-}
-
-.close {
-  color:  #e60000;
-  &:hover {
-    color:  #e60000;
-  }
-}
-
-.glyphicon.glyphicon-trash {
+.glyphicon-trash {
   color: #6bc5e1;
   &:hover {
     color: red;
   }
 }
 
-.category-name {
+.glyphicon-edit {
   color: #6bc5e1;
-  font-weight: bold;
+  &:hover {
+    color: #ffcc00;
+  }
+}
+
+.glyphicon-chevron-left {
+  color: #6bc5e1;
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.glyphicon-heart-empty {
+  &:hover {
+    color: #990073;
+  }
+}
+
+.glyphicon-heart {
+  color: #990073;
 }
 
 .footer {
@@ -127,39 +85,10 @@ img {
   padding-top: 25px;
 }
 
-.image-title {
-  text-align: center;
-}
-
 label, h1, h2, h4, em, p {
   color: #ffffff;
 }
 
 .table {
   color: #ffffff;
-}
-
-.actions {
-  margin-top: 5px;
-}
-
-.likes_count {
-  display: inline-block;
-  color: #ffffff;
-}
-
-/* chat */
-
-#messages {
-  max-height: 450px;
-  overflow-x: hidden;
-}
-
-.text-muted {
-  color: #808080;
-  font-size: 0.6em;
-}
-
-.card-text {
-  word-wrap: break-word;
 }

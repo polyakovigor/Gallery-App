@@ -1,5 +1,6 @@
 .page-header
-  %h1 Events(#{@user.email} Navigation)
+  %h1 #{@user.email} navigation
+= paginate @events if @events.present?
 %table.table
   %thead
     %tr

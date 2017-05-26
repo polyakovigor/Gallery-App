@@ -1,12 +1,14 @@
 .page-header
-  %h1 Events(#{@user.email} Likes)
+  %h1 #{@user.email} likes
 %table.table
   %thead
     %tr
+      %th №
       %th Image
       %th Time
   %tbody
-    - @user.likes.each do |like|
+    - @user.likes.each_with_index do |like, i|
       %tr
+        %td= i + 1
         %td= link_to like.image.title, image_path(like.image)
         %td= local_datetime(like.created_at)

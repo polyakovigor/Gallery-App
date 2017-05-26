@@ -2,13 +2,14 @@
   %h1 Comments
 - if @comments.present?
   = paginate @comments
-%ul
-  - @comments.to_a.each do |comment|
-    %li
-      %p
-        %span.text-muted
-          = comment.user.full_name
-          at
-          = local_datetime(comment.created_at)
-        %br
-        = comment.body
+.row
+  %ul.list-unstyled
+    - @comments.each do |comment|
+      %li.col-md-8.col-md-offset-2
+        %p.card-text
+          %span.text-muted
+            = comment.user.full_name
+            at
+            = local_datetime(comment.created_at)
+          %br
+          = comment.body

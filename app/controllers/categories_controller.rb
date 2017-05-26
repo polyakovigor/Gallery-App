@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :category, only: [:show, :destroy]
+  before_action :set_category, only: [:show, :destroy]
 
   def index
     @categories = Category.all
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
 
   private
 
-  def category
+  def set_category
     @category = Category.find(params[:id])
   end
 

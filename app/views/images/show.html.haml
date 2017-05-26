@@ -3,31 +3,26 @@
     = @image.title
 .row
   .col-sm-1
-    .back-icon
-      = link_to category_path(@image.category_id), data: { toggle: 'tooltip' }, title: 'Back' do
-        %span.glyphicon.glyphicon-chevron-left
+    = link_to category_path(@image.category_id), data: { toggle: 'tooltip' }, title: 'Back' do
+      %span.glyphicon.glyphicon-chevron-left
   .col-sm-1
-    .edit-icon
-      = link_to edit_image_path, data: { toggle: 'tooltip' }, title: 'Edit' do
-        %span.glyphicon.glyphicon-edit
+    = link_to edit_image_path, data: { toggle: 'tooltip' }, title: 'Edit' do
+      %span.glyphicon.glyphicon-edit
   .col-sm-1
-    .delete_icon
-      = link_to category_image_path(@image.category, @image), method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
-        %span.glyphicon.glyphicon-trash
+    = link_to category_image_path(@image.category, @image), method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
+      %span.glyphicon.glyphicon-trash
   .col-sm-2
     %a#like_or_unlike{ href: '#', 'data-image-id': @image.id }
       %span.glyphicon{class: "glyphicon-heart#{'-empty' unless current_user.likes?(@image)}"}
     .likes_count
       = @image.likes.count
-%center
-  .full-image
-    = link_to(image_tag(@image.picture), @image) if @image.picture.present?
-%h2
-  Comments
+.text-center
+  = image_tag @image.picture, size: '750', class: 'img-rounded'
+%h2 Comments:
 .row
-  .col-sm-8
+  .col-md-8.col-md-offset-2
     #comments{ 'data-image-id': @image.id }
       = render @image.comments
 .row
-  .col-sm-8
+  .col-md-8.col-md-offset-2
     = render 'comments/new_comment_form'

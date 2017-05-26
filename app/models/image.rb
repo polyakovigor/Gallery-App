@@ -1,6 +1,6 @@
 class Image < ApplicationRecord
 
-  paginates_per 5
+  paginates_per 6
   mount_uploader :picture, PictureUploader
 
   belongs_to :category

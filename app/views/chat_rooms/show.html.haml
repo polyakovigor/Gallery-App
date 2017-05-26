@@ -2,7 +2,7 @@
   %h1
     = @chat_room.title
 .row
-  .col-sm-12.col-sm-offset-2
+  .col-md-8.col-md-offset-2
     #messages{ 'data-chat-room-id': @chat_room.id }
       = render @chat_room.messages
 .row

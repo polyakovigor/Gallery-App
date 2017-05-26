@@ -12,5 +12,5 @@
 .row
   - @categories.each do |category|
     .col-md-2.col-sm-4.col-xs-6
-      = link_to category, data: { toggle: 'tooltip' }, title: category.name do
-        = image_tag category.images.any? ? category.images.first.picture : 'empty-folder.png', size: '150'
+      = link_to category do
+        = image_tag category.images.any? ? category.images.first.picture : 'empty-folder.png', size: '150', data: { toggle: 'tooltip' }, title: category.name, class: 'img-rounded'
