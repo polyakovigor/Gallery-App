@@ -8,6 +8,10 @@ RSpec.describe Category, type: :model do
     expect(image).to be_valid
   end
 
+  it 'is invalid with blank attributes' do
+    expect(Image.create( title: '', category_id: '', picture: '' )).not_to be_valid
+  end
+
   describe 'Image associations' do
     it { expect(image).to belong_to(:category)}
     it { expect(image).to have_many(:likes).dependent(:destroy)}

@@ -13,6 +13,13 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   describe 'GET #index' do
+
+    it 'responds successfully with an HTTP 200 status code' do
+      get :index
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
     it 'assigns all comments as @comments' do
       get :index, params: {}
       expect(assigns(:comments)).to eq([comment_1, comment_2])

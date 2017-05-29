@@ -8,6 +8,10 @@ RSpec.describe ChatRoom, type: :model do
     expect(chat_room).to be_valid
   end
 
+  it 'is invalid with blank attributes' do
+    expect(ChatRoom.create( title: '', user_id: '' )).not_to be_valid
+  end
+
   describe 'Chat Room associations' do
     it { expect(chat_room).to belong_to(:user) }
     it { expect(chat_room).to have_many(:messages).dependent(:destroy) }

@@ -8,9 +8,13 @@ RSpec.describe Category, type: :model do
     expect(category).to be_valid
   end
 
+  it 'is invalid with blank attributes' do
+    expect(Category.create( name: '', user_id: '' )).not_to be_valid
+  end
+
   describe 'Category associations' do
-    it { expect(category).to belong_to(:user)}
-    it { expect(category).to have_many(:images)}
+    it { expect(category).to belong_to(:user) }
+    it { expect(category).to have_many(:images).dependent(:destroy) }
   end
 
   describe 'Category validations' do

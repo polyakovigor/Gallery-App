@@ -5,11 +5,19 @@ RSpec.describe User, type: :model do
   let(:user) { FactoryGirl.create(:user) }
 
   it 'is composed of first and last name' do
-    expect(user.full_name).to eql('First Second')
+    expect(user.full_name).to eql("#{user.first_name} #{user.second_name}")
+  end
+
+  it 'checks likes for user present' do
+
   end
 
   it 'is valid with valid attributes' do
     expect(user).to be_valid
+  end
+
+  it 'is invalid with blank attributes' do
+    expect(User.create( first_name: '', second_name: '', email: '', password: '', password_confirmation: '' )).not_to be_valid
   end
 
   describe 'User associations' do

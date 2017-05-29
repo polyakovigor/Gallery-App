@@ -8,6 +8,10 @@ RSpec.describe Event, type: :model do
     expect(event).to be_valid
   end
 
+  it 'is invalid with blank attributes' do
+    expect(Event.create( action: '', user_id: '', url: '' )).not_to be_valid
+  end
+
   describe 'Event associations' do
     it { expect(event).to belong_to(:user)}
   end

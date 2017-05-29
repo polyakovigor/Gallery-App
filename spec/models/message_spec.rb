@@ -8,6 +8,10 @@ RSpec.describe Message, type: :model do
     expect(message).to be_valid
   end
 
+  it 'is invalid with blank attributes' do
+    expect(Message.create( body: '', user_id: '', chat_room_id: '' )).not_to be_valid
+  end
+
   describe 'Message associations' do
     it { expect(message).to belong_to(:user) }
     it { expect(message).to belong_to(:chat_room)}

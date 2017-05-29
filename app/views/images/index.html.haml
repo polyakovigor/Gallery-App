@@ -4,7 +4,7 @@
 .row
   - @images.each do |image|
     .col-md-2.col-sm-4.col-xs-6
-      %a#like_or_unlike{ href: '#', 'data-image-id': image.id }
+      %a#like_or_unlike{ href: '#' }
         %span.glyphicon.glyphicon-heart
       .likes_count
         = image.likes.count

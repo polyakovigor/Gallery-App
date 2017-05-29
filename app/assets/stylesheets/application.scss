@@ -14,10 +14,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*universal*/
-
 .page.current, .page.gap {
   color: #ffffff;
+}
+
+[class*='col-'] {
+  padding: 10px;
 }
 
 body, html {
@@ -33,17 +35,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-
-[class*='col-'] {
-  padding: 10px;
-}
-
 a {
   color: #6bc5e1;
-  padding-left: 5px;
-  padding-top: 5px;
   &:hover, &:visited, &:active, &:focus {
     text-decoration: none;
+  }
+}
+
+.footer {
+  text-align: center;
+  color: #7C7C7C;
+  margin-top: 85px;
+  padding-top: 25px;
+}
+
+.glyphicon-upload {
+  color: #6bc5e1;
+  &:hover {
+    color: greenyellow;
   }
 }
 
@@ -76,19 +85,4 @@ a {
 
 .glyphicon-heart {
   color: #990073;
-}
-
-.footer {
-  text-align: center;
-  color: #7C7C7C;
-  margin-top: 85px;
-  padding-top: 25px;
-}
-
-label, h1, h2, h4, em, p {
-  color: #ffffff;
-}
-
-.table {
-  color: #ffffff;
 }

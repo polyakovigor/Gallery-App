@@ -11,6 +11,13 @@ RSpec.describe ChatRoomsController, type: :controller do
   end
 
   describe 'GET #index' do
+
+    it 'responds successfully with an HTTP 200 status code' do
+      get :index
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
     it 'assigns all chat_rooms as @chat_rooms' do
       get :index, params: {}
       expect(assigns(:chat_rooms)).to eq([chat_room])
@@ -24,6 +31,13 @@ RSpec.describe ChatRoomsController, type: :controller do
     end
   end
 
+  describe 'GET #new' do
+    it 'assigns a new chat_room to @chat_room' do
+      get :new
+      expect(assigns(:chat_room)).to be_a_new(ChatRoom)
+    end
+  end
+
   describe 'POST #create' do
     context 'with valid params' do
       let(:valid_attributes) { attributes_for(:chat_room) }
@@ -33,6 +47,7 @@ RSpec.describe ChatRoomsController, type: :controller do
 
       it 'redirects to the created chat room' do
         post :create, params: { chat_room: valid_attributes }
+        expect(flash[:success]).to be_present
         expect(response).to redirect_to chat_room_path(ChatRoom.last)
       end
     end
@@ -46,6 +61,7 @@ RSpec.describe ChatRoomsController, type: :controller do
 
       it 're-renders the chat_rooms/index template' do
         post :create, params: { chat_room: invalid_attributes }
+        expect(flash[:error]).to be_present
         expect(response).to redirect_to chat_rooms_path
       end
     end
