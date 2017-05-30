@@ -4,12 +4,8 @@ RSpec.describe User, type: :model do
 
   let(:user) { FactoryGirl.create(:user) }
 
-  it 'is composed of first and last name' do
-    expect(user.full_name).to eql("#{user.first_name} #{user.second_name}")
-  end
-
-  it 'checks likes for user present' do
-
+  it 'is composed of first and second name' do
+    expect(user.full_name).to eq ("#{user.first_name} #{user.second_name}")
   end
 
   it 'is valid with valid attributes' do

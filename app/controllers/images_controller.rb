@@ -33,7 +33,7 @@ class ImagesController < ApplicationController
       flash[:success] = 'Image updated.'
       redirect_to @image
     else
-      flash[:error] = @image.error.full_messages
+      flash[:error] = @image.errors.full_messages
       render :edit
     end
   end

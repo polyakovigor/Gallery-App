@@ -1,5 +1,10 @@
 require 'rails_helper'
+include ActiveJob::TestHelper
 
 RSpec.describe MessageBroadcastJob, type: :job do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:user){ User.create(body: 'some text') }
+
+
+
 end
