@@ -39,7 +39,7 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe 'GET #show' do
     it 'assigns the requested category as @category' do
-      get :show, params: {id: category.id}
+      get :show, params: { id: category.id }
       expect(assigns(:category)).to eq(category)
       expect(assigns(:images).count).to eq 6
     end
@@ -82,7 +82,7 @@ RSpec.describe CategoriesController, type: :controller do
     end
 
     it 'redirects to the category list' do
-      delete :destroy, params: {id: category.id}
+      delete :destroy, params: { id: category.id }
       expect(response).to redirect_to categories_path
       expect(flash[:success]).to be_present
     end

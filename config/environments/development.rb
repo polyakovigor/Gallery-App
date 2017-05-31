@@ -47,17 +47,17 @@ LikeApp::Application.configure do
 
   config.action_cable.url = 'ws://localhost:3000/cable'
 
-  config.action_mailer.perform_deliveries = true
 
-  config.action_mailer.delivery_method = :letter_opener
-  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-      user_name:      'igor26.polyakov@gmail.com',
-      password:       'password',
-      domain:         'mail.google.com',
-      address:       'smtp.gmail.com',
-      port:          '587',
+      user_name:      'gmail_username',
+      password:       'gmail_password',
+      domain:         'gmail_domain',
+      address:        'smtp.gmail.com',
+      port:           '587',
       authentication: :plain,
       enable_starttls_auto: true
   }

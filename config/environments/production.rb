@@ -36,7 +36,7 @@ LikeApp::Application.configure do
   config.assets.version = '1.0'
 
   # Specifies the header that your server uses for sending files.
-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+  # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
@@ -55,7 +55,7 @@ LikeApp::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = "http://assets.example.com"
+  # config.action_controller.asset_host = 'http://assets.example.com'
 
   # Precompile additional assets.
   # application.js, application.scss, and all non-JS/CSS in app/assets folder are already added.
@@ -78,15 +78,20 @@ LikeApp::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: '192.168.0.57:3000' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default charset: 'utf-8'
+  config.action_mailer.default_url_options = { host: 'yoursite.herokuapp.com' }
+
   config.action_mailer.smtp_settings = {
-      user_name:      'igor26.polyakov@gmail.com',
-      password:       'password',
-      domain:         '192.168.0.57',
-      address:       'smtp.gmail.com',
-      port:          '587',
-      authentication: :plain,
-      enable_starttls_auto: true
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: ENV['GMAIL_DOMAIN'],
+      authentication: 'plain',
+      enable_starttls_auto: true,
+      user_name: ENV['GMAIL_USERNAME'],
+      password: ENV['GMAIL_PASSWORD']
   }
 end

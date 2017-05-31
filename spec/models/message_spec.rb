@@ -6,8 +6,6 @@ RSpec.describe Message, type: :model do
 
   it 'is valid with valid attributes' do
     expect(message).to be_valid
-    message_broadcast_job_class = class_double('MessageBroadcastJob').as_stubbed_const
-    expect(message_broadcast_job_class).to receive(:perform_later).with(message)
   end
 
   it 'is invalid with blank attributes' do

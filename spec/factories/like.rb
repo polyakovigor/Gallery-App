@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :like do
-    user reference
-    image reference
+    user_id 1
+    image_id 1
   end
 end
