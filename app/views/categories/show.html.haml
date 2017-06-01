@@ -2,11 +2,12 @@
   %h1= @category.name.upcase
 .row
   .col-sm-1
-    = link_to @category, method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete category' do
-      %span.glyphicon.glyphicon-trash
-  .col-sm-1
     = link_to new_category_image_path(category_id: @category.id), data: { toggle: 'tooltip' }, title: 'Add image' do
       %span.glyphicon.glyphicon-upload
+  .col-sm-1
+    - if current_user && current_user == @category.user
+      = link_to @category, method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete category' do
+        %span.glyphicon.glyphicon-trash
 = paginate @images if @images.present?
 .row
   - @images.each do |image|
