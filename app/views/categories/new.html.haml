@@ -1,0 +1,7 @@
+.page-header
+  %h1 Add category
+.col-md-6.col-md-offset-3
+  = form_for @category, html: {class: 'form'} do |f|
+    .form-group
+      = f.text_field :name, placeholder: 'Enter category name...', class: 'form-control'
+    = f.submit 'Create!', class: 'btn btn-primary btn-lg'

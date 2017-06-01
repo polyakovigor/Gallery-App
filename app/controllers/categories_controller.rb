@@ -10,6 +10,10 @@ class CategoriesController < ApplicationController
     @images = @category.images.page(params[:page])
   end
 
+  def new
+    @category = Category.new
+  end
+
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
@@ -17,7 +21,7 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@category)
     else
       flash[:error] = @category.errors.full_messages
-      redirect_to categories_path
+      render :new
     end
   end
 

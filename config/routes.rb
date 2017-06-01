@@ -4,7 +4,7 @@ LikeApp::Application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
-  resources :categories, only: [:index, :show, :create, :destroy] do
+  resources :categories do
     resources :images, only: [:new, :create, :destroy]
   end
 
@@ -14,7 +14,7 @@ LikeApp::Application.routes.draw do
 
   resources :comments, only: [:index]
 
-  resources :chat_rooms, only: [:new, :create, :show, :index]
+  resources :chat_rooms, only: [:index, :show, :new, :create]
 
   resources :events, only: [:index] do
     collection do
