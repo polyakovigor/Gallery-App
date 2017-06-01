@@ -1,11 +1,11 @@
 development:
   adapter: async
 #  adapter: redis
-#  url: redis://localhost:6379/1
+#  url: redis://polar-mountain-18909.herokuapp.com
 
 test:
   adapter: async
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://polar-mountain-18909.herokuapp.com
