@@ -29,6 +29,7 @@ group :test, :development do
   gem 'rails-controller-testing'
   gem 'listen'
   gem 'faker', '~> 1.4.3'
+  gem 'dotenv-rails'
 end
 
 group :test do

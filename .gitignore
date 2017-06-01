@@ -18,6 +18,6 @@
 /public/*
 /config/database.yml
 .idea
-
+.env
 
 /coverage
