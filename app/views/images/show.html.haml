@@ -19,7 +19,7 @@
       = link_to category_image_path(@image.category, @image), method: :delete, data: { toggle: 'tooltip', confirm: 'You sure?' }, title: 'Delete' do
         %span.glyphicon.glyphicon-trash
 .text-center
-  = image_tag @image.picture, size: '750', class: 'img-rounded'
+  = image_tag @image.picture.large.url, class: 'img-rounded'
 %h2 Comments:
 .row
   .col-md-8.col-md-offset-2

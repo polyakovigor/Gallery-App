@@ -15,7 +15,7 @@
 /log/*.log
 /tmp
 
-/public/*
+# /public
 /config/database.yml
 .idea
 .env

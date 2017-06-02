@@ -12,4 +12,4 @@
 .row
   - @images.each do |image|
     .col-md-3.col-sm-6.col-xs-8
-      = link_to (image_tag image.picture, size: '200', data: { toggle: 'tooltip', placement: 'bottom' }, title: image.title, class: 'img-rounded'), image
+      = link_to (image_tag image.picture.thumb.url, data: { toggle: 'tooltip', placement: 'bottom' }, title: image.title, class: 'img-rounded'), image
