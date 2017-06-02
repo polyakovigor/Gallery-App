@@ -1,28 +1,12 @@
-== README
+== Like-App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample photo gallery where users can create different categories and upload pictures there.
 
-Things you may want to cover:
+A user can comment and like pictures. If user uploads a picture, he can rename it or even delete it.
+There is also an opportunity to leave likes under images (unlike function is available as well).
+In the Images section you can find all uploaded pictures. They are sorted by likes. Besides you can see there all commentaries.
+Another function which I've implemented – users can create chat rooms, connect them and chat with each other. 
 
-* Ruby version
+Users can leave comments and exchange their messages in a real-time. I used Action Cable to implement this functionality.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Web stack: Application authorization based on Devise. As for database I used PostgreSQL. For graphic design gem bootstrap.
