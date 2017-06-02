@@ -3,9 +3,9 @@
 = paginate @images if @images.present?
 .row
   - @images.each do |image|
-    .col-md-2.col-sm-4.col-xs-6
+    .col-md-3.col-sm-6.col-xs-8
       %a#like_or_unlike{ href: '#' }
         %span.glyphicon.glyphicon-heart
       .likes_count
         = image.likes.count
-      = link_to (image_tag image.picture, size: '150', data: { toggle: 'tooltip', placement: 'bottom' }, title: image.title, class: 'img-rounded'), image
+      = link_to (image_tag image.picture.thumb.url, data: { toggle: 'tooltip', placement: 'bottom' }, title: image.title, class: 'img-rounded'), image

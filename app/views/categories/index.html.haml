@@ -4,6 +4,7 @@
   .col-sm-1
     = link_to new_category_path, data: { toggle: 'tooltip' }, title: 'Add category' do
       %span.glyphicon.glyphicon-folder-open
+= paginate @categories if @categories.present?
 .row
   - @categories.each do |category|
     .col-md-3.col-sm-6.col-xs-8

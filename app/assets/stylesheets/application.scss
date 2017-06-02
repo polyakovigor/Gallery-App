@@ -86,3 +86,8 @@ a {
 .glyphicon-heart {
   color: #990073;
 }
+
+#comments {
+  max-height: 450px;
+  overflow-x: hidden;
+}

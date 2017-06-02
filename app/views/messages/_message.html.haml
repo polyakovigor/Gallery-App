@@ -4,7 +4,7 @@
       .col-sm-11
         %p.card-text
           %span.text-muted
-            = link_to message.user.full_name, '#'
+            = message.user.full_name
             at
             = local_datetime(message.created_at)
             says:

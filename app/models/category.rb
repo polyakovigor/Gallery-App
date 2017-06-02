@@ -1,5 +1,7 @@
 class Category < ApplicationRecord
 
+  paginates_per 8
+
   has_many :images, dependent: :destroy
   belongs_to :user
 

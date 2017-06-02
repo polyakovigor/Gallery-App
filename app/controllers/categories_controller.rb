@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :destroy]
 
   def index
-    @categories = Category.all.preload(:images)
+    @categories = Category.preload(:images).page(params[:page])
   end
 
   def show

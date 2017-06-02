@@ -20,7 +20,9 @@
         %span.glyphicon.glyphicon-trash
 .text-center
   = image_tag @image.picture.large.url, class: 'img-rounded'
-%h2 Comments:
+.row
+  .col-md-8.col-md-offset-2
+    %h2 Comments:
 .row
   .col-md-8.col-md-offset-2
     #comments{ 'data-image-id': @image.id }
