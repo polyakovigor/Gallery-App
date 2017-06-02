@@ -9,7 +9,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    # "db/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     nil
   end
 
