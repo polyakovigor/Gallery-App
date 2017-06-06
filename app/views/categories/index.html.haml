@@ -9,6 +9,6 @@
   - @categories.each do |category|
     .col-md-3.col-sm-6.col-xs-8
       - if category.images.any?
-        = link_to (image_tag category.images.first.picture.thumb.url , data: { toggle: 'tooltip' }, title: category.name, class: 'img-rounded'), category
+        = link_to (image_tag category.images.first.picture.url(:thumbnail), data: { toggle: 'tooltip' }, title: category.name, class: 'img-rounded'), category
       - else
-        = link_to (image_tag 'empty-folder.png', data: { toggle: 'tooltip' }, title: category.name, class: 'img-rounded'), category
+        = link_to (image_tag 'empty-folder.png', data: { toggle: 'tooltip' }, title: category.name), category
