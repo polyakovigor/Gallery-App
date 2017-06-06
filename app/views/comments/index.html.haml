@@ -2,7 +2,7 @@
   %h1 Comments
 = paginate @comments if @comments.present?
 .row
-  .col-md-8.col-md-offset-2
+  .col-md-12
     %ul.list-unstyled
       - @comments.each do |comment|
         %li

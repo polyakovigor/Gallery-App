@@ -1,16 +1,17 @@
 class PictureUploader < CarrierWave::Uploader::Base
 
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
+  include Cloudinary::CarrierWave
 
   storage :file
 
-  def cache_dir
-    "/tmp/uploads"
-  end
-
-  def store_dir
-    nil
-  end
+  # def cache_dir
+  #   "/tmp/uploads"
+  # end
+  #
+  # def store_dir
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  # end
 
   version :thumb do
      process resize_to_fill: [200, 200]
