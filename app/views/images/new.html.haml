@@ -4,5 +4,7 @@
       .form-group
         = f.text_field :title, placeholder: 'Enter image title', class: 'form-control'
       .form-group
-        = f.file_field :picture, class: 'form-control'
-      = f.submit 'Upload', class: 'btn btn-primary'
+        = f.label :picture, data: { toggle: 'tooltip' }, title: 'Choose file' do
+          %span.glyphicon.glyphicon-cloud-upload
+        = f.file_field :picture
+        = f.submit 'Upload', class: 'btn btn-primary'
