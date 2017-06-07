@@ -7,4 +7,5 @@
         = f.label :picture, data: { toggle: 'tooltip' }, title: 'Choose file' do
           %span.glyphicon.glyphicon-cloud-upload
         = f.file_field :picture
+        = f.hidden_field :picture_cache
         = f.submit 'Upload', class: 'btn btn-primary'
