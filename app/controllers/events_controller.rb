@@ -19,11 +19,9 @@ class EventsController < ApplicationController
     @event = Event.sign_out(@user).first
   end
 
-  def user_likes
-  end
+  def user_likes; end
 
-  def user_comments
-  end
+  def user_comments; end
 
   private
 

@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe ChatRoom, type: :model do
-
-  let(:chat_room) { FactoryGirl.create(:chat_room, user: create(:user)) }
+  let(:chat_room) { FactoryBot.create(:chat_room, user: create(:user)) }
 
   it 'is valid with valid attributes' do
     expect(chat_room).to be_valid
   end
 
   it 'is invalid with blank attributes' do
-    expect(ChatRoom.create( title: '', user_id: '' )).not_to be_valid
+    expect(ChatRoom.create(title: '', user_id: '')).not_to be_valid
   end
 
   describe 'Chat Room associations' do

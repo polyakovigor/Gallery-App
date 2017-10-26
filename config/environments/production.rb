@@ -78,7 +78,6 @@ LikeApp::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
@@ -86,21 +85,18 @@ LikeApp::Application.configure do
   config.action_mailer.default_url_options = { host: 'polar-mountain-18909.herokuapp.com' }
   config.action_cable.url = 'ws://polar-mountain-18909.herokuapp.com/cable'
 
-  config.action_mailer.smtp_settings = {
-      address: 'smtp.gmail.com',
-      port: 587,
-      domain: 'mail.google.com',
-      authentication: 'plain',
-      enable_starttls_auto: true,
-      user_name: ENV['GMAIL_USERNAME'],
-      password: ENV['GMAIL_PASSWORD'],
-      openssl_verify_mode: 'none'
-  }
+  config.action_mailer.smtp_settings = { address: 'smtp.gmail.com',
+                                         port: 587,
+                                         domain: 'mail.google.com',
+                                         authentication: 'plain',
+                                         enable_starttls_auto: true,
+                                         user_name: ENV['GMAIL_USERNAME'],
+                                         password: ENV['GMAIL_PASSWORD'],
+                                         openssl_verify_mode: 'none' }
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-
 end

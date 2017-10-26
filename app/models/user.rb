@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :first_name, :second_name, presence: true, length: { maximum: 50 }
 
   def full_name
-    "#{ first_name } #{ second_name }"
+    "#{first_name} #{second_name}"
   end
 
   def likes?(image)

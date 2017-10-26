@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe LikesController, type: :controller do
   render_views
   let(:json) { JSON.parse(response.body) }
-
-
-  let(:user)  { create :user }
+  let(:user) { create :user }
   let(:category) { create :category }
   let(:image) { create :image, category_id: category.id }
   let(:like)  { create :like, user_id: user.id, image_id: image.id }

@@ -1,0 +1,29 @@
+Rails:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Exclude:
+    - 'config/**/*'
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/AbcSize:
+  Max: 30
+
+Rails/HasManyOrHasOneDependent:
+  Exclude:
+    - 'app/models/**/*.rb'

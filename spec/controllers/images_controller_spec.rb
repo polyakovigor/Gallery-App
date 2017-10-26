@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ImagesController, type: :controller do
-
   let(:user)     { create :user }
   let(:category) { create :category }
   let(:image)    { create :image, category_id: category.id }

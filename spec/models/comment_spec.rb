@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-
   context do
     subject { Comment.new }
 
     describe 'Comment associations' do
-      it { belong_to(:user)}
-      it { belong_to(:image)}
+      it { belong_to(:user) }
+      it { belong_to(:image) }
     end
 
     describe 'Comment validations' do

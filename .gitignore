@@ -17,7 +17,9 @@
 
 /public
 /config/database.yml
-.idea
+.idea/
 .env
+.ruby-version
+.ruby-gemset
 
 /coverage

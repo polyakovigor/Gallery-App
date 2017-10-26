@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
-
   let(:user)     { create :user }
   let(:category) { create :category }
   let(:image_1)  { create :image, category_id: category.id }
@@ -24,7 +23,6 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe 'GET #index' do
-
     it 'responds successfully with an HTTP 200 status code' do
       get :index
       expect(response).to be_success

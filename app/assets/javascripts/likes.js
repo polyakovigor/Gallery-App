@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
     $('#like_or_unlike').click(function (e) {
         e.preventDefault();
         var span = $(this).find('span');

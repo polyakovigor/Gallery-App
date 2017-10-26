@@ -1,22 +1,21 @@
 LikeApp::Application.routes.draw do
-
   root 'categories#index'
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   resources :categories do
-    resources :images, only: [:new, :create, :destroy]
+    resources :images, only: %i[new create destroy]
   end
 
-  resources :images, except: [:new, :create, :destroy] do
-    resource :likes, only: [:create, :destroy]
+  resources :images, except: %i[new create destroy] do
+    resource :likes, only: %i[create destroy]
   end
 
-  resources :comments, only: [:index]
+  resources :comments, only: :index
 
-  resources :chat_rooms, only: [:index, :show, :new, :create]
+  resources :chat_rooms, only: %i[index show new create]
 
-  resources :events, only: [:index] do
+  resources :events, only: :index do
     collection do
       get :navigation
       get :user_sign_in
@@ -27,5 +26,4 @@ LikeApp::Application.routes.draw do
   end
 
   mount ActionCable.server => '/cable'
-
 end

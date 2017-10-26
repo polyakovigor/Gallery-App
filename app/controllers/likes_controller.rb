@@ -8,7 +8,7 @@ class LikesController < ApplicationController
       if @like.save
         format.json { render json: { likes_count: @image.likes.count }, status: :created }
       else
-        format.json { render json: { errors: @like.errors.full_messages  }, status: :unprocessable_entity }
+        format.json { render json: { errors: @like.errors.full_messages }, status: :unprocessable_entity }
       end
     end
   end
@@ -19,7 +19,7 @@ class LikesController < ApplicationController
       if @like.destroy
         format.json { render json: { likes_count: @image.likes.count }, status: :ok }
       else
-        format.json { render json: { errors: @like.errors.full_messages  }, status: :not_found }
+        format.json { render json: { errors: @like.errors.full_messages }, status: :not_found }
       end
     end
   end

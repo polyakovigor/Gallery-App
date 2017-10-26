@@ -1,14 +1,13 @@
 class ImagesController < ApplicationController
-  before_action :authenticate_user!, except: [ :index ]
-  before_action :set_image, only: [ :show, :edit, :update, :destroy]
-  before_action :set_category, only: [ :new, :create, :destroy ]
+  before_action :authenticate_user!, except: :index
+  before_action :set_image, only: %i[show edit update destroy]
+  before_action :set_category, only: %i[new create destroy]
 
   def index
     @images = Image.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page])
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @image = @category.images.new
@@ -25,8 +24,7 @@ class ImagesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @image.update_attributes(image_params)

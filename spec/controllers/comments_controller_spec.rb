@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-
   let(:comment_1) { create :comment, image_id: image.id }
   let(:comment_2) { create :comment, image_id: image.id }
   let(:category) { create :category }
@@ -13,7 +12,6 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   describe 'GET #index' do
-
     it 'responds successfully with an HTTP 200 status code' do
       get :index
       expect(response).to be_success

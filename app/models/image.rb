@@ -1,5 +1,4 @@
 class Image < ApplicationRecord
-
   paginates_per 8
 
   mount_uploader :picture, PictureUploader
@@ -10,5 +9,4 @@ class Image < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 20 }
   validates :picture, :category, presence: true
-
 end

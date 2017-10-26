@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ChatRoomsController, type: :controller do
-
   let(:user) { create :user }
   let(:chat_room) { create :chat_room }
   let(:message) { create :message, chat_room_id: chat_room.id, user_id: user.id }
@@ -11,7 +10,6 @@ RSpec.describe ChatRoomsController, type: :controller do
   end
 
   describe 'GET #index' do
-
     it 'responds successfully with an HTTP 200 status code' do
       get :index
       expect(response).to be_success
@@ -66,5 +64,4 @@ RSpec.describe ChatRoomsController, type: :controller do
       end
     end
   end
-
 end

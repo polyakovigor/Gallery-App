@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :chat_room do
-    sequence(:title)  { |n| "Chat #{n}" }
+    sequence(:title) { |n| "Chat #{n}" }
     user
   end
 
