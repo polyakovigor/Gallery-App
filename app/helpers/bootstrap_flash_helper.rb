@@ -24,6 +24,6 @@ module BootstrapFlashHelper
         flash_messages << text if msg
       end
     end
-    safe_join(flash_messages.join("\n"))
+    flash_messages.join("\n").html_safe
   end
 end
