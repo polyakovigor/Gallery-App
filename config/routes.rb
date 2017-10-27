@@ -1,7 +1,7 @@
 LikeApp::Application.routes.draw do
   root 'categories#index'
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'registrations' }
 
   resources :categories do
     resources :images, only: %i[new create destroy]
