@@ -2,29 +2,28 @@
   %h1
     = @image.title
 .row
-  .col-sm-1
+  .col-xs-3.col-sm-3.text-center
     = link_to category_path(@image.category_id), data: {toggle: 'tooltip'}, title: 'Back' do
-      %span.glyphicon.glyphicon-chevron-left
-  .col-sm-1
+      %span.glyphicon.glyphicon-chevron-left.logo-small
+  .col-xs-3.col-sm-3.text-center
     %a#like_or_unlike{href: '#', 'data-image-id': @image.id}
-      %span.glyphicon{class: "glyphicon-heart#{'-empty' unless current_user.likes?(@image)}"}
+      %span.logo-small.glyphicon{class: "glyphicon-heart#{'-empty' unless current_user.likes?(@image)}"}
     .likes_count
       = @image.likes.count
-  .col-sm-1
+  .col-xs-3.col-sm-3.text-center
     - if current_user.id && current_user == @image.category.user
       = link_to edit_image_path, data: {toggle: 'tooltip'}, title: 'Edit' do
-        %span.glyphicon.glyphicon-edit
-  .col-sm-1
+        %span.glyphicon.glyphicon-edit.logo-small
+  .col-xs-3.col-sm-3.text-center
     - if current_user && current_user == @image.category.user
       = link_to category_image_path(@image.category, @image), method: :delete, data: {toggle: 'tooltip', confirm: 'You sure?'}, title: 'Delete' do
-        %span.glyphicon.glyphicon-trash
+        %span.glyphicon.glyphicon-trash.logo-small
 .text-center
   = image_tag @image.picture.url(:standard), class: 'img-rounded'
+%hr
+%h2 Comments:
 .row
-  .col-md-8.col-md-offset-2
-    %h2 Comments:
-.row
-  .col-md-8.col-md-offset-2
+  .col-md-10.col-md-offset-1
     #comments{'data-image-id': @image.id}
       = render @image.comments
 .row

@@ -1,9 +1,29 @@
+a {
+  color: #6bc5e1;
+  &:hover, &:visited, &:active, &:focus {
+    text-decoration: none;
+  }
+}
+
+.navbar-brand {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 1.875em;
+}
+
 .page-header {
   border-bottom: 2px solid #eeeeee;
 }
 
+.panel {
+  -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, 0.31);
+}
+
 [class*='col-'] {
   padding: 10px;
+}
+
+.tooltip {
+  min-width: 150px;
 }
 
 .container {
@@ -26,4 +46,37 @@
     font-family: "Times New Roman", Times, serif;
     font-size: small;
   }
+}
+
+.logo-small {
+  font-size: 40px;
+}
+
+.glyphicon-upload {
+  color: #6bc5e1;
+  &:hover {
+    color: greenyellow;
+  }
+}
+
+.glyphicon-trash {
+  color: red;
+}
+
+.glyphicon-edit {
+  color: #ffcc00;
+}
+
+.glyphicon-chevron-left {
+  color: #6bc5e1;
+}
+
+#comments {
+  max-height: 450px;
+  overflow-x: hidden;
+}
+
+ul.pagination {
+  display:table;
+  margin:0 auto;
 }

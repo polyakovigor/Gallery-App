@@ -1,12 +1,9 @@
-.card
-  .card-block
-    .row
-      .col-sm-11
-        %p.card-text
-          %span.text-muted
-            = message.user.full_name
-            at
-            = local_datetime(message.created_at)
-            says:
-          %br
-          = message.body
+.row
+  .col-sm-10.col-sm-offset-2
+    %h2.text-muted
+      = message.user.full_name
+      %small
+        at
+        = local_datetime(message.created_at)
+        says:
+    = message.body

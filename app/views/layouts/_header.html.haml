@@ -1,16 +1,14 @@
 %nav.navbar.navbar-inverse.navbar-fixed-top
-  .container
+  .container-fluid
     .navbar-header
-      %button.navbar-toggle.collapsed{aria: {expanded: 'false'}, data: {target: '#bs-example-navbar-collapse-1',
-                                      toggle: 'collapse'}, type: 'button'}
+      = link_to 'Gallery', root_path, class: 'navbar-brand'
+      %button.navbar-toggle.collapsed{aria: {expanded: 'false'}, data: {target: '#bs-example-navbar-collapse-1', toggle: 'collapse'}, type: 'button'}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
-          = link_to 'Categories', categories_path
         %li
           = link_to 'Images', images_path
         %li

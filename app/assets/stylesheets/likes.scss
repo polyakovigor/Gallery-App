@@ -1,4 +1,8 @@
 .likes_count {
   display: inline-block;
-  color: #ffffff;
+  font-size: 40px;
+}
+
+[class*='glyphicon-heart'] {
+  color: #990073;
 }

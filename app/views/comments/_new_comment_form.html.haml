@@ -1,6 +1,6 @@
 = form_for [@image, Comment.new], url: '#', html: {class: 'form'} do |f|
   .form-group
     = f.label :leave_a_comment
-    = f.text_area :body, placeholder: 'Add a comment...', class: 'form-control'
+    = f.text_area :body, placeholder: 'Add a comment...', class: 'form-control', rows: 3
     %small.text-muted From 2 to 140 characters
   = f.submit 'Add comment', class: 'btn btn-primary btn-lg'

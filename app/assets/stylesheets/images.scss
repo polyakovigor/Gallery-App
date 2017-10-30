@@ -1,14 +1,31 @@
 img {
-  border: 1px solid #ffffff;
+  padding-top: 15px;
+  border: 1px solid #7C7C7C;
   &:hover {
     border: 1px solid #6bc5e1;
   }
 }
 
-.text-center {
-  padding-top: 15px;
+.upload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
 }
 
-#image_picture {
-  display: none;
+.upload-btn {
+  border: 2px solid #6bc5e1;
+  color: #6bc5e1;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }

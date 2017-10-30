@@ -1,11 +1,14 @@
-.row
-  .col-md-6.col-md-offset-3
-    = form_for [:category, @image], html: {class: 'form'} do |f|
-      .form-group
-        = f.text_field :title, class: 'form-control'
-      .form-group
-        = f.label :picture, data: {toggle: 'tooltip'}, title: 'Choose file' do
-          %span.glyphicon.glyphicon-cloud-upload
-        = f.file_field :picture
-        = f.hidden_field :picture_cache
-        = f.submit 'Upload', class: 'btn btn-primary'
+.page-header
+  %h1 Upload image
+.jumbotron
+  .row
+    .col-md-6.col-md-offset-3
+      = form_for [:category, @image], html: {class: 'form'} do |f|
+        .upload
+          %button.upload-btn Choose file
+          = f.file_field :picture
+        .form-group
+          = f.text_field :title, class: 'form-control'
+        .form-group
+          = f.hidden_field :picture_cache
+          = f.submit 'Upload', class: 'btn btn-primary'
