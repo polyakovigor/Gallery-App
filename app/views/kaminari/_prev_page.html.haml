@@ -1,3 +1,2 @@
-%span.prev
-  = link_to_unless current_page.first?, '<i class="glyphicon glyphicon-step-backward"></i>'.html_safe, url,
-    rel: 'prev', remote: remote
+%li.page-item
+  = link_to_unless current_page.first?, raw(t 'views.pagination.previous'), url, rel: 'prev', remote: remote, class: 'page-link'
