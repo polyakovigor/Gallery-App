@@ -80,7 +80,6 @@ LikeApp::Application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default charset: 'utf-8'
   config.action_mailer.default_url_options = { host: 'polar-mountain-18909.herokuapp.com' }
   config.action_cable.url = 'ws://polar-mountain-18909.herokuapp.com/cable'
 
@@ -88,7 +87,7 @@ LikeApp::Application.configure do
 
   config.action_mailer.smtp_settings = { address:               'smtp.gmail.com',
                                          port:                  587,
-                                         domain:                'gmail.com',
+                                         domain:                'mail.google.com',
                                          user_name:             ENV['SENDMAIL_USERNAME'],
                                          password:              ENV['SENDMAIL_PASSWORD'],
                                          authentication:        'plain',
