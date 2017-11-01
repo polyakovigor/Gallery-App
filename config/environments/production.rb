@@ -88,12 +88,11 @@ LikeApp::Application.configure do
 
   config.action_mailer.smtp_settings = { address:               'smtp.gmail.com',
                                          port:                  587,
-                                         domain:                'polar-mountain-18909.herokuapp.com',
+                                         domain:                'gmail.com',
                                          user_name:             ENV['SENDMAIL_USERNAME'],
                                          password:              ENV['SENDMAIL_PASSWORD'],
                                          authentication:        'plain',
-                                         enable_starttls_auto:  true,
-                                         openssl_verify_mode: 'none' }
+                                         enable_starttls_auto:  true }
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
