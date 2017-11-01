@@ -88,7 +88,7 @@ LikeApp::Application.configure do
 
   config.action_mailer.smtp_settings = { address:               'smtp.gmail.com',
                                          port:                  587,
-                                         domain:                'mail.google.com',
+                                         domain:                'polar-mountain-18909.herokuapp.com',
                                          user_name:             ENV['SENDMAIL_USERNAME'],
                                          password:              ENV['SENDMAIL_PASSWORD'],
                                          authentication:        'plain',
