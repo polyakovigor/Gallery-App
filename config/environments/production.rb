@@ -80,7 +80,7 @@ LikeApp::Application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'polar-mountain-18909.herokuapp.com', protocol: 'http' }
+  config.action_mailer.default_url_options = { host: 'https://polar-mountain-18909.herokuapp.com' }
   config.action_cable.url = 'ws://polar-mountain-18909.herokuapp.com/cable'
 
   config.action_mailer.delivery_method = :smtp
