@@ -78,17 +78,16 @@ LikeApp::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default charset: 'utf-8'
   config.action_mailer.default_url_options = { host: 'polar-mountain-18909.herokuapp.com' }
-  config.action_cable.url = 'ws://polar-mountain-18909.herokuapp.com/cable'
-
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default charset: 'utf-8'
+  config.action_cable.url = 'ws://polar-mountain-18909.herokuapp.com/cable'
 
   config.action_mailer.smtp_settings = { address:               'smtp.gmail.com',
                                          port:                  587,
-                                         domain:                'gmail.com',
+                                         domain:                'polar-mountain-18909.herokuapp.com',
                                          user_name:             ENV['SENDMAIL_USERNAME'],
                                          password:              ENV['SENDMAIL_PASSWORD'],
                                          authentication:        'plain',
