@@ -1,0 +1,195 @@
+.login-box {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background: #276bb7;
+  padding: 50px;
+  border-radius: 15px;
+  font-family: "Arial", Helvetica, sans-serif;
+
+  .field label {
+    color: #5bc0de;
+  }
+
+  .cancel {
+    color: white;
+    font: small-caps bold 24px/1 sans-serif;
+    letter-spacing: 0.0625em;
+  }
+
+  .logo {
+    border-bottom: 2px solid #ffd048;
+    @extend .cancel
+  }
+
+  .field_with_errors input {
+    border-color: red;
+    border-bottom-style: groove;
+  }
+
+  ul.alert.alert-danger {
+    list-style: none;
+  }
+
+  .sub-login-box {
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 50px;
+    border-radius: 15px;
+    margin-right: -150px;
+    background: white;
+    border: 2px solid #5bc0de;
+    box-shadow: 0 4px 8px 0 rgba(40, 192, 221, 0.2);
+    transition: 0.3s;
+    &:hover {
+      box-shadow: 0 8px 36px 0 rgba(40, 192, 221, 0.6);
+    }
+
+    .field {
+      br {
+        display: none;
+      }
+
+      label {
+        font-size: 0.875em;
+        text-transform: uppercase;
+      }
+
+      input[type=text], [type=email], [type=password] {
+        color: black;
+        width: 100%;
+        padding: 6px 0;
+        margin: 6px 0;
+        border-style: none;
+        border-bottom-style: groove;
+        &:focus {
+          outline: none !important;
+          border-bottom-color: #5bc0de;
+        }
+      }
+
+      ::-webkit-input-placeholder {
+        color: #d3d3d3;
+        letter-spacing: 4px;
+        font-size: 100%;
+      }
+
+      ::-moz-placeholder {
+        color: #d3d3d3;
+        letter-spacing: 4px;
+        font-size: 100%;
+      }
+
+      :-ms-input-placeholder {
+        color: #d3d3d3;
+        letter-spacing: 4px;
+        font-size: 100%;
+      }
+
+      :-moz-placeholder {
+        color: #d3d3d3;
+        letter-spacing: 4px;
+        font-size: 100%;
+      }
+    }
+  }
+
+  .actions {
+    float: right;
+    padding-top: 15px;
+  }
+
+  input.btn.btn-lg.btn-default {
+    color: #5bc0de;
+    border: 2px solid #5bc0de;
+    &:hover {
+      background-color: #5bc0de;
+      color: white;
+      border: 2px solid white;
+    }
+  }
+
+  .login-links a {
+    display: inline-block;
+    padding-top: 15px;
+    color: #ffd048;
+    text-decoration: none;
+    font-weight: bold;
+    &:hover, :visited {
+      text-decoration: none;
+      color: #5bc0de;
+    }
+  }
+
+  .checkbox {
+    padding-left: 20px;
+
+    label {
+      color: #5bc0de;
+      display: inline-block;
+      position: relative;
+      font-weight: bold;
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        left: 0;
+        margin-left: -20px;
+        border: 2px solid #d3d3d3;
+        border-radius: 3px;
+        background-color: white;
+        -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+        -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+        transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      }
+      &::after {
+        display: inline-block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 0;
+        top: 0;
+        margin-left: -20px;
+        padding-left: 3px;
+        padding-top: 3px;
+        font-size: 11px;
+      }
+    }
+    input[type=checkbox] {
+      opacity: 0;
+      &:focus + label::before {
+        outline-offset: -2px;
+      }
+      &:checked + label::after {
+        font-family: 'FontAwesome';
+        content: "\f00c";
+      }
+      &:disabled + label {
+        opacity: 0.65;
+        &::before {
+          background-color: white;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    &.checkbox-circle label::before {
+      border-radius: 50%;
+    }
+
+    &.checkbox-inline {
+      margin-top: 0;
+    }
+
+  }
+
+  .checkbox-info input[type=checkbox]:checked + label::before {
+    background-color: #06b373;
+    border-color: #06b373;
+  }
+
+  .checkbox-info input[type=checkbox]:checked + label::after {
+    color: white;
+  }
+}

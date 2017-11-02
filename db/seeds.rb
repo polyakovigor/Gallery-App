@@ -1,5 +1,5 @@
 user = User.new(first_name: 'User',
-                second_name: 'Example',
+                last_name: 'Example',
                 email: 'user@example.com',
                 password: 'password',
                 password_confirmation: 'password')

@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   let(:user) { FactoryBot.create(:user) }
 
   it 'is composed of first and second name' do
-    expect(user.full_name).to eq "#{user.first_name} #{user.second_name}"
+    expect(user.full_name).to eq "#{user.first_name} #{user.last_name}"
   end
 
   it 'is valid with valid attributes' do
@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'is invalid with blank attributes' do
-    expect(User.create(first_name: '', second_name: '', email: '', password: '', password_confirmation: '')).not_to be_valid
+    expect(User.create(first_name: '', last_name: '', email: '', password: '', password_confirmation: '')).not_to be_valid
   end
 
   describe 'User associations' do
@@ -28,8 +28,8 @@ RSpec.describe User, type: :model do
 
   describe 'User validations' do
     it { expect(user).to validate_presence_of(:first_name) }
-    it { expect(user).to validate_presence_of(:second_name) }
+    it { expect(user).to validate_presence_of(:last_name) }
     it { expect(user).to validate_length_of(:first_name).is_at_most(50) }
-    it { expect(user).to validate_length_of(:second_name).is_at_most(50) }
+    it { expect(user).to validate_length_of(:last_name).is_at_most(50) }
   end
 end
