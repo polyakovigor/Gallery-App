@@ -2,7 +2,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave
 
-  storage :file if Rails.env == 'production'
+  storage :file unless Rails.env == 'production'
 
   version :standard do
     process resize_to_fill: [800, 800]
