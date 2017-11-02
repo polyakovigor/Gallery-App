@@ -24,6 +24,7 @@ gem 'rails', '~> 5.1', '>= 5.1.4'
 gem 'redis', '~> 3.0'
 gem 'resque', '~> 1.27', '>= 1.27.4'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
+gem 'sendgrid-ruby'
 gem 'therubyracer', '~> 0.12.3'
 gem 'uglifier', '~> 3.2'
 

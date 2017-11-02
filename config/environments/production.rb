@@ -79,19 +79,19 @@ LikeApp::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.default_url_options = { host: 'http://polar-mountain-18909.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default charset: 'utf-8'
   config.action_cable.url = 'ws://polar-mountain-18909.herokuapp.com/cable'
 
-  config.action_mailer.smtp_settings = { address:               'smtp.gmail.com',
-                                         port:                  587,
-                                         domain:                'polar-mountain-18909.herokuapp.com/',
-                                         user_name:             ENV['SENDMAIL_USERNAME'],
-                                         password:              ENV['SENDMAIL_PASSWORD'],
-                                         authentication:        'plain',
-                                         enable_starttls_auto:  true }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = { user_name: ENV['SENDGRID_USERNAME'],
+                                         password: ENV['SENDGRID_PASSWORD'],
+                                         domain: 'polar-mountain-18909.herokuapp.com',
+                                         address: 'smtp.sendgrid.net',
+                                         port: 587,
+                                         authentication: :plain,
+                                         enable_starttls_auto: true }
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
