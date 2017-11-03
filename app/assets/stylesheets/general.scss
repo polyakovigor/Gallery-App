@@ -1,5 +1,9 @@
 body {
-  background: image-url('background-01.jpg') no-repeat fixed center;
+  background: image-url('background-01.jpg') no-repeat scroll center;
+}
+
+html, body {
+  height:100%;
 }
 
 a {
@@ -31,18 +35,21 @@ a {
 }
 
 .container {
-  padding-top: 60px;
   line-height: 1;
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 22px;
   -webkit-font-smoothing: antialiased;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+footer {
+  //position:absolute;
+  bottom:0;
+  width:100%;
   height: 60px;
+  padding-top: 5px;
+}
+
+.footer {
   line-height: 60px;
   text-align: center;
   color: #7C7C7C;
@@ -63,7 +70,9 @@ a {
 }
 
 .glyphicon-trash {
-  color: red;
+  &:hover {
+    color: red;
+  }
 }
 
 .glyphicon-edit {
@@ -77,6 +86,10 @@ a {
 #comments {
   max-height: 450px;
   overflow-x: hidden;
+}
+
+h4 small {
+  color: #563b3b;
 }
 
 ul.pagination {
