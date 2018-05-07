@@ -1,4 +1,4 @@
-== Like-App
+== Gallery-App
 
 This is a sample photo gallery where users can create different categories and upload pictures there.
 
